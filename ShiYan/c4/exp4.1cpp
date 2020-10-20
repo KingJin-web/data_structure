@@ -1,0 +1,243 @@
+/*实验四  二叉树的操作
+ 
+一、目的：
+1、熟悉二叉树的结点类型和二叉树的基本操作。 
+2、掌握二叉树常用操作的算法。 
+3、加深对二叉树的理解，逐步培养解决实际问题的编程能力
+  这次实验主要是要让我们熟练树及其相关知识 熟练掌握先序中序后序遍历，
+  层次遍历 然后我们自己画一个图 会实现以上功能 以及叶子数 结点数还有高度的计算 
+  程序里面大量运用了递归以及队的应用，   
+四、实验内容
+采用二叉树链表作为存储结构，完成二叉树的基本操作如下，
+1.叶子点总数
+2.节点总数
+3.二叉树镜像
+4.先序遍历
+5.层次遍历
+6.二叉树复制
+7.二叉树深度 
+
+五、附加内容
+1.求二叉树中第k层节点的个数
+2.判断二叉树是否是完全二叉树
+3.两个二叉树是否完全相同
+4.非递归中序遍历
+5.根据先序和中序序列建立一个二叉树
+6. 输入一颗二叉树的跟节点和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。
+   路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径
+*/
+#include"stdio.h"
+#include <iostream>
+#include <queue>
+using namespace std;
+#include <memory>
+#include"string.h"
+#define  MAX(x,y)    ((x) > (y) ? (x) : (y))
+#define Max 20         //结点的最大个数
+typedef struct node{
+    char data; 
+    struct node *lchild,*rchild; 
+}BinTNode;            //自定义二叉树的结点类型
+
+typedef BinTNode *BinTree;    //定义二叉树的指针
+
+//==========基于先序遍历算法创建二叉树==============
+//=====要求输入先序序列，其中加入虚结点“#”以示空指针的位置==========
+BinTree CreatBinTree(void)
+{
+    BinTree T;
+    char ch;
+    if((ch=getchar())=='#')
+		return(NULL);       //读入#，返回空指针
+    else{              
+		T = (BinTNode *)malloc(sizeof(BinTNode)); //  生成结点
+		T -> data = ch;
+		T -> lchild = CreatBinTree();         //构造左子树
+		T -> rchild = CreatBinTree();        //构造右子树
+		return(T);
+    }
+}
+
+BinTree CreatBinTree(char* str, int n ,int& startindex)
+{
+    BinTree T;
+    char ch;
+	
+	if(startindex >= n)
+		return NULL;
+	if(str[startindex] == '#')
+		return NULL;
+	else
+	{                 
+		T=(BinTNode *)malloc(sizeof(BinTNode)); //  生成结点
+		T->data=str[startindex];
+		startindex++;
+		T -> lchild = CreatBinTree();          //构造左子树
+		startindex++;	
+		
+		T -> rchild = CreatBinTree();        //构造右子树
+		
+		return(T);
+    }
+}
+
+
+//========NLR 先序遍历=============
+void Preorder(BinTree T)
+{
+    if(T) {
+		printf("%c",T -> data);    //访问结点
+		Preorder(T -> lchild);    //先序遍历左子树
+		Preorder(T -> rchild);    //先序遍历右子树
+    }
+}
+//========LNR 中序遍历===============
+void Inorder(BinTree T)
+{
+    if(T) {
+		Inorder(T->lchild);      //中序遍历左子树
+		printf("%c",T -> data);     //访问结点
+		Inorder(T -> rchild);      //中序遍历右子树
+    }
+}
+
+//========LNR 中序遍历非递归===============
+// void InorderNoRecurr(BinTree T)
+// {
+//      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// }
+
+//==========LRN 后序遍历============
+void Postorder(BinTree T)
+{
+    if(T) {
+		Postorder(T -> lchild);    //后序遍历左子树
+		Postorder(T -> rchild);    //后序遍历右子树
+		printf("%c",T->data);    //访问结点
+    }
+}
+//=====采用后序遍历求二叉树的深度 的递归算法========
+int TreeDepth(BinTree T)
+{
+    int hl,hr,max;
+    if(T)
+	{
+		hl=TreeDepth(T->rchild);   	//求左深度
+		hr=TreeDepth(T->rchild);    //求右深度
+		
+		return(MAX(hl,hr)+1);
+    }
+    else return(0);
+}
+
+//=====采用后序遍历求 结点数 的递归算法========
+int TreeNodesCount(BinTree T)
+{
+    int hl,hr,max;
+    if(T)
+	{
+	      	 
+		hl=TreeNodesCount(T->rchild);   	//求左深度
+		hr=TreeNodesCount(T->rchild);    //求右深度 
+        
+        NodeNum=NodeNum+1; //求结点数    
+		max = MAX()
+
+		return(hl+hr+1);
+    }
+    else 
+		return(0);
+}
+//=====采用后序遍历求二叉树的 叶子数的递归算法========
+int TreeLeafNodesCount(BinTree T)
+{
+    int hl,hr,max;
+    if(T)
+	{
+		if(T->lchild == NULL && T->rchild == NULL)
+			return 1;
+		int hl=TreeLeafNodesCount(T->lchild);   	 
+		XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;     
+		
+		return(hl+hr);
+    }
+    else 
+		return(0);
+}
+
+
+
+//====利用“先进先出”（FIFO）队列，按层次遍历二叉树==========
+void Levelorder(BinTree T)
+{
+   queue<BinTNode*> que;
+   que.push(T);
+   while(!que.empty())
+   {
+         XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
+	 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
+
+	  cout<<t->data;
+
+	  if(t->lchild != NULL)
+		 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+	  if(t->rchild != NULL)
+		  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
+   }
+}
+
+bool isCompleteTree(BinTree& tree){
+    int cout[100] = {0};
+    queue<BinTNode *> que;
+    que.push(tree);
+    que.push(NULL);
+    int snamel = 0;
+    int levelId = 1;
+    while ( )
+    {
+        /* code */
+    }
+    
+
+}
+//==========主函数=================
+void main()
+{
+    BinTree root;
+    int i,depth;
+    printf("\n");
+	printf("Creat Bin_Tree； Input preorder:"); //输入完全二叉树的先序序列，
+	// 用#代表虚结点，如ABD###CE##F##
+    root=CreatBinTree();       //创建二叉树，返回根结点
+	//从菜单中选择遍历方式，输入序号。
+	printf("Print Bin_tree Preorder: ");
+	Preorder(root);      //先序遍历
+	cout<<endl;
+
+	printf("Print Bin_Tree Inorder: ");
+	Inorder(root);      //中序遍历
+	cout<<endl;
+
+	printf("Print Bin_Tree Inorder no recur非递归: ");
+	InorderNoRecurr(root);      //非递归中序遍历
+	cout<<endl;
+
+	printf("Print Bin_Tree Postorder: ");
+	Postorder(root);    //后序遍历
+	cout<<endl;
+
+	depth=TreeDepth(root);     //求树的深度及叶子数
+    printf("BinTree Depth=%d  BinTree Node number=%d",depth,TreeNodesCount(root));
+	cout<<endl;
+
+	printf("  BinTree Leaf number=%d",TreeLeafNodesCount(root));
+	cout<<endl;
+
+	printf("LevePrint Bin_Tree: ");
+	cout<<endl;
+
+	Levelorder(root);     //按层次遍历
+	cout<<endl;
+			 
+}  
