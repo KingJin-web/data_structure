@@ -4,8 +4,8 @@
 using namespace std;
 // int main()
 // {
-//     char ch = '9';
-//     //scanf("%c", &ch);
+//     char ch ;
+//     scanf("%c", &ch);
 //     if (ch >= 'A' && ch <= 'Z')
 //     {
 //         ch = ch + 32;
@@ -87,12 +87,28 @@ using namespace std;
 //     }
 // }
 
+// int main()
+// {
+//     int a,b,c;
+//     a = 72, b = 73, c = 74;
+//     printf("%f%f%f\n", a, b, c);
+//     return 0;
+// }
 
-
-int main()
+int main(int argc, char const *argv[])
 {
-    int a,b,c;
-    a = 72, b = 73, c = 74;
-    printf("%f%f%f\n", a, b, c);
+    char a, as, bs, cs, ds;
+    int n;
+    for (a = 'A'; a <= 'D'; a++)
+    {
+        as = (a != 'A');
+        bs = (a == 'C');
+        cs = (a == 'D');
+        ds = (a != 'D');
+        n = as + bs + ds +cs;
+        if (n == 3)
+            printf("%c\n", a);
+    }
+ 
     return 0;
 }

@@ -1,3 +1,70 @@
+CREATE TABLE S
+(
+    sno char(8) NOT NULL PRIMARY KEY,
+    sname char(8) NOT NULL default'男',
+    sex char(2),
+    age smallint CHECK(age>=15 and age<=30),
+    sdept varchar(50)
+)
+CREATE TABLE C
+(
+    cno char(4) NOT NULL PRIMARY KEY,
+    cname char(20) NOT NULL,
+    credit float(53) NULL,
+    pcno char(4) NULL,
+    describe varchar(100) NULL
+)
+CREATE TABLE SC
+(
+    sno char(8) NOT NULL,
+    cno char(4) NOT NULL,
+    GRADE REAL NULL,
+    PRIMARY KEY(sno,cno),
+    FOREIGN KEY(sno) REFERENCES s(sno),
+    FOREIGN KEY(cno) REFERENCES c(cno),
+)
+
+
+
+
+INSERT INTO S
+    (sno,sname,age,sex,sdept)
+VALUES('09001101', '张林', 19, '女', '计算机系')
+INSERT INTO S
+    (sno,sname,age,sex,sdept)
+VALUES('09001102', '王艳', 19, '男', '计算机系')
+
+INSERT INTO C
+VALUES
+    ('0101', '计算机基础', 5, '0101', '可自学')
+INSERT INTO C
+VALUES
+    ('0102', 'C++程序设计', 4, '0102', '可自学')
+
+INSERT INTO SC
+VALUES('09001101', '0101', 68)
+INSERT INTO SC
+VALUES('09001101', '0102', 68)
+
+-- ① 向数据表S中插入记录(’S13’,’吕淑霞’,19,’女’,’CS’)
+INSERT INTO S
+    (sno,sname,age,sex,sdept)
+VALUES('S13', '吕淑霞', 19, '女', 'CS')
+
+
+
+INSERT into C
+    (cno,cname)
+VALUES('C10', '电子商务')
+
+-- ② 吕淑霞同学选修了“电子商务”这门课，期未的考试成绩为95分，SQL语句如下
+INSERT INTO SC
+    (sno,cno,grade)
+VALUES('S13', 'C10', 95)
+
+INSERT INTO SC
+    (sno,cno)
+VALUES('S13', 'C9')
 -- ① 创建院系信息表Dept_info代码
 CREATE TABLE Dept_info
 (
@@ -36,25 +103,6 @@ CREATE TABLE Student_info
     foreign key (dno) REFERENCES Dept_info(dno),
     foreign key (classno) REFERENCES Class_info(classno)
 )
-
--- ① 向数据表S中插入记录(’S13’,’吕淑霞’,19,’女’,’CS’)
-INSERT INTO S
-    (sno,sname,age,sex,sdept)
-VALUES('S13', '吕淑霞', 19, '女', 'CS')
-
-INSERT into C
-    (cno,cname)
-VALUES('C10', '电子商务')
-
--- ② 吕淑霞同学选修了“电子商务”这门课，期未的考试成绩为95分，SQL语句如下
-INSERT INTO SC
-    (sno,cno,grade)
-VALUES('S13', 'C10', 95)
-
-INSERT INTO SC
-    (sno,cno)
-VALUES('S13', 'C9')
-
 --③ 修改吕淑霞同学“电子商务”的成绩为90。
 UPDATE SC SET GRADE=90 WHERE SNO='S13' AND CNO='C10'
 
@@ -73,7 +121,7 @@ ALTER TABLE S ADD class varchar(20)
 ALTER TABLE S ALTER COLUMN class varchar(50)
 
 --④ 删除学生表“S”中的“class”字段。
-ALTER TABLE S DROP COLUMN class 
+ALTER TABLE S DROP COLUMN class
 
 
 --4．查看数据表信息 
@@ -81,9 +129,14 @@ ALTER TABLE S DROP COLUMN class 
 EXEC sp_spaceused 'S'
 
 --(2) 查看所有用户表的空间表大小等信息。
-EXEC sp_MSforeachtable "exec sp_spaceused '?'"  
+EXEC sp_MSforeachtable "exec sp_spaceused '?'"
 
 
-SELECT *FROM S;
-SELECT *FROM C;
-SELECT *FROM SC;
+SELECT *
+FROM S;
+SELECT *
+FROM C;
+SELECT *
+FROM SC;
+
+
