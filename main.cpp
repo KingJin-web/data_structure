@@ -95,20 +95,50 @@ using namespace std;
 //     return 0;
 // }
 
+// int main(int argc, char const *argv[])
+// {
+//     char a, as, bs, cs, ds;
+//     int n;
+//     for (a = 'A'; a <= 'D'; a++)
+//     {
+//         as = (a != 'A');
+//         bs = (a == 'C');
+//         cs = (a == 'D');
+//         ds = (a != 'D');
+//         n = as + bs + ds + cs;
+//         if (n == 3)
+//             printf(" %c\n", a);
+//     }
+
+//     return 0;
+// }
+
+
+
 int main(int argc, char const *argv[])
 {
-    char a, as, bs, cs, ds;
-    int n;
-    for (a = 'A'; a <= 'D'; a++)
-    {
-        as = (a != 'A');
-        bs = (a == 'C');
-        cs = (a == 'D');
-        ds = (a != 'D');
-        n = as + bs + ds +cs;
-        if (n == 3)
-            printf("%c\n", a);
-    }
- 
+    printf("你好 C语言\n");
+    cout<<"Hello world"<<endl;
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
