@@ -18,16 +18,12 @@ int main()
 
 int fmax(int a[], int i){
     int max = a[0];
-    for (int j = 0; j < i; i++)
+    for (int j = 0; j < i; j++)
     {
         if (max < a[j])
         {
             max = a[j];
-        }else
-        {
-            break;
         }
-        
         
     }
 
