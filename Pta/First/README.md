@@ -449,3 +449,132 @@ int main()
 ```
 
 <hr>
+
+## [6-9 快速排序（分治法） (10 分)](i.cpp)
+
+快速排序（分治法）
+
+函数接口定义：
+```c++
+int Partition(SqList &L,int low,int high);//实现一趟划分。
+void QSort(SqList &L,int low,int high);
+```
+裁判测试程序样例：
+```c++
+#include <iostream>
+#define MAXSIZE 1000
+using namespace std;
+
+typedef struct
+{
+ int key;
+ char *otherinfo;
+}ElemType;
+
+typedef struct
+{
+ ElemType *r;
+ int  length;
+}SqList;
+
+int Partition(SqList &L,int low,int high);
+void QSort(SqList &L,int low,int high);
+
+void Create_Sq(SqList &L)
+{
+ int i,n;
+ cin>>n;    //输入的值不大于 MAXSIZE
+ for(i=1;i<=n;i++)
+ {
+  cin>>L.r[i].key;
+  L.length++;
+ }
+}
+
+void show(SqList L)
+{
+ int i;
+ for(i=1;i<=L.length;i++)
+  if(i==1) 
+   cout<<L.r[i].key;
+  else
+   cout<<" "<<L.r[i].key;
+}
+
+int main()
+{
+ SqList L;
+ L.r=new ElemType[MAXSIZE+1];
+ L.length=0;
+ Create_Sq(L);
+ QSort(L,1,L.length);
+ show(L);
+ return 0;
+}
+
+
+/* 请在这里填写答案 */
+```
+输入样例：
+
+第一行输入一个数n，接下来输入n个数。
+```
+7
+24 53 45 45 12 24 90
+```
+输出样例：
+
+输出按升序排序的结果。
+```
+12 24 24 45 45 53 90
+```
+
+<hr>
+
+
+## [6-10 最大最小问题（分治法） (10 分)](j.cpp)
+
+用分治法查找序列中最大值和最小值。
+
+函数接口定义：
+```c++
+void maxmin(int A[],int &e_max,int &e_min,int low,int high);
+```
+裁判测试程序样例：
+```c++
+#include <iostream>
+#include<algorithm>
+#define N 1000
+using namespace std;
+
+void maxmin(int A[],int &e_max,int &e_min,int low,int high);
+
+int main()
+{
+    int A[N],i,e_max,e_min,n;
+    cin>>n;
+    for(i=0;i<n;i++) 
+      cin>>A[i];    
+    maxmin(A,e_max,e_min,0,n-1);
+    cout<<e_max<<" "<<e_min; 
+    return 0;
+ } 
+
+/* 请在这里填写答案 */
+```
+用分治法查找序列中最大值和最小值。
+
+输入格式:
+
+第一行输入整数个数n，再依次输入n个整数。
+```
+12
+19 14 23 1 68 20 84 27 55 11 10 79
+
+```
+输出格式:
+
+输出最大值和最小值。
+```
+841
+```
