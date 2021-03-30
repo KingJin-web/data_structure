@@ -53,5 +53,31 @@ int main()
 }
 
 /* 请在这里填写答案 */
-
-int Partition(SqList &L, int low, int high);
+int Partition(SqList &L, int low, int high)
+{
+    int base = L.r[low].key;
+    while (low < high)
+    {
+        while (low < high && L.r[high].key >= base)
+        {
+            high--;
+        }
+        L.r[low].key = L.r[high].key;
+        while (low < high && L.r[low].key <= base)
+        {
+            low++;
+        }
+        L.r[high].key = L.r[low].key;
+    }
+    L.r[low].key = base;
+    return low;
+}
+void QSort(SqList &L, int low, int high)
+{
+    if (low < high)
+    {
+        int base = Partition(L, low, high);
+        QSort(L, low, base - 1);
+        QSort(L, base + 1, high);
+    }
+}
