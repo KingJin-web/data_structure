@@ -43,13 +43,21 @@ int main()
 
 /* 请在这里填写答案 */
 
-//求以h为头指针的单链表的节点个数
 
-// int Sum(LinkList L)
-// {
-//     if (L == NULL)
-//         return 0;
-//     else
-//         return 1 + Sum(L->next);
-// }
-//反向显示以h为头指针的单链表的所有节点值
+
+int Sum(LinkList L)
+{
+    // while (L)
+    // {
+    //     cout<<L->data;
+    //     L = L->next;
+    // }
+    
+    if (L == NULL)
+        return 0;
+    else{
+        // count += L->data;
+        // L = L->next;
+        return L->data + Sum(L->next);
+    }
+}
