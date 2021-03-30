@@ -63,3 +63,19 @@ void Merge(SqList L, int low, int m, int high)
     for (int i = low; i <= high; i++)
         L.r[i] = b[i];
 }
+/* 本题要求实现二路归并排序中的归并操作，待排序列的长度1<=n<=1000。
+
+函数接口定义：
+void Merge(SqList L,int low,int m,int high);
+其中L是待排序表，使排序后的数据从小到大排列。
+
+输入样例：
+第一行输入关键字个数(输入的值不大于 MAXSIZE)，接下来输入n个关键字。
+
+7
+24 53 45 45 12 24 90
+输出样例：
+输出由小到大的有序序列，每一个关键字之间由空格隔开。
+
+12 24 24 45 45 53 90
+ */
