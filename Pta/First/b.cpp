@@ -22,59 +22,57 @@ int main()
 }
 
 /* 请在这里填写答案 */
+void Merge(int r[], int p[], int h, int m, int t);
 
-int tmp[N];
-void merge(int *a, int low, int mid, int high)
+
+void Merge(int r[], int p[], int h, int m, int t)
 {
-    int i;
-    int j;
-    int k;
 
-    for (i = low; i <= high; i++)
+    int i = h, j = m + 1, k = 0;
+    while (i <= m && j <= t)
     {
-        tmp[i] = a[i];
-    }
-
-    j = low;
-    k = mid + 1;
-    for (i = low; i <= high && j <= mid && k <= high;)
-    {
-        if (tmp[j] <= tmp[k])
-        {
-            a[i++] = tmp[j++];
-        }
+        if (r[i] <= r[j])
+            p[k++] = r[i++];
         else
         {
-            a[i++] = tmp[k++];
+            p[k++] = r[j++];
+            ans += m + 1 - i;
         }
-    }
+    };
 
-    while (j <= mid)
-        a[i++] = tmp[j++];
-    while (k <= high)
-        a[i++] = tmp[k++];
-}
+    while (i <= m)
+        p[k++] = r[i++];
 
-void mergeSort(int *a, int low, int high)
-{
-    int mid;
-
-    if (low < high)
+    while (j <= t)
     {
-        mid = (low + high) >> 1;
-        mergeSort(a, low, mid);
-        mergeSort(a, mid + 1, high);
-        merge(a, low, mid, high);
+        p[k++] = r[j++];
     }
 }
 
-void printArray(int *a, int len)
-{
-    int i;
-    for (i = 0; i < len; i++)
+void MergeSort(int r[], int h, int t)
+{ //对序列h-t进行归并排列
+    if (h >= t)
+        return;
+    else
     {
-        printf("%d\t", a[i]);
+        int n = t - h + 1;
+        int *p = new int[n];  //临时数组
+        int m = (h + t) >> 1; //序列h-t中数
+        MergeSort(r, h, m);
+        MergeSort(r, m + 1, t);
+        Merge(r, p, h, m, t);
+        for (int i = 0; i < n; i++)
+        {
+            r[h + i] = p[i];
+        }
+        delete[] p;
     }
-    printf("\n");
 }
 
+void mergesort(int a[], int low, int high)
+{
+    MergeSort(a, low, high);
+}
+void Merge(int a[], int low, int mid, int high)
+{
+}

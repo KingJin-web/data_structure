@@ -16,6 +16,8 @@ int main()
     return 0;
 }
 
+
+/* 请在这里填写答案 */
 int fmax(int a[], int i){
     int max = a[0];
     for (int j = 0; j < i; j++)
@@ -30,5 +32,3 @@ int fmax(int a[], int i){
     return max;
     
 }
-
-/* 请在这里填写答案 */
