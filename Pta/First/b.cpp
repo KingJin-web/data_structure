@@ -76,3 +76,16 @@ void mergesort(int a[], int low, int high)
 void Merge(int a[], int low, int mid, int high)
 {
 }
+
+/* 6 - 2 求解逆序数问题（分治法）(10 分)
+        设a1,
+    a2,…, an是集合{1, 2, …, n} 的一个排列，如果i<j且ai> aj，则序偶(ai, aj) 称为该排列的一个逆序。例如，2, 3, 1有两个逆序：(3, 1)和(2, 1)。设计算法统计给定排列中含有逆序的个数。
+
+    函数接口定义： void Merge(int a[], int low, int mid, int high);
+void mergesort(int a[], int low, int high);
+用二路归并法求逆序数；
+
+
+
+
+ */
