@@ -687,7 +687,7 @@ using namespace std;
 //     if (j > i - i)
 
 //         cout << i << endl;
-    
+
 // }
 
 // int main()
@@ -710,7 +710,6 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main(int argc, char const *argv[])
 // {
 //     for (int i = 2; i < 6; i++, i++)
@@ -720,23 +719,59 @@ using namespace std;
 //     return 0;
 // }
 
-#include <windows.h>
-#include <bits/stdc++.h>
-using namespace std;
-int main(int argc, char const *argv[])
+
+// int main(int argc, char const *argv[])
+// {
+//     int a;
+//     float b, c;
+
+//     scanf("%d", &a);
+
+//     scanf("%f", &b);
+
+//     c = b;
+
+//     if ((a >= 10) && (b >= 10000))
+//         c = b * (1 - 0.15);
+//     printf("Should pay:%9.2f\n", c);
+//     /* code */
+//     return 0;
+// }
+
+// int main()
+// {
+//     char ch;                    //定义字符变量ch
+//     scanf("%c", &ch);           //键盘输入ch的值
+//     if (ch >= 'a' && ch <= 'z') //如果ch属于小写字母
+//         printf("lower");
+//     else if (ch >= 'A' && ch <= 'Z') //如果ch属于大写字母
+//         printf("upper");
+//     else if (ch >= '0' && ch <= '9') //如果ch属于数字
+//         printf("digit");
+//     else //否则
+//         printf("other");
+//     return 0; //程序正常退出
+// }
+
+int main()
 {
-    int a;
-    float b, c;
+    //定义字符变量ch
+    int num = 108;
+    int &rel_num = num;
 
-    scanf("%d", &a);
 
-    scanf("%f", &b);
+    cout << num << endl;
+    cout << &num << endl;
 
-    c = b;
+    cout << rel_num << endl;
+    cout << &rel_num << endl;
 
-    if ((a >= 10) && (b >= 10000))
-        c = b * (1 - 0.15);
-    printf("Should pay:%9.2f\n", c);
-    /* code */
-    return 0;
+    int num2 = 108;
+    
+
+    cout << num2 << endl;
+    cout << &num2 << endl;
+
+    return 0; //程序正常退出
 }
+
