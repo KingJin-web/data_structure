@@ -719,7 +719,6 @@ using namespace std;
 //     return 0;
 // }
 
-
 // int main(int argc, char const *argv[])
 // {
 //     int a;
@@ -753,25 +752,68 @@ using namespace std;
 //     return 0; //程序正常退出
 // }
 
-int main()
+// int main()
+// {
+//     //定义字符变量ch
+//     int num = 108;
+//     int &rel_num = num;
+
+//     cout << num << endl;
+//     cout << &num << endl;
+
+//     cout << rel_num << endl;
+//     cout << &rel_num << endl;
+
+//     int num2 = 108;
+
+//     cout << num2 << endl;
+//     cout << &num2 << endl;
+
+//     return 0; //程序正常退出
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     char p[20] = "123456789zxcvbnm,./<>?";
+//     int i;
+//     int str_length = strlen(p);
+
+//     int num[20];
+//     char str1[20];
+//     char str2[20];
+
+//     for (i = 0; i < str_length; i++)
+//     {
+
+//         if ((p[i] >= 48) && (p[i] <= 59))
+//         {
+            
+//             cout << "数字" << p[i] << endl;
+            
+//         }
+//         else if ((p[i] >= 65) && (p[i] <= 90) || (p[i] >= 97) && (p[i] <= 122))
+//         {
+//             cout << "字母" << p[i] << endl;
+//         }
+//         else
+//         {
+//             cout << "符号" << p[i] << endl;
+//         }
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+int main(int argc, char const *argv[])
 {
-    //定义字符变量ch
-    int num = 108;
-    int &rel_num = num;
-
-
-    cout << num << endl;
-    cout << &num << endl;
-
-    cout << rel_num << endl;
-    cout << &rel_num << endl;
-
-    int num2 = 108;
-    
-
-    cout << num2 << endl;
-    cout << &num2 << endl;
-
-    return 0; //程序正常退出
+    printf("Hello World\n你好");
+    return 0;
 }
-
