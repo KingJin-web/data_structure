@@ -787,9 +787,9 @@ using namespace std;
 
 //         if ((p[i] >= 48) && (p[i] <= 59))
 //         {
-            
+
 //             cout << "数字" << p[i] << endl;
-            
+
 //         }
 //         else if ((p[i] >= 65) && (p[i] <= 90) || (p[i] >= 97) && (p[i] <= 122))
 //         {
@@ -802,18 +802,183 @@ using namespace std;
 //     }
 // }
 
+// int main(int argc, char const *argv[])
+// {
 
+//     //使用指针建立二维数组，这里重点来搞清他们之间的关系
+//     int nums[5][3] = {
+//         {1, 2, 3},
+//         {4, 5, 6},
+//         {7, 8, 9},
+//         {10, 11, 12},
+//         {13, 14, 15}};
 
+//     //循环打印输出
+//     for (int i = 0; i < 5; i++)
+//     {
+//         for (int j = 0; j < 3; j++)
+//         {
+//             cout << nums[i][j] << "\t";
+//         }
+//         cout << endl;
+//     }
 
+//     //循环打印地址的位置输出
+//     for (int i = 0; i < 5; i++)
+//     {
+//         for (int j = 0; j < 3; j++)
+//         {
+//             cout << &nums[i][j] << "\t";
+//         }
+//         cout << endl;
+//     }
+//     cout << endl;
 
+//     int(*ptr)[3] = nums;
 
+//     //看一下指针所指向的地址的情况
+//     for (int i = 0; i < 5; i++)
+//     {
+//         for (int j = 0; j < 3; j++)
+//         {
+//             cout << *(ptr + i) + j << "\t";
+//         }
+//         cout << endl;
+//     }
 
+//     cout << endl;
+//     for (int i = 0; i < 5; i++)
+//     {
+//         cout << ptr + i << endl;
+//     }
+//     cout << endl;
+//     for (int i = 0; i < 5; i++)
+//     {
+//         cout << *(ptr + i) << endl;
+//     }
+// }
 
+#include <stdio.h>
+#include <ctype.h>
+#include <iostream>
+#include <bits/stdc++.h>
+void readfile();
+void writefile();
+void scanner();
 
+char rbuf[10000] = {'\0'};
+char wbuf[10000] = {'\0'};
 
-
-int main(int argc, char const *argv[])
+int main()
 {
-    printf("Hello World\n你好");
+    readfile();
+    scanner();
+    writefile();
     return 0;
+}
+
+void readfile()
+{
+    FILE *fp;
+    int ch;
+    if ((fp = fopen("read.txt", "r")) == NULL)
+    {
+        printf("open ");
+        exit(EXIT_FAILURE);
+    }
+    int i = 0;
+    while (ch = fgetc(fp) != EOF)
+    {
+        rbuf[i++];
+    }
+    rbuf[i++] = '#';
+    rbuf[i++] = '#';
+    fclose(fp);
+}
+void writefile()
+{
+    FILE *fp;
+
+    if ((fp = fopen("write.txt", "w")) == NULL)
+    {
+        printf_s("open");
+        exit(EXIT_FAILURE);
+    }
+    fputs(wbuf, fp);
+    fclose(fp);
+}
+void scanner()
+{
+    int bg = 0, fd = 0;
+    int wi = 0;
+    int state = 0;
+    char c;
+
+    while (rbuf[fd] != '\0')
+    {
+        switch (state)
+        {
+        case 0:
+            c = rbuf[fd++];
+            if (!isdigit(c) && !isalpha(c))
+            {
+                state = 0;
+                bg++;
+            }
+            else if (isdigit(c))
+            {
+                state = 2;
+            }
+            else if (isalpha(c))
+            {
+                state = 1;
+            }
+            break;
+        case 1:
+            c = rbuf[fd++];
+            if (isalpha(c))
+            {
+                state = 1;
+            }
+            else
+            {
+                state = 3;
+            }
+            break;
+        case 2:
+            c = rbuf[fd++];
+            if (isdigit(c))
+            {
+                state = 2;
+            }
+            else
+            {
+                state = 4;
+            }
+            break;
+        case 3:
+            while (bg <= fd - 2)
+            {
+                wbuf[wi++] = rbuf[bg++];
+            }
+            wbuf[wi++] = ' ';
+
+            fd--;
+            state = 0;
+            break;
+
+        case 4:
+            while (bg <= fd - 2)
+            {
+                wbuf[wi++] = rbuf[bg++];
+            }
+            wbuf[wi++] = ' ';
+
+            fd--;
+            state = 0;
+            break;
+        default:
+            break;
+        }
+    }
 }
