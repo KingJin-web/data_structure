@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include<cstring>
 #define N 1000
 using namespace std;
 
@@ -17,18 +18,17 @@ int main()
     return 0;
 }
 
-/* 请在这里填写答案 */
-
+/* 注释max */
 int max(int a, int b)
 {
     return (a > b) ? a : b;
 }
-
+/* 注释min */
 int min(int a, int b)
 {
     return (a < b) ? a : b;
 }
-
+/* 注释maxmin */
 void maxmin(int A[], int &e_max, int &e_min, int low, int high)
 {
     int mid, x1, y1, x2, y2;

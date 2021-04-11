@@ -858,127 +858,338 @@ using namespace std;
 //     }
 // }
 
-#include <stdio.h>
-#include <ctype.h>
-#include <iostream>
-#include <bits/stdc++.h>
-void readfile();
-void writefile();
-void scanner();
+// #include <stdio.h>
+// #include <ctype.h>
+// #include <iostream>
+// #include <bits/stdc++.h>
+// void readfile();
+// void writefile();
+// void scanner();
 
-char rbuf[10000] = {'\0'};
-char wbuf[10000] = {'\0'};
+// char rbuf[10000] = {'\0'};
+// char wbuf[10000] = {'\0'};
+
+// int main()
+// {
+//     readfile();
+//     scanner();
+//     writefile();
+//     return 0;
+// }
+
+// void readfile()
+// {
+//     FILE *fp;
+//     int ch;
+//     if ((fp = fopen("read.txt", "r")) == NULL)
+//     {
+//         printf("open ");
+//         exit(EXIT_FAILURE);
+//     }
+//     int i = 0;
+//     while (ch = fgetc(fp) != EOF)
+//     {
+//         rbuf[i++];
+//     }
+//     rbuf[i++] = '#';
+//     rbuf[i++] = '#';
+//     fclose(fp);
+// }
+// void writefile()
+// {
+//     FILE *fp;
+
+//     if ((fp = fopen("write.txt", "w")) == NULL)
+//     {
+//         printf_s("open");
+//         exit(EXIT_FAILURE);
+//     }
+//     fputs(wbuf, fp);
+//     fclose(fp);
+// }
+// void scanner()
+// {
+//     int bg = 0, fd = 0;
+//     int wi = 0;
+//     int state = 0;
+//     char c;
+
+//     while (rbuf[fd] != '\0')
+//     {
+//         switch (state)
+//         {
+//         case 0:
+//             c = rbuf[fd++];
+//             if (!isdigit(c) && !isalpha(c))
+//             {
+//                 state = 0;
+//                 bg++;
+//             }
+//             else if (isdigit(c))
+//             {
+//                 state = 2;
+//             }
+//             else if (isalpha(c))
+//             {
+//                 state = 1;
+//             }
+//             break;
+//         case 1:
+//             c = rbuf[fd++];
+//             if (isalpha(c))
+//             {
+//                 state = 1;
+//             }
+//             else
+//             {
+//                 state = 3;
+//             }
+//             break;
+//         case 2:
+//             c = rbuf[fd++];
+//             if (isdigit(c))
+//             {
+//                 state = 2;
+//             }
+//             else
+//             {
+//                 state = 4;
+//             }
+//             break;
+//         case 3:
+//             while (bg <= fd - 2)
+//             {
+//                 wbuf[wi++] = rbuf[bg++];
+//             }
+//             wbuf[wi++] = ' ';
+
+//             fd--;
+//             state = 0;
+//             break;
+
+//         case 4:
+//             while (bg <= fd - 2)
+//             {
+//                 wbuf[wi++] = rbuf[bg++];
+//             }
+//             wbuf[wi++] = ' ';
+
+//             fd--;
+//             state = 0;
+//             break;
+//         default:
+//             break;
+//         }
+//     }
+// }
+
+// #include <cstring>
+
+// int main(int argc, char const *argv[])
+// {
+//     cout << "hello world" << endl;
+//     cout << "你好 c++" << endl;
+//     scanf("\n");
+//     return 0;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//    int n;
+//    cin >> n;
+//    getchar();
+//    string a;
+//    for (int i = 0; i < n; i++)
+//    {
+//       getline(cin,a);
+
+//       cout<<" s = " << a<<endl;
+//    }
+
+//     return 0;
+// }
+
+struct user
+{
+    string name;
+    string age;
+};
+
+struct addUser
+{
+    struct user addArr[100];
+    int num;
+};
+//定义联系人结构体
+struct contacts
+{
+    string name;
+    string sex;
+    int age;
+    int num;
+    string address;
+};
+//定义通讯录结构体
+struct addressBook
+{
+    //通讯录中保存的联系人数组
+    struct contacts addrArray[100];
+    //通讯录中保存的联系人个数
+    int addrSize;
+};
+
+//声明函数
+void menu();
+void function1(addressBook *book);
+void function2();
+void function3();
+void function4();
+void function5();
+void function6();
 
 int main()
 {
-    readfile();
-    scanner();
-    writefile();
-    return 0;
-}
 
-void readfile()
-{
-    FILE *fp;
-    int ch;
-    if ((fp = fopen("read.txt", "r")) == NULL)
+    //调用开始菜单功能
+    menu();
+    //定义一个通讯录结构体变量
+    addressBook book;
+    while (true)
     {
-        printf("open ");
-        exit(EXIT_FAILURE);
-    }
-    int i = 0;
-    while (ch = fgetc(fp) != EOF)
-    {
-        rbuf[i++];
-    }
-    rbuf[i++] = '#';
-    rbuf[i++] = '#';
-    fclose(fp);
-}
-void writefile()
-{
-    FILE *fp;
 
-    if ((fp = fopen("write.txt", "w")) == NULL)
-    {
-        printf_s("open");
-        exit(EXIT_FAILURE);
-    }
-    fputs(wbuf, fp);
-    fclose(fp);
-}
-void scanner()
-{
-    int bg = 0, fd = 0;
-    int wi = 0;
-    int state = 0;
-    char c;
+        int num1 = 0;
+        cout << "请输出你想要运行的功能:";
+        cin >> num1;
 
-    while (rbuf[fd] != '\0')
-    {
-        switch (state)
+        if (num1 > 6 || num1 < 0)
         {
-        case 0:
-            c = rbuf[fd++];
-            if (!isdigit(c) && !isalpha(c))
-            {
-                state = 0;
-                bg++;
-            }
-            else if (isdigit(c))
-            {
-                state = 2;
-            }
-            else if (isalpha(c))
-            {
-                state = 1;
-            }
-            break;
-        case 1:
-            c = rbuf[fd++];
-            if (isalpha(c))
-            {
-                state = 1;
-            }
-            else
-            {
-                state = 3;
-            }
-            break;
-        case 2:
-            c = rbuf[fd++];
-            if (isdigit(c))
-            {
-                state = 2;
-            }
-            else
-            {
-                state = 4;
-            }
-            break;
-        case 3:
-            while (bg <= fd - 2)
-            {
-                wbuf[wi++] = rbuf[bg++];
-            }
-            wbuf[wi++] = ' ';
 
-            fd--;
-            state = 0;
-            break;
+            cout << "您输入的数字无效果,请从新输入!" << endl;
+            continue;
+        }
+        else
+        {
 
-        case 4:
-            while (bg <= fd - 2)
+            switch (num1)
             {
-                wbuf[wi++] = rbuf[bg++];
-            }
-            wbuf[wi++] = ' ';
 
-            fd--;
-            state = 0;
-            break;
-        default:
-            break;
+            case 1:
+                function1(&book);
+                break;
+            case 2:
+                function2();
+                break;
+            case 3:
+                function3();
+                break;
+            case 4:
+                function4();
+                break;
+            case 5:
+                function5();
+                break;
+            case 6:
+                function6();
+                break;
+            case 0:
+                cout << "退出成功!欢迎下次使用!" << endl;
+                return 0;
+                break;
+            }
         }
     }
+}
+
+//菜单函数
+void menu()
+{
+
+    cout << "********************************************" << endl;
+    cout << "|**********   1、添加联系人(输入1)  **********|" << endl;
+    cout << "|**********   2、显示联系人(输入2)  **********|" << endl;
+    cout << "|**********   3、删除联系人(输入3)  **********|" << endl;
+    cout << "|**********   4、查找联系人(输入4)  **********|" << endl;
+    cout << "|**********   5、修改联系人(输入5)  **********|" << endl;
+    cout << "|**********   6、清空联系人(输入6)  **********|" << endl;
+    cout << "|**********   0、推出通讯录(输入0)  **********|" << endl;
+    cout << "***********     清空通讯录请慎用    ***********" << endl;
+}
+
+//功能函数1:添加联系人
+void function1(addressBook *add)
+{
+
+    //添加姓名
+    string name;
+    cout << "请输入您所要添加联系人的姓名:";
+    cin >> name;
+    add->addrSize = 0;
+    add->addrArray[add->addrSize]
+        .name = name;
+
+    while (true)
+    { //添加性别
+        int sex = 0;
+        cout << "请输入您所要添加联系人的性别:" << endl;
+        cout << "0代表男/1代表女" << endl;
+        cin >> sex;
+
+        if (sex == 0)
+        {
+            add->addrArray[add->addrSize].sex = "男";
+        }
+        else if (sex == 1)
+        {
+            add->addrArray[add->addrSize].sex = "女";
+        }
+        else
+        {
+            cout << "您输入的性别是个笑话,请从新输入!" << endl;
+            continue;
+        }
+        break;
+    }
+
+    //添加年龄
+    int age = 0;
+    cout << "请输入您所要添加联系人的年龄:" << endl;
+    cin >> age;
+    add->addrArray[add->addrSize].age = age;
+
+    //添加电话号
+    long long num = 0;
+    cout << "请输入您所添加联系人的电话:" << endl;
+    cin >> num;
+    add->addrArray[add->addrSize].num = num;
+
+    //添加地址
+    string address;
+    cout << "请输入您所添加联系人的地址:" << endl;
+    cin >> address;
+    add->addrArray[add->addrSize].address = address;
+
+   
+
+    cout << add->addrArray[add->addrSize].age <<","<< add->addrArray[add->addrSize].address << endl; 
+    add->addrSize++ ;
+}
+
+void function2()
+{
+}
+
+void function3()
+{
+}
+
+void function4()
+{
+}
+
+void function5()
+{
+}
+
+void function6()
+{
 }
