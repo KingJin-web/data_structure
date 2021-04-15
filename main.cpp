@@ -1009,187 +1009,211 @@ using namespace std;
 //     return 0;
 // }
 
-struct user
-{
-    string name;
-    string age;
-};
+// struct user
+// {
+//     string name;
+//     string age;
+// };
 
-struct addUser
-{
-    struct user addArr[100];
-    int num;
-};
-//定义联系人结构体
-struct contacts
-{
-    string name;
-    string sex;
-    int age;
-    int num;
-    string address;
-};
-//定义通讯录结构体
-struct addressBook
-{
-    //通讯录中保存的联系人数组
-    struct contacts addrArray[100];
-    //通讯录中保存的联系人个数
-    int addrSize;
-};
+// struct addUser
+// {
+//     struct user addArr[100];
+//     int num;
+// };
+// //定义联系人结构体
+// struct contacts
+// {
+//     string name;
+//     string sex;
+//     int age;
+//     int num;
+//     string address;
+// };
+// //定义通讯录结构体
+// struct addressBook
+// {
+//     //通讯录中保存的联系人数组
+//     struct contacts addrArray[100];
+//     //通讯录中保存的联系人个数
+//     int addrSize;
+// };
 
-//声明函数
-void menu();
-void function1(addressBook *book);
-void function2();
-void function3();
-void function4();
-void function5();
-void function6();
+// //声明函数
+// void menu();
+// void function1(addressBook *book);
+// void function2();
+// void function3();
+// void function4();
+// void function5();
+// void function6();
 
-int main()
+// int main()
+// {
+
+//     //调用开始菜单功能
+//     menu();
+//     //定义一个通讯录结构体变量
+//     addressBook book;
+//     while (true)
+//     {
+
+//         int num1 = 0;
+//         cout << "请输出你想要运行的功能:";
+//         cin >> num1;
+
+//         if (num1 > 6 || num1 < 0)
+//         {
+
+//             cout << "您输入的数字无效果,请从新输入!" << endl;
+//             continue;
+//         }
+//         else
+//         {
+
+//             switch (num1)
+//             {
+
+//             case 1:
+//                 function1(&book);
+//                 break;
+//             case 2:
+//                 function2();
+//                 break;
+//             case 3:
+//                 function3();
+//                 break;
+//             case 4:
+//                 function4();
+//                 break;
+//             case 5:
+//                 function5();
+//                 break;
+//             case 6:
+//                 function6();
+//                 break;
+//             case 0:
+//                 cout << "退出成功!欢迎下次使用!" << endl;
+//                 return 0;
+//                 break;
+//             }
+//         }
+//     }
+// }
+
+// //菜单函数
+// void menu()
+// {
+
+//     cout << "********************************************" << endl;
+//     cout << "|**********   1、添加联系人(输入1)  **********|" << endl;
+//     cout << "|**********   2、显示联系人(输入2)  **********|" << endl;
+//     cout << "|**********   3、删除联系人(输入3)  **********|" << endl;
+//     cout << "|**********   4、查找联系人(输入4)  **********|" << endl;
+//     cout << "|**********   5、修改联系人(输入5)  **********|" << endl;
+//     cout << "|**********   6、清空联系人(输入6)  **********|" << endl;
+//     cout << "|**********   0、推出通讯录(输入0)  **********|" << endl;
+//     cout << "***********     清空通讯录请慎用    ***********" << endl;
+// }
+
+// //功能函数1:添加联系人
+// void function1(addressBook *add)
+// {
+
+//     //添加姓名
+//     string name;
+//     cout << "请输入您所要添加联系人的姓名:";
+//     cin >> name;
+//     add->addrSize = 0;
+//     add->addrArray[add->addrSize]
+//         .name = name;
+
+//     while (true)
+//     { //添加性别
+//         int sex = 0;
+//         cout << "请输入您所要添加联系人的性别:" << endl;
+//         cout << "0代表男/1代表女" << endl;
+//         cin >> sex;
+
+//         if (sex == 0)
+//         {
+//             add->addrArray[add->addrSize].sex = "男";
+//         }
+//         else if (sex == 1)
+//         {
+//             add->addrArray[add->addrSize].sex = "女";
+//         }
+//         else
+//         {
+//             cout << "您输入的性别是个笑话,请从新输入!" << endl;
+//             continue;
+//         }
+//         break;
+//     }
+
+//     //添加年龄
+//     int age = 0;
+//     cout << "请输入您所要添加联系人的年龄:" << endl;
+//     cin >> age;
+//     add->addrArray[add->addrSize].age = age;
+
+//     //添加电话号3
+//     long long num = 0;
+//     cout << "请输入您所添加联系人的电话:" << endl;
+//     cin >> num;
+//     add->addrArray[add->addrSize].num = num;
+
+//     //添加地址
+//     string address;
+//     cout << "请输入您所添加联系人的地址:" << endl;
+//     cin >> address;
+//     add->addrArray[add->addrSize].address = address;
+
+//     cout << add->addrArray[add->addrSize].age <<","<< add->addrArray[add->addrSize].address << endl;
+//     add->addrSize++ ;
+// }
+
+// void function2()
+// {
+// }
+
+// void function3()
+// {
+// }
+
+// void function4()
+// {
+// }
+
+// void function5()
+// {
+// }
+
+// void function6()
+// {
+// }
+// int main(int argc, char const *argv[])
+// {
+//     int a = -2;
+
+//     printf("%d,%d\n", a, a--);
+//     a = -2;
+//     printf("%d,%d", a, --a);
+//     return 0;
+// }
+
+int main(int argc, char const *argv[])
 {
+    vector<int> a;
+    a.push_back(1);
+    a.push_back(2);
+    a.push_back(3);
+    a.push_back(4);
+    a.push_back(6);
+    a.push_back(5);
 
-    //调用开始菜单功能
-    menu();
-    //定义一个通讯录结构体变量
-    addressBook book;
-    while (true)
+    for (int b : a)
     {
-
-        int num1 = 0;
-        cout << "请输出你想要运行的功能:";
-        cin >> num1;
-
-        if (num1 > 6 || num1 < 0)
-        {
-
-            cout << "您输入的数字无效果,请从新输入!" << endl;
-            continue;
-        }
-        else
-        {
-
-            switch (num1)
-            {
-
-            case 1:
-                function1(&book);
-                break;
-            case 2:
-                function2();
-                break;
-            case 3:
-                function3();
-                break;
-            case 4:
-                function4();
-                break;
-            case 5:
-                function5();
-                break;
-            case 6:
-                function6();
-                break;
-            case 0:
-                cout << "退出成功!欢迎下次使用!" << endl;
-                return 0;
-                break;
-            }
-        }
+        cout << b << endl;
     }
-}
-
-//菜单函数
-void menu()
-{
-
-    cout << "********************************************" << endl;
-    cout << "|**********   1、添加联系人(输入1)  **********|" << endl;
-    cout << "|**********   2、显示联系人(输入2)  **********|" << endl;
-    cout << "|**********   3、删除联系人(输入3)  **********|" << endl;
-    cout << "|**********   4、查找联系人(输入4)  **********|" << endl;
-    cout << "|**********   5、修改联系人(输入5)  **********|" << endl;
-    cout << "|**********   6、清空联系人(输入6)  **********|" << endl;
-    cout << "|**********   0、推出通讯录(输入0)  **********|" << endl;
-    cout << "***********     清空通讯录请慎用    ***********" << endl;
-}
-
-//功能函数1:添加联系人
-void function1(addressBook *add)
-{
-
-    //添加姓名
-    string name;
-    cout << "请输入您所要添加联系人的姓名:";
-    cin >> name;
-    add->addrSize = 0;
-    add->addrArray[add->addrSize]
-        .name = name;
-
-    while (true)
-    { //添加性别
-        int sex = 0;
-        cout << "请输入您所要添加联系人的性别:" << endl;
-        cout << "0代表男/1代表女" << endl;
-        cin >> sex;
-
-        if (sex == 0)
-        {
-            add->addrArray[add->addrSize].sex = "男";
-        }
-        else if (sex == 1)
-        {
-            add->addrArray[add->addrSize].sex = "女";
-        }
-        else
-        {
-            cout << "您输入的性别是个笑话,请从新输入!" << endl;
-            continue;
-        }
-        break;
-    }
-
-    //添加年龄
-    int age = 0;
-    cout << "请输入您所要添加联系人的年龄:" << endl;
-    cin >> age;
-    add->addrArray[add->addrSize].age = age;
-
-    //添加电话号
-    long long num = 0;
-    cout << "请输入您所添加联系人的电话:" << endl;
-    cin >> num;
-    add->addrArray[add->addrSize].num = num;
-
-    //添加地址
-    string address;
-    cout << "请输入您所添加联系人的地址:" << endl;
-    cin >> address;
-    add->addrArray[add->addrSize].address = address;
-
-   
-
-    cout << add->addrArray[add->addrSize].age <<","<< add->addrArray[add->addrSize].address << endl; 
-    add->addrSize++ ;
-}
-
-void function2()
-{
-}
-
-void function3()
-{
-}
-
-void function4()
-{
-}
-
-void function5()
-{
-}
-
-void function6()
-{
+    return 0;
 }
