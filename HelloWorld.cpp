@@ -81,3 +81,44 @@ void Lru(int fold, Page *b)
 				b[i].time++;
 	}
 }
+
+/*主程序*/
+int main()
+{
+	int a[N] = {7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 1, 2, 0, 1, 7, 0, 1};
+	int i, j;
+	K = -1;
+	Init(b, c);
+	for (i = 0; i < N; i++)
+	{
+		Lru(a[i], b);
+		c[0][i] = a[i];
+		/*记录当前的内存单元中的页面*/
+		for (j = 0; j < M; j++)
+			c[j][i] = b[j].num;
+	}
+	/*结果输出*/
+	printf("内存状态为：\n");
+	Myprintf;
+	for (j = 0; j < N; j++)
+		printf("|%2d ", a[j]);
+	printf("|\n");
+	Myprintf;
+	for (i = 0; i < M; i++)
+	{
+		for (j = 0; j < N; j++)
+		{
+			if (c[i][j] == -1)
+				printf("|%2c ", 32);
+			else
+				printf("|%2d ", c[i][j]);
+		}
+		printf("|\n");
+	}
+	int queue[100];
+	Myprintf;
+	printf("\n调入队列为:");
+	for (i = 0; i < K + 1; i++)
+		printf("%3d", queue[i]);
+	printf("\n缺页次数为：%2d\n缺页率：%2.2f", K + 1, (float)(K + 1) / N);
+}

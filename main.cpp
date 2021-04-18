@@ -1258,45 +1258,43 @@ using namespace std;
 //     cout<<g->building<<endl;
 // }
 
-#include "HelloWorld.cpp"
 
-/*主程序*/
+
+
+//冒泡排序函数  参数一 数组的首地址  参数二 数组长度
+void bubbleSort(int *arr, int len)
+{
+    for (int i = 0; i < len  ; i++)
+    {
+        for (int j = 0; j < len ; i++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+//打印数组
+void printArray(int *arr, int len)
+{
+    for (int i = 0; i < len; i++)
+    {
+        cout << arr[i] << endl;
+    }
+}
+
 int main()
 {
-    int a[N] = {7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 1, 2, 0, 1, 7, 0, 1};
-    int i, j;
-    K = -1;
-    Init(b, c);
-    for (i = 0; i < N; i++)
-    {
-        Lru(a[i], b);
-        c[0][i] = a[i];
-        /*记录当前的内存单元中的页面*/
-        for (j = 0; j < M; j++)
-            c[j][i] = b[j].num;
-    }
-    /*结果输出*/
-    printf("内存状态为：\n");
-    Myprintf;
-    for (j = 0; j < N; j++)
-        printf("|%2d ", a[j]);
-    printf("|\n");
-    Myprintf;
-    for (i = 0; i < M; i++)
-    {
-        for (j = 0; j < N; j++)
-        {
-            if (c[i][j] == -1)
-                printf("|%2c ", 32);
-            else
-                printf("|%2d ", c[i][j]);
-        }
-        printf("|\n");
-    }
-    int queue[100];
-    Myprintf;
-    printf("\n调入队列为:");
-    for (i = 0; i < K + 1; i++)
-        printf("%3d", queue[i]);
-    printf("\n缺页次数为：%2d\n缺页率：%2.2f", K + 1, (float)(K + 1) / N);
+    //先创建数组
+    int arr[] = {4, 3, 6, 9, 1, 2, 10, 8, 7, 50};
+
+    //数组长度
+    int len = sizeof(arr) / sizeof(arr[0]);
+    //2.创建函数，实现冒泡排序
+    bubbleSort(arr, len);
+    //3.打印排序后的数组
+    printArray(arr, len);
 }
