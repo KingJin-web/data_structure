@@ -17,7 +17,7 @@ int main(int argc, char const *argv[])
 {
 
     cout << "Input string, include: i + * () End #" << endl;
-    gets(buf);
+    gets_s(buf);
     //i+(i*i)#
     c = buf[p++];
     //cout << buf << "," << c << endl;

@@ -1201,19 +1201,102 @@ using namespace std;
 //     return 0;
 // }
 
-int main(int argc, char const *argv[])
-{
-    vector<int> a;
-    a.push_back(1);
-    a.push_back(2);
-    a.push_back(3);
-    a.push_back(4);
-    a.push_back(6);
-    a.push_back(5);
+// int main(int argc, char const *argv[])
+// {
+//     vector<int> a;
+//     a.push_back(1);
+//     a.push_back(2);
+//     a.push_back(3);
+//     a.push_back(4);
+//     a.push_back(6);
+//     a.push_back(5);
 
-    for (int b : a)
+//     for (int b : a)
+//     {
+//         cout << b << endl;
+//     }
+//     return 0;
+// }
+
+
+
+// class Building
+// {
+// public:
+//     Building();
+
+//     string visitRoom;
+
+// private:
+//     string bedRoom;
+// };
+// Building::Building()
+// {
+//     visitRoom = "客厅"; //客厅
+//     bedRoom = "卧室";   //卧室
+// }
+// class GoodGay
+// {
+// public:
+//     GoodGay();
+//     Building *building;
+//     void visit();
+// };
+// GoodGay::GoodGay()
+// {
+
+//     building = new Building();
+// }
+// void GoodGay::visit()
+// {
+//     cout << "visit()" << endl;
+// }
+// int main()
+// {
+//     GoodGay *g = new GoodGay();
+//     g->visit();
+//     cout<<g->building<<endl;
+// }
+
+#include "HelloWorld.cpp"
+
+/*主程序*/
+int main()
+{
+    int a[N] = {7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2, 1, 2, 0, 1, 7, 0, 1};
+    int i, j;
+    K = -1;
+    Init(b, c);
+    for (i = 0; i < N; i++)
     {
-        cout << b << endl;
+        Lru(a[i], b);
+        c[0][i] = a[i];
+        /*记录当前的内存单元中的页面*/
+        for (j = 0; j < M; j++)
+            c[j][i] = b[j].num;
     }
-    return 0;
+    /*结果输出*/
+    printf("内存状态为：\n");
+    Myprintf;
+    for (j = 0; j < N; j++)
+        printf("|%2d ", a[j]);
+    printf("|\n");
+    Myprintf;
+    for (i = 0; i < M; i++)
+    {
+        for (j = 0; j < N; j++)
+        {
+            if (c[i][j] == -1)
+                printf("|%2c ", 32);
+            else
+                printf("|%2d ", c[i][j]);
+        }
+        printf("|\n");
+    }
+    int queue[100];
+    Myprintf;
+    printf("\n调入队列为:");
+    for (i = 0; i < K + 1; i++)
+        printf("%3d", queue[i]);
+    printf("\n缺页次数为：%2d\n缺页率：%2.2f", K + 1, (float)(K + 1) / N);
 }
