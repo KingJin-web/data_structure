@@ -43,11 +43,11 @@ void E()
 
 void M()
 {
-     
+
     if (c == '+')
     {
         c = buf[p++];
-      
+
         E();
     }
 }
@@ -60,7 +60,7 @@ void T()
 
 void N()
 {
-    
+
     if (c == '*')
     {
         c = buf[p++];
@@ -70,12 +70,12 @@ void N()
 
 void F()
 {
-     
+
     if (c == '(')
     {
         c = buf[p++];
         E();
-         
+
         if (c == ')')
         {
             c = buf[p++];
@@ -88,7 +88,7 @@ void F()
     }
     else
     {
-         
+
         if (c == 'i')
         {
             c = buf[p++];

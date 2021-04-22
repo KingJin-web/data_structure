@@ -1262,39 +1262,77 @@ using namespace std;
 
 
 //冒泡排序函数  参数一 数组的首地址  参数二 数组长度
-void bubbleSort(int *arr, int len)
-{
-    for (int i = 0; i < len  ; i++)
-    {
-        for (int j = 0; j < len ; i++)
-        {
-            if (arr[j] > arr[j + 1])
-            {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
-    }
-}
-//打印数组
-void printArray(int *arr, int len)
-{
-    for (int i = 0; i < len; i++)
-    {
-        cout << arr[i] << endl;
-    }
-}
+// void bubbleSort(int *arr, int len)
+// {
+//     for (int i = 0; i < len  ; i++)
+//     {
+//         for (int j = 0; j < len ; i++)
+//         {
+//             if (arr[j] > arr[j + 1])
+//             {
+//                 int temp = arr[j];
+//                 arr[j] = arr[j + 1];
+//                 arr[j + 1] = temp;
+//             }
+//         }
+//     }
+// }
+// //打印数组
+// void printArray(int *arr, int len)
+// {
+//     for (int i = 0; i < len; i++)
+//     {
+//         cout << arr[i] << endl;
+//     }
+// }
+
+// int main()
+// {
+//     //先创建数组
+//     int arr[] = {4, 3, 6, 9, 1, 2, 10, 8, 7, 50};
+
+//     //数组长度
+//     int len = sizeof(arr) / sizeof(arr[0]);
+//     //2.创建函数，实现冒泡排序
+//     bubbleSort(arr, len);
+//     //3.打印排序后的数组
+//     printArray(arr, len);
+// }
+
+
+
+
+
+
+
+
+// int main(int argc, char const *argv[])
+// {
+//     bool b_show = true;
+//     cout<<(b_show ? "是的" : "不是")<<endl;
+
+//     return 0;
+// }
+//实现斗地主的信息显示，摸牌发牌等
+#include <iostream>
+#include "Landowner.h"
+#include "Landowner.cpp"
+using namespace std;
 
 int main()
 {
-    //先创建数组
-    int arr[] = {4, 3, 6, 9, 1, 2, 10, 8, 7, 50};
+    Landowner *ptr_landownerv1 = new Landowner();
+    Landowner *ptr_landownerv2 = new Landowner("大金牙");
+    Landowner *ptr_landownerv3 = new Landowner("王胖子");
 
-    //数组长度
-    int len = sizeof(arr) / sizeof(arr[0]);
-    //2.创建函数，实现冒泡排序
-    bubbleSort(arr, len);
-    //3.打印排序后的数组
-    printArray(arr, len);
+    ptr_landownerv1->showinfo();
+    ptr_landownerv2->showinfo();
+    ptr_landownerv3->showinfo();
+
+    delete ptr_landownerv1;
+    delete ptr_landownerv2;
+    delete ptr_landownerv3;
+
+    cout << "Hello world!" << endl;
+    return 0;
 }
