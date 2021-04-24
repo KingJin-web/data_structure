@@ -1218,8 +1218,6 @@ using namespace std;
 //     return 0;
 // }
 
-
-
 // class Building
 // {
 // public:
@@ -1257,9 +1255,6 @@ using namespace std;
 //     g->visit();
 //     cout<<g->building<<endl;
 // }
-
-
-
 
 //冒泡排序函数  参数一 数组的首地址  参数二 数组长度
 // void bubbleSort(int *arr, int len)
@@ -1299,13 +1294,6 @@ using namespace std;
 //     printArray(arr, len);
 // }
 
-
-
-
-
-
-
-
 // int main(int argc, char const *argv[])
 // {
 //     bool b_show = true;
@@ -1314,25 +1302,60 @@ using namespace std;
 //     return 0;
 // }
 //实现斗地主的信息显示，摸牌发牌等
-#include <iostream>
-#include "Landowner.h"
-#include "Landowner.cpp"
-using namespace std;
+// #include <iostream>
+// #include "Landowner.h"
+// #include "Landowner.cpp"
+// using namespace std;
 
-int main()
+// int main()
+// {
+//     Landowner *ptr_landownerv1 = new Landowner();
+//     Landowner *ptr_landownerv2 = new Landowner("大金牙");
+//     Landowner *ptr_landownerv3 = new Landowner("王胖子");
+
+//     ptr_landownerv1->showinfo();
+//     ptr_landownerv2->showinfo();
+//     ptr_landownerv3->showinfo();
+
+//     delete ptr_landownerv1;
+//     delete ptr_landownerv2;
+//     delete ptr_landownerv3;
+
+//     cout << "Hello world!" << endl;
+//     return 0;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     for(;;){
+//         char aaa[1];
+//         char aa[10];
+
+//         scanf("%s",aaa);
+
+//         printf("输出  %s \n",aaa);
+//         printf("输出  %d \n", sizeof(aaa));
+//         printf("输出2 %s \n", aa);
+//     }
+//     return 0;
+// }
+
+int main(int argc, char const *argv[])
 {
-    Landowner *ptr_landownerv1 = new Landowner();
-    Landowner *ptr_landownerv2 = new Landowner("大金牙");
-    Landowner *ptr_landownerv3 = new Landowner("王胖子");
-
-    ptr_landownerv1->showinfo();
-    ptr_landownerv2->showinfo();
-    ptr_landownerv3->showinfo();
-
-    delete ptr_landownerv1;
-    delete ptr_landownerv2;
-    delete ptr_landownerv3;
-
-    cout << "Hello world!" << endl;
+    int T = 4;
+    while(T--){
+        char ch;
+        printf("press a key and then press enter:\n");
+        scanf("%c", &ch);
+        getchar()
+        if ((ch >= 0 && ch <= 47) || (ch >= 58 && ch <= 64) || (ch >= 91 && ch <= 96) || (ch >= 123 && ch <= 127))
+            printf(" %c is 其他字符 ,ASCII is %d\n", ch, ch);
+        if (ch >= 48 && ch <= 57)
+            printf("%c is 数字字符,ASCII is %d\n", ch, ch);
+        if (ch >= 65 && ch <= 90)
+            printf("%c is 大写字母,ASCII is %d\n", ch, ch);
+        if (ch >= 97 && ch <= 122)
+            printf("%c is 小写字母,ASCII is %d\n", ch, ch);
+    }
     return 0;
 }
