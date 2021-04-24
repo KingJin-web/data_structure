@@ -196,7 +196,7 @@ bbbba
 54
 ```
 
-## [7-4 Split (20 分)](f,cpp)
+## [7-4 Split (20 分)](f.cpp)
 
 Little Zhang has an array **a** which length is **n**, and the index of this array **a** starts from zero. As Little Zhang is bored, he decides to play with the array.
 
@@ -286,8 +286,6 @@ For the sample test case, the process of all the split operations are shown in t
 ```out
 14
 ```
-
-
 
 ## [7-6 小乐子闯鬼屋 (300 分)](h.cpp)
 
