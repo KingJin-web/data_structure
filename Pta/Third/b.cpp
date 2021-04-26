@@ -33,75 +33,81 @@ int main()
 
     init(); //计算出change[i]
 
-    while (scanf("%d%d%d%d%d%d", &number[0], &number[1], &number[2], &number[3], &number[4], &number[5]) != EOF)
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++)
     {
-        int sum = 0;
-        int kk;
-        for (kk = 0; kk < 6; kk++)
-            sum += number[kk];
-        if (sum == 0)
-            break;
-        double weight;
-        scanf("%lf", &weight);
-        weight = weight * 100;
-        // printf("weight = %lf\n",weight);
-        int w = int(weight + 0.0000001); //处理精度问题
-        //printf("%d\n",w);
-
-        if (w % 5 != 0) //若不能整除，则无法表示
+        while (scanf("%d%d%d%d%d%d", &number[0], &number[1], &number[2], &number[3], &number[4], &number[5]) != EOF)
         {
-            printf("impossible\n");
-            continue;
-        }
-        else
-            w = w / 5;
+            int sum = 0;
+            int kk;
+            for (kk = 0; kk < 6; kk++)
+                sum += number[kk];
+            if (sum == 0)
+                break;
+            double weight;
+            scanf("%lf", &weight);
+            weight = weight * 100;
+            // printf("weight = %lf\n",weight);
+            int w = int(weight + 0.0000001); //处理精度问题
+            //printf("%d\n",w);
 
-        int i, j;
-        memset(dp, -1, sizeof(dp));
-        dp[0] = 0;
-        int bigger = 0;
-        for (i = 0; i < 6; i++) //计算顾客支付面值i需要的最少硬币数dp[i]
-        {
-            while (number[i]--) //将混合背包拆成01背包做，写水了点。。。
+            if (w % 5 != 0) //若不能整除，则无法表示
             {
-                bigger = bigger + value[i];
-                for (j = bigger; j >= value[i]; j--)
+                printf("impossible\n");
+                continue;
+            }
+            else
+                w = w / 5;
+
+            int i, j;
+            memset(dp, -1, sizeof(dp));
+            dp[0] = 0;
+            int bigger = 0;
+            for (i = 0; i < 6; i++) //计算顾客支付面值i需要的最少硬币数dp[i]
+            {
+                while (number[i]--) //将混合背包拆成01背包做，写水了点。。。
                 {
-                    if (dp[j - value[i]] != -1)
+                    bigger = bigger + value[i];
+                    for (j = bigger; j >= value[i]; j--)
                     {
-                        int temp = dp[j - value[i]] + 1;
-                        if (dp[j] == -1 || temp < dp[j])
+                        if (dp[j - value[i]] != -1)
                         {
-                            dp[j] = temp;
+                            int temp = dp[j - value[i]] + 1;
+                            if (dp[j] == -1 || temp < dp[j])
+                            {
+                                dp[j] = temp;
+                            }
                         }
                     }
                 }
             }
-        }
 
-        int ans = -1;
-        for (i = w; i <= bigger; i++) //寻找最少硬币组合
-        {
-            if (dp[i] != -1)
+            int ans = -1;
+            for (i = w; i <= bigger; i++) //寻找最少硬币组合
             {
-                int need = i - w;
-                if (change[need] != -1)
+                if (dp[i] != -1)
                 {
-                    int temp = dp[i] + change[need];
-                    if (ans == -1 || ans > temp)
-                        ans = temp;
+                    int need = i - w;
+                    if (change[need] != -1)
+                    {
+                        int temp = dp[i] + change[need];
+                        if (ans == -1 || ans > temp)
+                            ans = temp;
+                    }
                 }
             }
+
+            // for(i=0;i<N;i++)
+            //   if(dp[i]!=-1)
+            //  printf("dp[%d]=%d\n",i,dp[i]);
+
+            if (ans != -1)
+                printf("%d\n", ans);
+            else
+                printf("impossible\n");
         }
-
-        // for(i=0;i<N;i++)
-        //   if(dp[i]!=-1)
-        //  printf("dp[%d]=%d\n",i,dp[i]);
-
-        if (ans != -1)
-            printf("%d\n", ans);
-        else
-            printf("impossible\n");
     }
+
     return 0;
 }
