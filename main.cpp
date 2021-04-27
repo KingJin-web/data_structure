@@ -1340,22 +1340,54 @@ using namespace std;
 //     return 0;
 // }
 
-int main(int argc, char const *argv[])
+// int main(int argc, char const *argv[])
+// {
+//     int T = 4;
+//     while(T--){
+//         char ch;
+//         printf("press a key and then press enter:\n");
+//         scanf("%c", &ch);
+//         getchar()
+//         if ((ch >= 0 && ch <= 47) || (ch >= 58 && ch <= 64) || (ch >= 91 && ch <= 96) || (ch >= 123 && ch <= 127))
+//             printf(" %c is 其他字符 ,ASCII is %d\n", ch, ch);
+//         if (ch >= 48 && ch <= 57)
+//             printf("%c is 数字字符,ASCII is %d\n", ch, ch);
+//         if (ch >= 65 && ch <= 90)
+//             printf("%c is 大写字母,ASCII is %d\n", ch, ch);
+//         if (ch >= 97 && ch <= 122)
+//             printf("%c is 小写字母,ASCII is %d\n", ch, ch);
+//     }
+//     return 0;
+// }
+
+#include <stdio.h>
+int main()
 {
-    int T = 4;
-    while(T--){
-        char ch;
-        printf("press a key and then press enter:\n");
-        scanf("%c", &ch);
-        getchar()
-        if ((ch >= 0 && ch <= 47) || (ch >= 58 && ch <= 64) || (ch >= 91 && ch <= 96) || (ch >= 123 && ch <= 127))
-            printf(" %c is 其他字符 ,ASCII is %d\n", ch, ch);
-        if (ch >= 48 && ch <= 57)
-            printf("%c is 数字字符,ASCII is %d\n", ch, ch);
-        if (ch >= 65 && ch <= 90)
-            printf("%c is 大写字母,ASCII is %d\n", ch, ch);
-        if (ch >= 97 && ch <= 122)
-            printf("%c is 小写字母,ASCII is %d\n", ch, ch);
+    float price = 0.0;
+    int m = 0;
+    int d = 0;
+    int flag = 0;
+    int i ;
+    for (i = 0; i < 4; i++)
+    {
+        scanf("%f%d%d%d", &price, &m, &d, &flag);
+        if (m == 11 && d == 11)
+        {
+            price *= 0.7;
+            if (flag == 1)
+                price -= 50;
+        }
+        else if (m == 12 && d == 12)
+        {
+            price *= 0.8;
+            if (flag == 1)
+                price -= 50;
+        }
+        if (price < 0.0)
+            price = 0.0;
+        printf("%.2f\n", price);
+       
     }
-    return 0;
+     return 0;
 }
+
