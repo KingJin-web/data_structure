@@ -45,80 +45,45 @@
 //     return 0;
 // }
 
-
-//这是java 上面的只有五分 这个有满分
-/**
- * @program: leetcode
- * @description:
- * @author: King
- * @create: 2021-04-27 10:49
- */
-
-import java.util.Scanner;
-
-public
-class Main
+#include <iostream>
+#include <cstring>
+using namespace std;
+int val[55] = {0, 5, 10, 20, 50, 100, 200};
+int main()
 {
-    static int[] cnts = new int[6];
-    //一开始就选择下标为最大的500
-    //d = [0.05, 0.1, 0.2, 0.5, 1, 2]
-    static double[] coins = {5, 10, 20, 50, 100, 200};
-
-public
-    static void main(String[] args)
+    int T;
+    cin >> T;
+    while (T--)
     {
-
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        //        for (int i = 0; i < 6; i++) {
-        //            cnts[i] = sc.nextInt();
-        //        }
-        //        double aa = sc.nextDouble();
-        //        test((int) (aa * 100));
-        while (n > 0)
+        int w[1001] = {0}, v[1001] = {0}, n = 0, a[10001], sum;
+        memset(a, 0x3f, sizeof(a));
+        for (int i = 1; i <= 6; i++)
         {
-            for (int i = 0; i < 6; i++)
+            int s;
+            cin >> s;
+            for (int j = 1; j <= s; j++)
             {
-                cnts[i] = sc.nextInt();
+                n++;
+                w[n] = val[i];
+                v[n] = 1;
             }
-            double aa = sc.nextDouble();
-            test((int)(aa * 100));
-            n--;
         }
-    }
-
-private
-    static void test(int aa)
-    {
-        double count = 0;
-        int c = 0;
-        int i = 0, n = 0;
-        for (i = 0; i < 6; i++)
+        double s;
+        cin >> s;
+        sum = s * 100;
+        a[0] = 0;
+        for (int i = 1; i <= n; i++)
         {
-            count += cnts[i] * coins[i];
-        }
-        if (count < aa)
-        {
-            System.out.println("impossible");
-            return;
-        }
-        i = 5;
-        while (i >= 0)
-        {
-            if (aa >= coins[i])
+            for (int j = sum; j >= w[i]; j--)
             {
-                n = (int)(aa / coins[i]);
-                if (n >= cnts[i])
-                {
-                    n = cnts[i];
-                }
-                aa -= n * coins[i];
-                //System.out.println(aa);
-                c += n;
-                //System.out.println("使用了" + n + "个" + coins[i]);
+                a[j] = min(a[j], a[j - w[i]] + v[i]);
+                //				cout<<w[i]<<" "<<v[i]<<endl;
             }
-            i--;
         }
-        System.out.println(c);
+        if (a[sum] != 1061109567)
+            cout << a[sum] << endl;
+        else
+            cout << "impossible" << endl;
     }
+    return 0;
 }
