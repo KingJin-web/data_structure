@@ -1,7 +1,8 @@
 #include <windows.h>
 #include <iostream>
-#include <bits/stdc++.h>
+
 #include <string>
+#include <bits/stdc++.h>
 using namespace std;
 char m[5][6][10] = {
     {"MT", "", "", "MT", "", ""},

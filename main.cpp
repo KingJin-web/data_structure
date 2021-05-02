@@ -1360,34 +1360,45 @@ using namespace std;
 //     return 0;
 // }
 
-#include <stdio.h>
+// #include <stdio.h>
+// int main()
+// {
+//     float price = 0.0;
+//     int m = 0;
+//     int d = 0;
+//     int flag = 0;
+//     int i ;
+//     for (i = 0; i < 4; i++)
+//     {
+//         scanf("%f%d%d%d", &price, &m, &d, &flag);
+//         if (m == 11 && d == 11)
+//         {
+//             price *= 0.7;
+//             if (flag == 1)
+//                 price -= 50;
+//         }
+//         else if (m == 12 && d == 12)
+//         {
+//             price *= 0.8;
+//             if (flag == 1)
+//                 price -= 50;
+//         }
+//         if (price < 0.0)
+//             price = 0.0;
+//         printf("%.2f\n", price);
+
+//     }
+//      return 0;
+// }
+
 int main()
 {
-    float price = 0.0;
-    int m = 0;
-    int d = 0;
-    int flag = 0;
-    int i ;
-    for (i = 0; i < 4; i++)
-    {
-        scanf("%f%d%d%d", &price, &m, &d, &flag);
-        if (m == 11 && d == 11)
-        {
-            price *= 0.7;
-            if (flag == 1)
-                price -= 50;
-        }
-        else if (m == 12 && d == 12)
-        {
-            price *= 0.8;
-            if (flag == 1)
-                price -= 50;
-        }
-        if (price < 0.0)
-            price = 0.0;
-        printf("%.2f\n", price);
-       
-    }
-     return 0;
+    char ch1, ch2;
+    printf("请输入第一个字符：");
+    whule(scanf("%c", &ch1));
+    //getchar();
+    fflush(stdin);
+    printf("请你输入第二个字符：");
+    scanf("%c", &ch2);
+    printf("您输入的字符是：%c,%c\n", ch1, ch2);
 }
-
