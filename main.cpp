@@ -1,5 +1,4 @@
 #include <windows.h>
-#include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
 // int main()
@@ -1391,14 +1390,19 @@ using namespace std;
 //      return 0;
 // }
 
-int main()
-{
-    char ch1, ch2;
-    printf("请输入第一个字符：");
-    whule(scanf("%c", &ch1));
-    //getchar();
-    fflush(stdin);
-    printf("请你输入第二个字符：");
-    scanf("%c", &ch2);
-    printf("您输入的字符是：%c,%c\n", ch1, ch2);
-}
+
+// int main()
+// {
+  
+//     while (1)
+//     {
+//         SYSTEMTIME sys;
+//         GetLocalTime(&sys);
+//         printf("%4d/%02d/%02d %02d:%02d:%02d.%03d 星期%1d\n", sys.wYear, sys.wMonth, sys.wDay, sys.wHour, sys.wMinute, sys.wSecond, sys.wMilliseconds, sys.wDayOfWeek);
+//         cout<<(sys.wSecond == 20)<<endl;
+//         _sleep(1 * 1000);
+//     }
+//     return 0;
+// }
+
+
