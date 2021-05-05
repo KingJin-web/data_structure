@@ -1405,4 +1405,13 @@ using namespace std;
 //     return 0;
 // }
 
+int main()
+{
+    printf("你好 C语言\n");
+
+    cout<<"你好 C语言"<<endl;
+    return 0;
+}
+
+
 
