@@ -1390,10 +1390,9 @@ using namespace std;
 //      return 0;
 // }
 
-
 // int main()
 // {
-  
+
 //     while (1)
 //     {
 //         SYSTEMTIME sys;
@@ -1404,14 +1403,157 @@ using namespace std;
 //     }
 //     return 0;
 // }
+// double *retArr(double arr[],int len)
+// {
+//     int i, j;
+//     double temp;
+//     //int len = (int)sizeof(arr) / sizeof(*arr);
+//     for (i = 0; i < len - 1; i++)
+//         for (j = 0; j < len - 1 - i; j++)
+//             if (arr[j] > arr[j + 1])
+//             {
+//                 temp = arr[j];
+//                 arr[j] = arr[j + 1];
 
-int main()
+//                 arr[j + 1] = temp;
+//             }
+//     return arr;
+// }
+// int main()
+// {
+//     double dp[10] = {11.1, 22.2, 13.3, 34.4, 15.5, 36.6, 57.7, 38.8, 91.9, 10.1};
+//     int len = (int)sizeof(dp) / sizeof(*dp);
+//     double *arr = retArr(dp,len);
+//     for (int i = 0; i < 10; ++i)
+//     {
+//         printf("arr[%d] = %.1lf\n", i, arr[i]);
+//     }
+
+//     return 0;
+// }
+
+// 书写函数实现冒泡排序并返回排序后的数组
+// double *sort();
+// double *sort()
+// {
+//     int i, j;    //循环变量
+//     double temp; //临时变量
+//     static double arr[5] = {20, 30, 501, 22, 3334};
+//     for (i = 0; i < 5 - 1; i++)
+//     {
+//         for (j = 0; j < 5 - i - 1; j++)
+//         {
+//             if (arr[j] < arr[j + 1])
+//             {
+//                 temp = arr[j];
+//                 arr[j] = arr[j + 1];
+//                 arr[j + 1] = temp;
+//             }
+//         }
+//     }
+//     return arr;
+// }
+// int main()
+// {
+//     int i; //循环变量
+//     double *arri = sort();
+//     //int sum = search();
+//     //printf("查找到的下标为:%d\n", sum);
+
+//     printf("数组排序后:\n");
+//     for (i = 0; i < 5; i++)
+//     {
+//         printf("arr[%d] = %.2lf\n", i, *(arri + i));
+//     }
+//     for (size_t i = 0; i < 5; i++)
+//     {
+//         printf("arr[%d] = %.2lf\n", i, *(arri + i));
+//     }
+    
+// }
+// int main(int argc, char const *argv[])
+// {
+//     char a = getchar();
+//     return 0;
+// }
+
+// int main()
+// {
+//     float f, c;
+//     printf("输入华氏温度F\n");
+//     scanf("%f", &f);
+//     c = 5 / 9.0 * (f - 32);
+//     printf("华氏温度F=%.2f °F, \n摄氏温度C=%.2f °C", f, c);
+// }
+
+// #include <stdio.h>
+
+// typedef struct A
+// {
+//     char title[50];
+//     char author[50];
+//     char subject[100];
+//     int id;
+// }  AA;
+
+// AA book = {"C 语言", "RUNOOB", "编程语言", 123456};
+
+// int main()
+// {
+//     printf("title : %s\nauthor: %s\nsubject: %s\nbook_id: %d\n", book.title, book.author, book.subject, book.id);
+// }
+
+//主要看一下虚函数virtual函数重写，找一个程序看一下
+#include <iostream>
+using  namespace std;
+class Parent
 {
-    printf("你好 C语言\n");
-
-    cout<<"你好 C语言"<<endl;
-    return 0;
-}
+ public:
 
 
+     void Function1();
+     virtual void Function2();   // 这里声明Function2是虚函数
 
+ };
+
+ void Parent::Function1()
+ {
+     printf("This is parent,function1\n");
+ }
+
+ void Parent::Function2()
+ {
+     printf("This is parent,function2\n");
+ }
+
+ class Child:public Parent
+ {
+     void Function1();
+     void Function2();
+
+ };
+
+ void Child::Function1()
+ {
+     printf("This is child,function1\n");
+ }
+
+ void Child::Function2()
+
+ {
+     printf("This is child,function2\n");
+ }
+
+ int main()
+ {
+     Parent parent;
+     Child child;
+     Parent *p = &child;
+     p->Function1();
+     p->Function2();
+    //  p.Function1();
+    //  p.Function2();
+
+     return 0;
+
+ }

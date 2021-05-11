@@ -1,7 +1,8 @@
 #include <windows.h>
 #include <iostream>
-#include <bits/stdc++.h>
 #include <string>
+#include<math.h>
+#include <bits/stdc++.h>
 using namespace std;
 void E();
 void M();
