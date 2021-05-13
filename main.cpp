@@ -1504,56 +1504,86 @@ using namespace std;
 // }
 
 //主要看一下虚函数virtual函数重写，找一个程序看一下
+// #include <iostream>
+// using  namespace std;
+// class Parent
+// {
+//  public:
+
+
+//      void Function1();
+//      virtual void Function2();   // 这里声明Function2是虚函数
+
+//  };
+
+//  void Parent::Function1()
+//  {
+//      printf("This is parent,function1\n");
+//  }
+
+//  void Parent::Function2()
+//  {
+//      printf("This is parent,function2\n");
+//  }
+
+//  class Child:public Parent
+//  {
+//      void Function1();
+//      void Function2();
+
+//  };
+
+//  void Child::Function1()
+//  {
+//      printf("This is child,function1\n");
+//  }
+
+//  void Child::Function2()
+
+//  {
+//      printf("This is child,function2\n");
+//  }
+
+//  int main()
+//  {
+//      Parent parent;
+//      Child child;
+//      Parent *p = &child;
+//      p->Function1();
+//      p->Function2();
+//     //  p.Function1();
+//     //  p.Function2();
+
+//      return 0;
+
+//  }
 #include <iostream>
-using  namespace std;
-class Parent
+#include <string>
+
+#include <ctime>
+using namespace std;
+
+int main()
 {
- public:
+    srand(time(NULL));
+    int hp1 = 100, hp2 = 100;    //双方的初始血量
+    int att1, att2;              //p1和p2的普通攻击力
+    int i = 0;                   //对战轮数
+    while (hp1 >= 0 && hp2 >= 0); //两个都活着的时候，继续对战
+    {
+        //默认p1先攻击
+        att1 = rand() % 11 + 5; //每次攻击5——15
+        att2 = rand() % 11 + 5;
+        //玩家1攻击，玩家2掉血
+        hp2 -= att1;
+        //玩家2攻击，玩家1掉血
+        hp1 -= att2;
+        printf("第%d轮：\n", i + 1);
+        printf("玩家1攻击力%d，玩家2剩余血量%d\n", att1, hp2);
+        printf("玩家2攻击力%d,玩家1剩余血量%d\n", att2, hp1);
+        i++;
 
-
-     void Function1();
-     virtual void Function2();   // 这里声明Function2是虚函数
-
- };
-
- void Parent::Function1()
- {
-     printf("This is parent,function1\n");
- }
-
- void Parent::Function2()
- {
-     printf("This is parent,function2\n");
- }
-
- class Child:public Parent
- {
-     void Function1();
-     void Function2();
-
- };
-
- void Child::Function1()
- {
-     printf("This is child,function1\n");
- }
-
- void Child::Function2()
-
- {
-     printf("This is child,function2\n");
- }
-
- int main()
- {
-     Parent parent;
-     Child child;
-     Parent *p = &child;
-     p->Function1();
-     p->Function2();
-    //  p.Function1();
-    //  p.Function2();
-
-     return 0;
-
- }
+        printf("OK!游戏结束！玩家1剩余血量：%d\t玩家2剩余血量：%d\n", hp1, hp2);
+    }
+    return 0;
+}
