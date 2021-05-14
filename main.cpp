@@ -1469,7 +1469,7 @@ using namespace std;
 //     {
 //         printf("arr[%d] = %.2lf\n", i, *(arri + i));
 //     }
-    
+
 // }
 // int main(int argc, char const *argv[])
 // {
@@ -1509,7 +1509,6 @@ using namespace std;
 // class Parent
 // {
 //  public:
-
 
 //      void Function1();
 //      virtual void Function2();   // 这里声明Function2是虚函数
@@ -1557,33 +1556,114 @@ using namespace std;
 //      return 0;
 
 //  }
-#include <iostream>
-#include <string>
+// #include <iostream>
+// #include <string>
 
-#include <ctime>
-using namespace std;
+// #include <ctime>
+// using namespace std;
 
-int main()
+// int main()
+// {
+//     srand(time(NULL));
+//     int hp1 = 100, hp2 = 100;    //双方的初始血量
+//     int att1, att2;              //p1和p2的普通攻击力
+//     int i = 0;                   //对战轮数
+//     while (hp1 >= 0 && hp2 >= 0); //两个都活着的时候，继续对战
+//     {
+//         //默认p1先攻击
+//         att1 = rand() % 11 + 5; //每次攻击5——15
+//         att2 = rand() % 11 + 5;
+//         //玩家1攻击，玩家2掉血
+//         hp2 -= att1;
+//         //玩家2攻击，玩家1掉血
+//         hp1 -= att2;
+//         printf("第%d轮：\n", i + 1);
+//         printf("玩家1攻击力%d，玩家2剩余血量%d\n", att1, hp2);
+//         printf("玩家2攻击力%d,玩家1剩余血量%d\n", att2, hp1);
+//         i++;
+
+//         printf("OK!游戏结束！玩家1剩余血量：%d\t玩家2剩余血量：%d\n", hp1, hp2);
+//     }
+//     return 0;
+// }
+// int main(int argc, char const *argv[])
+// {
+// //     char ch[100];
+// //     //gets(ch);
+// //     int a = 200;
+// //    // HWND hwnd = FindWindow(NULL, "Slaver");
+// //     while (a)
+// //     {
+
+// //        printf("a = %d\t",a);
+// //        if(a % 6 == 0){
+// //            printf("\n");
+// //        }
+// //        a--;
+// //     }
+//     double a;
+//     scanf("%if",&a);
+//     printf("%lf\n",a);
+//     printf("%i\n", a);
+//     printf("%d\n", a);
+//     return 0;
+// }
+
+// #include <stdio.h>
+
+// int main()
+// {
+//     int i;
+//     double gz;      //工资
+//     double zgj = 0; //总工资
+//     double pjgz;    //平均工资
+//     for (i = 0; i < 6; i++)
+//     {
+//         printf("请输入第%d个月工资：", i); //这已经循环完
+//         scanf("%lf", &gz);                 //输入工资
+//         zgj += gz;                         //总工资计算//这好像没循环累加 scanf
+//     }
+
+//     printf("打印总工资：%lf", zgj);
+
+//     pjgz = zgj / 6; //平均工资计算
+
+//     printf("打印平均工资：%lf", pjgz);
+
+// }
+
+int main(int argc, char const *argv[])
 {
-    srand(time(NULL));
-    int hp1 = 100, hp2 = 100;    //双方的初始血量
-    int att1, att2;              //p1和p2的普通攻击力
-    int i = 0;                   //对战轮数
-    while (hp1 >= 0 && hp2 >= 0); //两个都活着的时候，继续对战
+    //hX，hY:头坐标 len:蛇长 map:地图，储存每个地图的元素。c:方向，cl:输入缓存，i：循环变量
+    int hX = 0, hY = 0, len = 4, map[900] = {0}, c = 'd', cl = 'd', i = 0;
+    //srand():初始变化的随机种子,malloc：动态分配，返回随即地址，systen():输出dos命令，mode修改窗口的大小
+    srand((unsigned)malloc(!systen("mode con:cols=60 lines=30")));
+    //创建循环  //创建食物（地图里，食物值为-1）Sleep:延时100毫秒
+    for (map[rand() % 900] = -1; 1; Sleep(100))
     {
-        //默认p1先攻击
-        att1 = rand() % 11 + 5; //每次攻击5——15
-        att2 = rand() % 11 + 5;
-        //玩家1攻击，玩家2掉血
-        hp2 -= att1;
-        //玩家2攻击，玩家1掉血
-        hp1 -= att2;
-        printf("第%d轮：\n", i + 1);
-        printf("玩家1攻击力%d，玩家2剩余血量%d\n", att1, hp2);
-        printf("玩家2攻击力%d,玩家1剩余血量%d\n", att2, hp1);
-        i++;
+        //kbhit():检测是否有键盘输入 ,_getch():获取一个字符;大写转小写
+        if (_kbhit() && (cl = _getch()) &&cl < 97 ? cl += 32 : 1)
+            //判断输入与原方向是否有冲突;比如本来是左走（a），输入是右走（b），明显矛盾。
+            if (cl == 'a' && c != 'd' || cl == 'd' && c != 'a' ||
+                cl == 'w' && c != 's' || cl == 's ' && c != 'w')
+                c = cl;
+        //判断方向，更新头坐标，越界判断
+        if (c == 'a' && --hX < 0 || c == 'd' && ++hX == 30 ||
+            c == 'w' && --hY < 0 || c == 's' && ++hY == 30)
+            exit(0); //eiit():退出，如果越界则退出；这里也可以用break代替
+                     //判断新头坐标，因为地图为一组数据，宽*Y+X得出头坐标;
+        if (map[hY * 30 + hX] && (map[hY * 30 + hX] > 0 ? exit(0), 1 : ++len))
+            ;   //如果值为 0（空地）直接跳过，如果大于0（蛇身），退出。剩下的情况只有-1（食物）则蛇身+1
+                //生成一个随机函数  判断食物新位置是否为空地  如果是则生成食物
+        for (i = rand() % 900; map[i] || !(map[i] = -1); i = rand() % 900)
+            ;
+        //遍历地图，所有蛇身值为-1；蛇尾（1）更新为空地（0）
+        else for (i = 0; i < 900; i++) map[i] > 0 ? (map[i] -= 1);
+        0;
+        //头坐标赋值，cls清屏
+        for (system("cls"), map[hY * 30 + hX] = len, i = 0; i < 900; i++)
+                _cputs(map[i] > 0 ?"()" : map[i] ? "00":"" ");
+    
 
-        printf("OK!游戏结束！玩家1剩余血量：%d\t玩家2剩余血量：%d\n", hp1, hp2);
-    }
     return 0;
-}
+    }
