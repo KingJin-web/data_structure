@@ -1,7 +1,6 @@
 #git文件过滤 https://blog.csdn.net/qq_43827595/article/details/100048727
 #忽略以.exe结尾的文件
 *.exe
-*.7z
 *.dmg
 *.gz
 *.iso
