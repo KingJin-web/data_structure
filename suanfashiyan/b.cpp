@@ -7,20 +7,44 @@ using namespace std;
 
 int getMaxLcsLength(char *x, char *y);
 int getMaxValue(int *w, int *v, int c, int n) ;
-int getMaxLcsLength(char *x, char *y)
+int longestCommonSubsequence(char *x, char *y)
 {
-    string text1 = x; int m = text1.length(); string text2 = y;
-    int n = text2.length();
-
-    //int m = text1.length(), n = text2.length();
-    vector<vector<int>>
-        dp(m + 1, vector<int>(n + 1));
+    int m = strlen(x), n = strlen(y);
+    int dp[m + 1][n + 1];
+    memset(dp, 0, sizeof(dp));
     for (int i = 1; i <= m; i++)
     {
-        char c1 = text1.at(i - 1);
+        char c1 = x[i - 1];
         for (int j = 1; j <= n; j++)
         {
-            char c2 = text2.at(j - 1);
+            char c2 = y[j - 1];
+            if (c1 == c2)
+            {
+                dp[i][j] = dp[i - 1][j - 1] + 1;
+            }
+            else
+            {
+                dp[i][j] = fmax(dp[i - 1][j], dp[i][j - 1]);
+            }
+        }
+    }
+    return dp[m][n];
+}
+int getMaxLcsLength(char *x, char *y)
+{
+    string x = x; 
+    int m = x.length(); 
+    string y = y;
+    int n = y.length();
+
+    //int m = x.length(), n = y.length();
+    vector<vector<int>> dp (m + 1, vector<int>(n + 1));
+    for (int i = 1; i <= m; i++)
+    {
+        char c1 = x.at(i - 1);
+        for (int j = 1; j <= n; j++)
+        {
+            char c2 = y.at(j - 1);
             if (c1 == c2)
             {
                 dp[i][j] = dp[i - 1][j - 1] + 1;

@@ -6,6 +6,20 @@ using namespace std;
 int maxNum(int a[], int begin);
 //2.用递归实现冒泡排序
 void sort2(int arr[], int left, int right);
+void sort(int a[],int length)
+{
+    for (int j = length - 1; j > 0; j--)
+    {
+        if (a[j] < a[j - 1])
+        {
+            int t = a[j];
+            a[j] = a[j - 1];
+            a[j - 1] = t;
+            sort(a,length);
+        }
+    }
+}
+
 //3． 整数因子分解问题
 void divide(int n);
 //4.参见教材整数划分问题（打印出各种划分方案）
@@ -18,7 +32,18 @@ int maxNum(int *arr, int n)
     int tem = maxNum(arr + 1, n - 1);
     return max(arr[0], tem);
 }
-
+int fundMax(int a[], int n)
+{
+    if (n >= 1)
+    {
+        if (fundMax(a, n - 1) > a[n])
+            return fundMax(a, n - 1);
+        else
+            return a[n];
+    }
+    else
+        return a[0];
+}
 void sort(int arr[], int left, int right)
 {
     int count = 0;
@@ -148,21 +173,41 @@ void c5()
     x = (a + b) * s / (3 * a + b);
     printf("%.6f", x / b + (s - x) / a);
 }
-
+void test5(){
+    double s, s1, s2, v1, v2, t1, t2, p;
+    double a, b;
+    scanf("%lf%lf%lf", &s, &v1, &v2);
+    s1 = 0;
+    s2 = s;
+    do
+    {
+        p = (s1 + s2) / 2.0;
+        a = p / v2;
+        b = (p - a * v1) / (v1 + v2);
+        t1 = a + (s - p) / v1;
+        t2 = a + b + (s - (a + b) * v1) / v2;
+        if (t1 < t2)
+            s2 = p;
+        else
+            s1 = p;
+    } while (fabs(t1 - t2) > 1e-8);
+    printf("%.10e", t1);
+}
 int main(int argc, char const *argv[])
 {
-    int arr[] = {1, 9, 2, 8, 1, 3, 9, 488, 49, 46};
+    test5();
+     int arr[] = {1, 9, 2, 8, 1, 3, 9, 488, 49, 46};
     int length = sizeof(arr) / sizeof(int);
 
     //1
-    printf("%d\n", maxNum(arr, length));
+   // printf("%d\n", fundMax(arr, length));
 
-    // printfArr(arr, length);
+     printfArr(arr, length);
 
     //2
-    // sort(arr, 0, length - 2);
+    sort(arr, length );
 
-    // printfArr(arr, length);
+    printfArr(arr, length);
 
     //3
     // divide(12);
@@ -171,12 +216,12 @@ int main(int argc, char const *argv[])
     // int dnum[100] = {0};
     // int t, len;
     // len = 1;
-    // printf("please enter the number:");
+    // printf("please enter the a:");
     // scanf("%d", dnum);
     // printf("the result is:\n");
     // t = q(dnum[0], dnum[0], dnum, len);
-    // printf("the number is:%d\n", t);
+    // printf("the a is:%d\n", t);
 
-    c5();
+    // c5();
     return 0;
 }

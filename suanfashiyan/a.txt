@@ -37,3 +37,14 @@
 // }
 
 int getMaxValue(int *w, int *v, int c = 50, int n = 3);
+
+
+void queue(int[] a) {                    for(int j=a.length-1;j>0;j--){
+                   if(a[j]<a[j-1]){
+                          int t=a[j];
+                        a[j]=a[j-1];
+                          a[j-1]=t;
+                  return queue(a);
+           }     
+        }18         return a;     }   }
+ ｝

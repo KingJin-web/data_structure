@@ -1631,3 +1631,79 @@ using namespace std;
 //     printf("打印平均工资：%lf", pjgz);
 
 // }
+void printfArr(int arr[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+class Box
+{
+public:
+    char arr[50];
+    double length;  // 长度
+    double breadth; // 宽度
+    double height;  // 高度
+    // 成员函数声明
+    double get(void);
+    void set(char arr[], double length, double bre, double hei);
+    Box(char arr[], double length, double breadth, double height)
+    {
+        //this->arr = arr;
+        strcpy(this->arr, arr);
+        this->length = length;
+        this->breadth = breadth;
+        this->height = height;
+    }
+};
+
+void Box::set(char arr[], double length, double breadth, double height)
+{
+    //this->arr = arr;
+    strcpy(this->arr, arr);
+    this->length = length;
+    this->breadth = breadth;
+    this->height = height;
+}
+int main()
+{
+
+    Box Box3; // 声明 Box3，类型为 Box
+
+    char arr[] = "指针真好玩";
+    Box3.set(arr, 16.0, 8.0, 12.0);
+    cout << Box3.arr << endl;
+
+    double volume = 0.0; // 用于存储体积
+                         // box 3 详述
+    Box Box1;            // 声明 Box1，类型为 Box
+    Box Box2;            // 声明 Box2，类型为 Box
+    // // box 1 详述
+    // Box1.height = 5.0;
+    // Box1.length = 6.0;
+    // Box1.breadth = 7.0;
+
+    // // box 2 详述
+    // Box2.height = 10.0;
+    // Box2.length = 12.0;
+    // Box2.breadth = 13.0;
+
+    // // box 1 的体积
+    // volume = Box1.height * Box1.length * Box1.breadth;
+    // cout << "Box1 的体积：" << volume << endl;
+
+    // // box 2 的体积
+    // volume = Box2.height * Box2.length * Box2.breadth;
+    // cout << "Box2 的体积：" << volume << endl;
+
+    return 0;
+}
+
+// 成员函数定义
+double Box::get(void)
+{
+    return length * breadth * height;
+}
