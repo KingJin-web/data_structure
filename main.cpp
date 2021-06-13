@@ -1631,79 +1631,153 @@ using namespace std;
 //     printf("打印平均工资：%lf", pjgz);
 
 // }
-void printfArr(int arr[], int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-}
+// void printfArr(int arr[], int n)
+// {
+//     for (int i = 0; i < n; i++)
+//     {
+//         printf("%d ", arr[i]);
+//     }
+//     printf("\n");
+// }
 
-class Box
-{
-public:
-    char arr[50];
-    double length;  // 长度
-    double breadth; // 宽度
-    double height;  // 高度
-    // 成员函数声明
-    double get(void);
-    void set(char arr[], double length, double bre, double hei);
-    Box(char arr[], double length, double breadth, double height)
-    {
-        //this->arr = arr;
-        strcpy(this->arr, arr);
-        this->length = length;
-        this->breadth = breadth;
-        this->height = height;
-    }
-};
+// class Box
+// {
+// public:
+//     char arr[50];
+//     double length;  // 长度
+//     double breadth; // 宽度
+//     double height;  // 高度
+//     // 成员函数声明
+//     double get(void);
+//     void set(char arr[], double length, double bre, double hei);
+//     Box(char arr[], double length, double breadth, double height)
+//     {
+//         //this->arr = arr;
+//         strcpy(this->arr, arr);
+//         this->length = length;
+//         this->breadth = breadth;
+//         this->height = height;
+//     }
+// };
 
-void Box::set(char arr[], double length, double breadth, double height)
-{
-    //this->arr = arr;
-    strcpy(this->arr, arr);
-    this->length = length;
-    this->breadth = breadth;
-    this->height = height;
+// void Box::set(char arr[], double length, double breadth, double height)
+// {
+//     //this->arr = arr;
+//     strcpy(this->arr, arr);
+//     this->length = length;
+//     this->breadth = breadth;
+//     this->height = height;
+// }
+// int main()
+// {
+
+//     Box Box3; // 声明 Box3，类型为 Box
+
+//     char arr[] = "指针真好玩";
+//     Box3.set(arr, 16.0, 8.0, 12.0);
+//     cout << Box3.arr << endl;
+
+//     double volume = 0.0; // 用于存储体积
+//                          // box 3 详述
+//     Box Box1;            // 声明 Box1，类型为 Box
+//     Box Box2;            // 声明 Box2，类型为 Box
+//     // // box 1 详述
+//     // Box1.height = 5.0;
+//     // Box1.length = 6.0;
+//     // Box1.breadth = 7.0;
+
+//     // // box 2 详述
+//     // Box2.height = 10.0;
+//     // Box2.length = 12.0;
+//     // Box2.breadth = 13.0;
+
+//     // // box 1 的体积
+//     // volume = Box1.height * Box1.length * Box1.breadth;
+//     // cout << "Box1 的体积：" << volume << endl;
+
+//     // // box 2 的体积
+//     // volume = Box2.height * Box2.length * Box2.breadth;
+//     // cout << "Box2 的体积：" << volume << endl;
+
+//     return 0;
+// }
+
+// // 成员函数定义
+// double Box::get(void)
+// {
+//     return length * breadth * height;
+// }
+
+
+// int main()
+// {
+//     //利用冒泡排序实现升序序列
+//     int arr[9] = {
+//         4,
+//         3,
+//         8,
+//         1,
+//         5,
+//         7,
+//         2,
+//         6,
+//         9,
+//     };
+//     cout << "排序前；" << endl;
+//     for (int z = 0; z < 9; z++)
+//     {
+//         cout << arr[z] << "  ";
+//     }
+//     cout << endl;
+//     //总排序轮数为元素个数-1
+//     for (int i = 0; i < 9; i++)
+//     { //内层循环对比   次数=元素个位-当前轮数-1
+//         for (int j = 0; j < 9 -i -1; j++)
+//         { //如果第一个数字比第二个数字大，那就交换2个数字
+//             if (arr[j] > arr[j + 1])
+//             {
+//                 int temp = arr[j];
+//                 arr[j] = arr[j + 1];
+//                 arr[j + 1] = temp;
+//             }
+//         }
+//     }
+//     cout << "排序后；" << endl;
+//     for (int q = 0; q < 9; q++)
+//     {
+//         cout << arr[q] << "  ";
+//     }
+//     cout << endl;
+
+  
+//     return 0;
+// }
+
+#include <stdio.h>
+float fun(float a, float b, float c)
+{ /****/
+    float sum = 0, i;
+    for (i = a; i <= b; i = i + c)
+    {
+        sum = sum + 3.14 * i * i;
+       
+    }
+    return sum;
+
+    /****/
 }
 int main()
 {
+    float x;
+    float y;
+    float z;
+    float sumS;
+    float d;
+    printf("请输入3个成等差数列的半径值:");
+    scanf("%f,%f,%f", &x, &y, &z);
+    d =y-x;
+    sumS = fun(x, z, d);
 
-    Box Box3; // 声明 Box3，类型为 Box
-
-    char arr[] = "指针真好玩";
-    Box3.set(arr, 16.0, 8.0, 12.0);
-    cout << Box3.arr << endl;
-
-    double volume = 0.0; // 用于存储体积
-                         // box 3 详述
-    Box Box1;            // 声明 Box1，类型为 Box
-    Box Box2;            // 声明 Box2，类型为 Box
-    // // box 1 详述
-    // Box1.height = 5.0;
-    // Box1.length = 6.0;
-    // Box1.breadth = 7.0;
-
-    // // box 2 详述
-    // Box2.height = 10.0;
-    // Box2.length = 12.0;
-    // Box2.breadth = 13.0;
-
-    // // box 1 的体积
-    // volume = Box1.height * Box1.length * Box1.breadth;
-    // cout << "Box1 的体积：" << volume << endl;
-
-    // // box 2 的体积
-    // volume = Box2.height * Box2.length * Box2.breadth;
-    // cout << "Box2 的体积：" << volume << endl;
-
+    printf("总面积:%.2f\n", sumS);
     return 0;
-}
-
-// 成员函数定义
-double Box::get(void)
-{
-    return length * breadth * height;
 }

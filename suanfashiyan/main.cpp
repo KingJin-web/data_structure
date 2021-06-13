@@ -1,36 +1,26 @@
-#include <iostream>
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
 using namespace std;
-int max1(int a, int b, int c)
+
+/**
+ * 根据区间随机
+ * @param start
+ * @param end
+ * @return
+ */
+int mt_rand(int start, int end)
 {
-    a = a > b ? a : b;
-    a = a > c ? a : c;
-    return a;
+    srand(time(0));
+    return rand() % (end + 1 - start) + start; /*生成一个[start,end)区间内的整数*/
 }
-int c[100010][11];
-int main()
+
+int main(int argc, char const *argv[])
 {
-    int n, a, b;
-    while (scanf("%d", &n) && n != 0)
-    {
-        int m = 0;
-        memset(c, 0, sizeof(c));
-        while (n--)
-        {
-            scanf("%d%d", &a, &b);
-            c[b][a]++;
-            if (m < b)
-                m = b;
-        }
-        for (int i = m - 1; i >= 0; i--)
-        {
-            for (int j = 1; j <= 9; j++)
-                c[i][j] = c[i][j] + max1(c[i + 1][j - 1], c[i + 1][j], c[i + 1][j + 1]);
-            c[i][0] = c[i][0] + max(c[i + 1][0], c[i + 1][1]);
-            c[i][10] = c[i][10] + max(c[i + 1][9], c[i + 1][10]);
-        }
-        printf("%d\n", c[0][5]);
+    while (1)
+    {cout<<mt_rand(1000,10000)<<endl;
+        _sleep(100);
     }
+    
+    
+    
     return 0;
 }
