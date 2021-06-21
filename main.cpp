@@ -1753,31 +1753,103 @@ using namespace std;
 //     return 0;
 // }
 
-#include <stdio.h>
-float fun(float a, float b, float c)
-{ /****/
-    float sum = 0, i;
-    for (i = a; i <= b; i = i + c)
-    {
-        sum = sum + 3.14 * i * i;
+// #include <stdio.h>
+// float fun(float a, float b, float c)
+// { /****/
+//     float sum = 0, i;
+//     for (i = a; i <= b; i = i + c)
+//     {
+//         sum = sum + 3.14 * i * i;
        
-    }
-    return sum;
+//     }
+//     return sum;
 
-    /****/
-}
+//     /****/
+// }
+// int main()
+// {
+//     float x;
+//     float y;
+//     float z;
+//     float sumS;
+//     float d;
+//     printf("请输入3个成等差数列的半径值:");
+//     scanf("%f,%f,%f", &x, &y, &z);
+//     d =y-x;
+//     sumS = fun(x, z, d);
+
+//     printf("总面积:%.2f\n", sumS);
+//     return 0;
+// }
+
+
+// int main()
+// {
+//     vector<int> a;
+//     int i = 0;
+//     for (i = 0; i < 10; i++)
+//     {
+//         a.push_back(i);
+//     }
+//     for(int i:a){
+//         printf("%d, " ,i);
+//     }
+//     printf("\n");
+//      return 0;
+// }
+// #include <iostream>
+// #include <string>
+// #include <vector> //类模板
+template <typename T>
+T fun(T a, T b);
+
 int main()
 {
-    float x;
-    float y;
-    float z;
-    float sumS;
-    float d;
-    printf("请输入3个成等差数列的半径值:");
-    scanf("%f,%f,%f", &x, &y, &z);
-    d =y-x;
-    sumS = fun(x, z, d);
+    /*
+cout<<"put number: " ;
+string s1 = "hello";
+cout<<s1;
+*/
+    string s1 = "hello", s2 = "world";
+    cout << fun<string>(s1, s2) << endl;    //输出s1+s2这个字符串
+    cout << fun<double>(30.22, 20) << endl; //输出数值调用函数的结果
+    string s3 = s1.substr(1, 3);            //拿出s1字符串的1-3
+    cout << s3 << endl;                     //输出拿到的新字符串s3
+    s3.insert(1, "hhhhhh");
+    cout << s3 << endl;        //向s3第一个元素之后插入新的字符串
+    cout << s3.size() << endl; //输出s3的长度
+    std::vector<int> v = {2,47,89,45};
+    //可以通过  push.back（）   最后添加一个元素
+    v.push_back(88);
+    v.push_back(99);
+    v.push_back(45);
+    v.push_back(32);
+    v.push_back(23);
+    v.push_back(666);
+    //成员函数size（）、下标运算符[]
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << v[i] << '\t';
+    }
+    cout << '\n';
+    v.pop_back(); //删除最后一个
 
-    printf("总面积:%.2f\n", sumS);
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << "删掉一个之后的元素：" << v[i] << '\t';
+        cout << '\n';
+    }
+    v.resize(3); //讲大小设置为3，如果resize设置的空间大于现有个数，就会在后面补0
+    for (int i = 0; i < v.size(); i++)
+    {
+        cout << "输出设置为3动态大小的元素：" << v[i] << '\t';
+        cout << '\n';
+    }
     return 0;
+}
+template <typename T>
+T fun(T a, T b)
+{
+    //cout<<a.size()<<endl;
+    return a + b;
 }
