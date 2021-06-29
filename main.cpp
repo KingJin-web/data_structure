@@ -1800,56 +1800,87 @@ using namespace std;
 // #include <iostream>
 // #include <string>
 // #include <vector> //类模板
-template <typename T>
-T fun(T a, T b);
+// template <typename T>
+// T fun(T a, T b);
 
-int main()
+// int main()
+// {
+//     /*
+// cout<<"put number: " ;
+// string s1 = "hello";
+// cout<<s1;
+// */
+//     string s1 = "hello", s2 = "world";
+//     cout << fun<string>(s1, s2) << endl;    //输出s1+s2这个字符串
+//     cout << fun<double>(30.22, 20) << endl; //输出数值调用函数的结果
+//     string s3 = s1.substr(1, 3);            //拿出s1字符串的1-3
+//     cout << s3 << endl;                     //输出拿到的新字符串s3
+//     s3.insert(1, "hhhhhh");
+//     cout << s3 << endl;        //向s3第一个元素之后插入新的字符串
+//     cout << s3.size() << endl; //输出s3的长度
+//     std::vector<int> v = {2,47,89,45};
+//     //可以通过  push.back（）   最后添加一个元素
+//     v.push_back(88);
+//     v.push_back(99);
+//     v.push_back(45);
+//     v.push_back(32);
+//     v.push_back(23);
+//     v.push_back(666);
+//     //成员函数size（）、下标运算符[]
+//     for (int i = 0; i < v.size(); i++)
+//     {
+//         cout << v[i] << '\t';
+//     }
+//     cout << '\n';
+//     v.pop_back(); //删除最后一个
+
+//     for (int i = 0; i < v.size(); i++)
+//     {
+//         cout << "删掉一个之后的元素：" << v[i] << '\t';
+//         cout << '\n';
+//     }
+//     v.resize(3); //讲大小设置为3，如果resize设置的空间大于现有个数，就会在后面补0
+//     for (int i = 0; i < v.size(); i++)
+//     {
+//         cout << "输出设置为3动态大小的元素：" << v[i] << '\t';
+//         cout << '\n';
+//     }
+//     return 0;
+// }
+// template <typename T>
+// T fun(T a, T b)
+// {
+//     //cout<<a.size()<<endl;
+//     return a + b;
+// }
+
+struct A
 {
-    /*
-cout<<"put number: " ;
-string s1 = "hello";
-cout<<s1;
-*/
-    string s1 = "hello", s2 = "world";
-    cout << fun<string>(s1, s2) << endl;    //输出s1+s2这个字符串
-    cout << fun<double>(30.22, 20) << endl; //输出数值调用函数的结果
-    string s3 = s1.substr(1, 3);            //拿出s1字符串的1-3
-    cout << s3 << endl;                     //输出拿到的新字符串s3
-    s3.insert(1, "hhhhhh");
-    cout << s3 << endl;        //向s3第一个元素之后插入新的字符串
-    cout << s3.size() << endl; //输出s3的长度
-    std::vector<int> v = {2,47,89,45};
-    //可以通过  push.back（）   最后添加一个元素
-    v.push_back(88);
-    v.push_back(99);
-    v.push_back(45);
-    v.push_back(32);
-    v.push_back(23);
-    v.push_back(666);
-    //成员函数size（）、下标运算符[]
-    for (int i = 0; i < v.size(); i++)
-    {
-        cout << v[i] << '\t';
-    }
-    cout << '\n';
-    v.pop_back(); //删除最后一个
+    vector<string> data {"A","B","C","D"};
+    int l = data.size();
+} a, *aa = &a;
 
-    for (int i = 0; i < v.size(); i++)
+void printLi(){
+
+  
+    for (int i = 0; i < a.l; i++)
     {
-        cout << "删掉一个之后的元素：" << v[i] << '\t';
-        cout << '\n';
+        cout<<a.data[i]<<" ";
     }
-    v.resize(3); //讲大小设置为3，如果resize设置的空间大于现有个数，就会在后面补0
-    for (int i = 0; i < v.size(); i++)
+    cout<<endl;
+    for (int i = 0; i < aa->l; i++)
     {
-        cout << "输出设置为3动态大小的元素：" << v[i] << '\t';
-        cout << '\n';
+        cout << aa->data[i]<<" ";
     }
-    return 0;
+    struct A *aaa = aa;
+    for (int i = 0; i < aaa->l; i++)
+    {
+        cout << aaa->data[i] << " ";
+    }
 }
-template <typename T>
-T fun(T a, T b)
+
+int main(int argc, char const *argv[])
 {
-    //cout<<a.size()<<endl;
-    return a + b;
+    printLi();
+    return 0;
 }

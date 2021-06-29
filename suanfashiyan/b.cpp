@@ -30,11 +30,11 @@ int longestCommonSubsequence(char *x, char *y)
     }
     return dp[m][n];
 }
-int getMaxLcsLength(char *x, char *y)
+int getMaxLcsLength(char *X, char *Y)
 {
-    string x = x; 
+    string x = X; 
     int m = x.length(); 
-    string y = y;
+    string y = Y;
     int n = y.length();
 
     //int m = x.length(), n = y.length();
