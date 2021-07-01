@@ -1708,7 +1708,6 @@ using namespace std;
 //     return length * breadth * height;
 // }
 
-
 // int main()
 // {
 //     //利用冒泡排序实现升序序列
@@ -1749,7 +1748,6 @@ using namespace std;
 //     }
 //     cout << endl;
 
-  
 //     return 0;
 // }
 
@@ -1760,7 +1758,7 @@ using namespace std;
 //     for (i = a; i <= b; i = i + c)
 //     {
 //         sum = sum + 3.14 * i * i;
-       
+
 //     }
 //     return sum;
 
@@ -1781,7 +1779,6 @@ using namespace std;
 //     printf("总面积:%.2f\n", sumS);
 //     return 0;
 // }
-
 
 // int main()
 // {
@@ -1854,33 +1851,52 @@ using namespace std;
 //     return a + b;
 // }
 
-struct A
-{
-    vector<string> data {"A","B","C","D"};
-    int l = data.size();
-} a, *aa = &a;
+// struct A
+// {
+//     vector<string> data {"A","B","C","D"};
+//     int l = data.size();
+// } a, *aa = &a;
 
-void printLi(){
+// void printLi(){
 
-  
-    for (int i = 0; i < a.l; i++)
-    {
-        cout<<a.data[i]<<" ";
-    }
-    cout<<endl;
-    for (int i = 0; i < aa->l; i++)
-    {
-        cout << aa->data[i]<<" ";
-    }
-    struct A *aaa = aa;
-    for (int i = 0; i < aaa->l; i++)
-    {
-        cout << aaa->data[i] << " ";
-    }
-}
+//     for (int i = 0; i < a.l; i++)
+//     {
+//         cout<<a.data[i]<<" ";
+//     }
+//     cout<<endl;
+//     for (int i = 0; i < aa->l; i++)
+//     {
+//         cout << aa->data[i]<<" ";
+//     }
+//     struct A *aaa = aa;
+//     for (int i = 0; i < aaa->l; i++)
+//     {
+//         cout << aaa->data[i] << " ";
+//     }
+// }
 
+// int main(int argc, char const *argv[])
+// {
+//     printLi();
+//     return 0;
+// }
 int main(int argc, char const *argv[])
 {
-    printLi();
+    int a[] = {1, 2, 3, 4, 5, 6}, *p;
+    p = a;
+    // printf("%p\n", &a);
+    // printf("%p\n", p);
+    // printf("%p\n", &a[0]);
+    // printf("%p\n", p);
+    printf("%p\n", &a[1]);
+    printf("%p\n", p + 1);
+    printf("%p\n", &a[4]);
+    printf("%p\n",&a[5]);
+    printf("%p\n", p + 5);
+    printf("%p\n", p + 6);
+    printf("%d\n%d\n", p[5], a[5]);
+
+
+
     return 0;
 }
