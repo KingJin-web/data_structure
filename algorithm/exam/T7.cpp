@@ -1,6 +1,7 @@
 #include <iostream>
 
 using namespace std;
+//TODO 此题已经删了 不用记
 //### 用回溯法解决： https://blog.csdn.net/qwqc262/article/details/111320112
 //给定n个正整数wi和一个正整数m，在这n个正整数中找出一个子集，使得子集中的正整数之和等于m。
 int *arr, *result;          // arr表示数据数组；result表示解数组，用于存储解向量
