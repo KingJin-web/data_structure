@@ -298,16 +298,52 @@ bool isDuciCheng(int a[], int left, int right)
 例如正整数6有如下11种不同的划分：
 
 > 6；
-
 > 5+1；
-
 > 4+2，4+1+1；
-
 > 3+3，3+2+1，3+1+1+1；
-
 > 2+2+2，2+2+1+1，2+1+1+1+1；
+> 1+1+1+1+1+1
 
-1+1+1+1+1+1
+```c++
+#include <iostream>
+using namespace std;
+
+int cnt = 0, tot;
+int a[100];
+void fun(int n, int sum)
+{
+    if (sum == tot) //注意这里的打印技巧
+
+    {
+        for (int i = 0; i < cnt - 1; ++i)
+            printf("%d+", a[i]);
+        if (tot - a[0] == cnt - 1)
+            printf("%d\n", a[cnt - 1]);
+        else
+            printf("%d,", a[cnt - 1]);
+        return;
+    }
+    for (int i = n; i > 0; --i)
+    {
+        if (sum + i <= tot)
+        {
+            a[cnt++] = i;
+            fun(i, sum + i); //注意这里不是fun (n - i, sum+i),因为每次的划分结果都是从大到小排序的
+                             //所以每次枚举的最大数不能大于上一次的值;
+            cnt--;           //  记得这里要回溯
+        }
+    }
+}
+int main()
+{
+
+    //正整数n
+    tot = 6;
+    fun(tot, 0);
+}
+```
+
+
 
 ### 5.请用分支限界法实现：
 
@@ -335,6 +371,43 @@ bool isDuciCheng(int a[], int left, int right)
 (i+1,j+1)。
 
 你想让你经过的所有位置（包括起点和终点）的数字总和最大。求这个最大值。
+
+```c++
+int T6(){
+    int i, j, n;
+    int a[100][100]; //用于存放三角形
+    int b[100][100]; //用于复制a数组
+    printf("请输入数字三角形的行数：\n");
+    scanf("%d", &n); //获取输入的行数
+    printf("请输入数字三角形：\n");
+    for (i = 1; i <= n; i++)
+    {
+        for (j = 1; j <= i; j++)
+        {
+            scanf("%d", &a[i - 1][j - 1]);     //输入三角形
+            b[i - 1][j - 1] = a[i - 1][j - 1]; //复制
+        }
+    }
+    for (int row = n - 2; row >= 0; row--)
+    { //从倒数第二行开始往上递推
+        for (int col = 0; col <= row; col++)
+        {
+            if (a[row + 1][col] > a[row + 1][col + 1])
+            {                                   //将每个数下面的两个数进行比较
+                a[row][col] += a[row + 1][col]; //取较大的数加
+            }
+            else
+            {
+                a[row][col] += a[row + 1][col + 1];
+            }
+        }
+    }
+    printf("路径总和最大为：\n");
+    printf("%d\n", a[0][0]);
+}
+```
+
+第七题老师删了
 
 ### 8 给定一个存放整数的数组，重新排列数组使得数组左边为偶数，右边为奇数。
 
