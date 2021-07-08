@@ -449,7 +449,7 @@ void t8(int *arr, int length)
 
 ### 9、编写函数double getRestul(int n)并测试，它的功能是：根据以下公式计算结果S。
 
-![a](../img\1.png)
+![a](../img/1.png)
 
 ```c++
 double getRestul(int n)
