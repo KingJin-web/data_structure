@@ -6,7 +6,6 @@ int a[100];
 void fun(int n, int sum)
 {
     if (sum == tot) //注意这里的打印技巧
-
     {
         for (int i = 0; i < cnt - 1; ++i)
             printf("%d+", a[i]);
