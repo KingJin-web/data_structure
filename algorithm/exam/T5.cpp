@@ -1,8 +1,7 @@
 //直接复制PTA 上面的 
-#include <stdio.h>
-#include <math.h>
+#include <cmath>
 #include <iostream>
-#include <string.h>
+#include <string>
 using namespace std;
 int n, *x, m = 1;
 long num;
