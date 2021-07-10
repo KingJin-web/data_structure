@@ -293,6 +293,38 @@ bool isDuciCheng(int a[], int left, int right)
 
 例如：(1 -1 2 23 -3 4 -4) ，(2 2 3 -34)为他的一个子段。给出一个序列，求出数字求和最大的一个子段。例如上面的序列， (22 3 -3 4)就是一个最大的子段，数字的总和为8。
 
+```c++
+#include <iostream>
+using namespace std;
+
+int n, j, sum, maxx;
+/* 
+    输入
+    8
+    1 -1 2 2 3 -3 4 -4 
+*/
+/*
+    输出
+    8
+*/
+int main()
+{
+    scanf("%d%d", &n, &maxx);
+    sum = maxx; //输入n
+    while (--n)
+    {
+        scanf("%d", &j);
+        sum = sum > 0 ? sum : 0;
+        sum += j;
+        maxx = maxx > sum ? maxx : sum;
+    }                                //贪心，如果负了就舍去
+    return (printf("%d", maxx)) & 0; //输出并return 0
+}
+
+```
+
+
+
 ### 4、将正整数n表示成一系列正整数之和：n=n1+n2+…+nk，其中n1≥n2≥…≥nk≥1，k≥1。正整数n的这种表示称为正整数n的划分。输出正整数n的不同划分个数及具体的划分形式。
 
 例如正整数6有如下11种不同的划分：
