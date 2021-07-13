@@ -289,6 +289,8 @@ bool isDuciCheng(int a[], int left, int right)
 
 ### 3、最大子段和问题：给出一个序列，其子段为该序列的一个连续的区间。
 
+[讲解视频](https://leetcode-cn.com/problems/maximum-subarray/solution/zui-da-zi-xu-he-by-leetcode-solution/)
+
 例如：(1 -1 2 23 -3 4 -4) ，(2 2 3 -34)为他的一个子段。给出一个序列，求出数字求和最大的一个子段。例如上面的序列， (22 3 -3 4)就是一个最大的子段，数字的总和为8。
 
 ```c++
