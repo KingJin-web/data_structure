@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <cmath>
+#include <iostream>
+#include <vector>
 using namespace std;
 /*
 8、给定一个存放整数的数组，重新排列数组使得数组左边为偶数，右边为奇数。

@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <cmath>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 //9、编写函数double getRestul(int n)并测试，它的功能是：根据以下公式计算结果

@@ -1,5 +1,7 @@
 //6、给定一个高度为 n 的“数字三角形”，其中第 i 行（1\<= i\<= n）有 i个数。
-#include <bits/stdc++.h>
+#include <cmath>
+#include <iostream>
+#include <vector>
 using namespace std;
 // ================= 代码实现开始 =================
 //dp:用于动态规划的数组，d[i][j]表示要走到第i行第j列能得到最大数字总和
