@@ -243,17 +243,21 @@ ___n,nlogn,4n3,2n___。
 
 有一楼梯共M级，刚开始时你在第一级，若每次只能跨上一级或二级h或三级，要走上第M级，共有多少种走法？要求时间复杂度为O(n)，空间复杂度为O(1)。
 
+`此题神似斐波那契`  [斐波那契讲解](https://leetcode-cn.com/problems/fibonacci-number/solution/fei-bo-na-qi-shu-by-leetcode-solution-o4ze/)
+
 ```c++
 /*
-1. 楼梯问题
-1级：1种
-2级：2种
-3级：4种
-4级：1+2+4=7种 （前3个和）
-5级：2+4+7=13种 （前3个和）
-6级：4+7+13=24种 （前3个和）
-7级：7+13+24=44种 （前3个和）
-8级：13+24+44=81种（前3个和）
+    1. 楼梯问题
+    1级：1种
+    2级：2种
+    3级：4种
+    4级：1+2+4=7种 （前3个和）
+    5级：2+4+7=13种 （前3个和）
+    6级：4+7+13=24种 （前3个和）
+    7级：7+13+24=44种 （前3个和）
+    8级：13+24+44=81种（前3个和）
+    得到 自4级后
+	f(n) = f(n -1) + f(n-2) + f(n-3)
 */
 int T1(int m)
 {
@@ -271,20 +275,33 @@ int T1(int m)
     }
     return F[4];
 }
-
+int main(int argc, char const *argv[])
+{
+    printf("%d\n",T1(5));
+    return 0;
+}
 ```
 
 ### 2、请用递归算法判断一个整数数组是否是对称的，比如数组为就是对称的。要求递归函数返回bool类型。
 
 ```c++
+#include <iostream>
+using namespace std;
 bool isDuciCheng(int a[], int left, int right)
 {
     if (left >= right)
       return true;
-
     bool b = a[left] == a[right] && isDuciCheng(a, left + 1, right - 1);
     return b;
 }
+int main(int argc, char const *argv[])
+{
+    int arr[] = {1, -1, -1, 1};
+    int n = sizeof(arr) / sizeof(int) - 1;
+    cout << isDuciCheng(arr, 0, n) << endl;
+    return 0;
+}
+
 ```
 
 ### 3、最大子段和问题：给出一个序列，其子段为该序列的一个连续的区间。
@@ -297,24 +314,26 @@ bool isDuciCheng(int a[], int left, int right)
 #include <iostream>
 using namespace std;
 
+int maxSubArray(int *nums, int l)
+{
+    int pre = 0, maxAns = nums[0];
+    for (int i = 0; i < l; i++)
+    {
+        pre = max(pre + nums[i], nums[i]);
+        maxAns = max(maxAns, pre);
+    }
+    return maxAns;
+}
 int main()
 {
-    int n, j, sum, maxx;
-    scanf("%d%d", &n, &maxx);
-    sum = maxx; //输入n
-    while (--n)
-    {
-        scanf("%d", &j);
-        sum = sum > 0 ? sum : 0;
-        sum += j;
-        maxx = maxx > sum ? maxx : sum;
-    }
-    //贪心，如果负了就舍去
-    printf("%d", maxx);
-    return 0;
-    //输出并return 0
-}
+    int arr[] = {1, -1, 2, 2, 3, -3, 4, -4};
+    int l = sizeof(arr) / sizeof(arr[0]);
+    cout << maxSubArray(arr, l);
 
+    // cout << maxSubArray(arr, 8);
+    //或者将上面两行换成这一行
+    return 0;
+}
 ```
 
 ### 4、将正整数n表示成一系列正整数之和：n=n1+n2+…+nk，其中n1≥n2≥…≥nk≥1，k≥1。正整数n的这种表示称为正整数n的划分。输出正整数n的不同划分个数及具体的划分形式。
