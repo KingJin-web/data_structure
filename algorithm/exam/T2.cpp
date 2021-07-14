@@ -7,9 +7,7 @@ bool isDuciCheng(int a[], int left, int right)
 {
     if (left >= right)
         return true;
-
-    bool b = a[left] == a[right] && isDuciCheng(a, left + 1, right - 1);
-    return b;
+    return a[left] == a[right] && isDuciCheng(a, left + 1, right - 1);
 }
 
 int main(int argc, char const *argv[])
