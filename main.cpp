@@ -1,6 +1,17 @@
 #include <windows.h>
 #include <bits/stdc++.h>
 using namespace std;
+
+void printfArr(int *arr)
+{
+    int length = sizeof(arr) / sizeof(arr[0]);
+    printf("[");
+    for (int i = 0; i < length - 1; i++)
+    {
+        printf("%d,", arr[i]);
+    }
+    printf("%d]\n", arr[length - 1]);
+}
 // int main()
 // {
 //     char ch ;
@@ -2090,26 +2101,59 @@ using namespace std;
 //     return 0;
 // }
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
-int MaxSubsequenceSum(const int A[], int n)
+// int MaxSubsequenceSum(const int A[], int n)
+// {
+//     int tempSum = 0;
+//     int maxSum = 0;
+//     for (int j = 0; j < n; j++) // 子问题后边界
+//     {
+//         tempSum = (tempSum + A[j]) > A[j] ? (tempSum + A[j]) : A[j];
+//         if (tempSum > maxSum) // 更新最大和
+//             maxSum = tempSum;
+//     }
+//     return maxSum;
+// }
+
+// int main()
+// {
+//     const int a[] = {1, -1, 2, 2, 3, -3, 4, -4};
+//     int maxSubSum = MaxSubsequenceSum(a, 8);
+//     cout << "The max subsequence sum of a is: " << maxSubSum << endl;
+//     return 0;
+// }
+
+int a[100] = {0};
+
+void print(int m)
 {
-    int tempSum = 0;
-    int maxSum = 0;
-    for (int j = 0; j < n; j++) // 子问题后边界
-    {
-        tempSum = (tempSum + A[j]) > A[j] ? (tempSum + A[j]) : A[j];
-        if (tempSum > maxSum) // 更新最大和
-            maxSum = tempSum;
-    }
-    return maxSum;
+
+    //printfArr(a);
+    for (int i = 0; i < m - 1; i++)
+        printf("%d+", a[i]);
+    printf("%d\n", a[m - 1]);
+}
+
+void T4(int n, int m) //n要划分的整数,m已划分的划分数，a[0]~a[m-1]保存了已划分的值
+{
+    int i;
+    if (n == 0)
+
+        print(m);
+    else
+        for (i = n; i >= 1; i--)
+            if (m == 0 || i <= a[m - 1]) //只有当刚开始划分m==0或者i小于最大已划分的值时，将i作为下一个要划分的值，继续划分
+            {
+                a[m] = i;
+                T4(n - i, m + 1);
+            }
 }
 
 int main()
 {
-    const int a[] = {1, -1, 2, 2, 3, -3, 4, -4};
-    int maxSubSum = MaxSubsequenceSum(a, 8);
-    cout << "The max subsequence sum of a is: " << maxSubSum << endl;
-    return 0;
+    int n, m = 0;
+    scanf("%d", &n);
+    T4(n, m);
 }
