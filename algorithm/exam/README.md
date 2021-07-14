@@ -413,6 +413,8 @@ int main()
 你想让你经过的所有位置（包括起点和终点）的数字总和最大。求这个最大值。
 
 ```c++
+#include <iostream>
+using namespace std;
 int T6(){
     int i, j, n;
     int a[100][100]; //用于存放三角形
@@ -445,6 +447,12 @@ int T6(){
     printf("路径总和最大为：\n");
     printf("%d\n", a[0][0]);
 }
+
+int main(int argc, char const *argv[])
+{
+    T6();
+    return 0;
+}
 ```
 
 第七题老师删了
@@ -454,7 +462,9 @@ int T6(){
 如对数组：1,2,3,4,5,6,7,8,9处理后，该数组变为：2,4,6,8,1,3,5,7,9。
 
 ```c++
- /*
+#include <iostream>
+using namespace std; 
+/*
      解决思路：数组左边left，右边right。左边遇到第一个偶数停止，右边遇到第一个奇数停止。二者进行交换
      知道left>right操作结束
  */
@@ -484,6 +494,19 @@ void t8(int *arr, int length)
         }
     }
 }
+int main(int argc, char const *argv[])
+{
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int length = sizeof(arr) / sizeof(arr[0]);
+
+    T8(arr, length);
+    //打印数组可以省略
+    for (int i = 0; i < length; i++)
+    {
+        printf("%d,", arr[i]);
+    }
+    return 0;
+}
 
 ```
 
@@ -492,6 +515,8 @@ void t8(int *arr, int length)
 ![a](../img/1.png)
 
 ```c++
+#include <iostream>
+using namespace std;
 double getRestul(int n)
 {
     if (n == 1)
@@ -501,5 +526,9 @@ double getRestul(int n)
 
     return getRestul(n - 1) + pow(-1, n - 1) * 1 / (2 * n - 1);
 }
-
+int main(int argc, char const *argv[])
+{
+    printf("%lf\n", getRestul(5));
+    return 0;
+}
 ```
