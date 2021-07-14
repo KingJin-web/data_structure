@@ -347,6 +347,43 @@ int main()
 > 1+1+1+1+1+1
 
 ```c++
+#include <bits/stdc++.h>
+using namespace std;
+int a[100] = {0};
+int c = 0;
+void print(int m)
+{
+    c++;
+    for (int i = 0; i < m - 1; i++)
+        printf("%d+", a[i]);
+    printf("%d\n", a[m - 1]);
+}
+
+void T4(int n, int m) //n要划分的整数,m已划分的划分数，a[0]~a[m-1]保存了已划分的值
+{
+    int i;
+    if (n == 0)
+        print(m);
+    else
+        for (i = n; i >= 1; i--)
+            if (m == 0 || i <= a[m - 1]) //只有当刚开始划分m=0或者i小于最大已划分的值时，将i作为下一个要划分的值继续划分
+            {
+                a[m] = i;
+                T4(n - i, m + 1);
+            }
+}
+
+int main()
+{
+    T4(6, 0);
+    printf("共有%d种\n",c);
+}
+
+```
+
+
+
+```c++
 #include <iostream>
 using namespace std;
 
