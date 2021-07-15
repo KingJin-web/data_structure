@@ -2158,28 +2158,58 @@ void printfArr(int *arr)
 //     T4(n, m);
 // }
 
-int main(int argc, char const *argv[])
+// int main(int argc, char const *argv[])
+// {
+//     int arr[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 99};
+
+//     int *a = arr;
+
+//     for (int i = 0; i < 10; i++)
+//     {
+//         printf("%d, ", arr[i]);
+//     }
+//     printf("\n");
+//     for (int i = 0; i < 10; ++i)
+//     {
+//         printf("%d, ", a[i]);
+//     }
+//     // printf("\n");
+//     // for (int i = 0; i < 10; ++i)
+//     // {
+//     //     printf("%d, ", (*a + i));
+//     // }
+
+
+
+//     return 0;
+// }
+#include <iostream>
+using namespace std;
+int T6()
 {
-    int arr[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 99};
-
-    int *a = arr;
-
-    for (int i = 0; i < 10; i++)
+    int i, j, n;
+    int a[100][100];
+    printf("请输入数字三角形的行数：\n");
+    scanf("%d", &n);
+    printf("请输入数字三角形：\n");
+    for (i = 1; i <= n; i++)
     {
-        printf("%d, ", arr[i]);
+        for (j = 1; j <= i; j++)
+        {
+            scanf("%d", &a[i - 1][j - 1]);
+        }
     }
-    printf("\n");
-    for (int i = 0; i < 10; ++i)
+    for (int row = n - 2; row >= 0; row--)
     {
-        printf("%d, ", a[i]);
+        for (int col = 0; col <= row; col++)
+        {
+            a[row][col] += max(a[row + 1][col], a[row + 1][col + 1]);
+        }
     }
-    // printf("\n");
-    // for (int i = 0; i < 10; ++i)
-    // {
-    //     printf("%d, ", (*a + i));
-    // }
-
-
-
+    cout << "最大路径和:" << a[0][0] << endl;
+}
+int main()
+{
+    T6();
     return 0;
 }

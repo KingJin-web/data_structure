@@ -439,35 +439,37 @@ int main()
 
 7 8 9 10
 
-初始时，你站在“数字三角形”的顶部，即第一行的唯一一个数上。每次移动，你可以选择移动到当前位置正下方或者当前位置右下方的位置上。即如果你在
-(i,j)（表示你在第i行从左往右数第j个数上，下同），你可以选择移动到 (i+1,j) 或
-(i+1,j+1)。
+初始时，你站在“数字三角形”的顶部，即第一行的唯一一个数上。每次移动，你可以选择移动到当前位置正下方或者当前位置右下方的位置上。即如果你在(i,j)（表示你在第i行从左往右数第j个数上，下同），你可以选择移动到 (i+1,j) 或(i+1,j+1)。
 
 你想让你经过的所有位置（包括起点和终点）的数字总和最大。求这个最大值。
 
 ```c++
 #include <iostream>
 using namespace std;
-int T6(){
+int T6()
+{
     int i, j, n;
-    int a[100][100]; //用于存放三角形
-  
+    int a[100][100];
     printf("请输入数字三角形的行数：\n");
-    scanf("%d", &n); //获取输入的行数
+    scanf("%d", &n);
     printf("请输入数字三角形：\n");
     for (i = 1; i <= n; i++)
+    {
         for (j = 1; j <= i; j++)
-            scanf("%d", &a[i - 1][j - 1]);     //输入三角形
-         
-    for (int row = n - 2; row >= 0; row--) //从倒数第二行开始往上递推
+        {
+            scanf("%d", &a[i - 1][j - 1]);
+        }
+    }
+    for (int row = n - 2; row >= 0; row--)
+    {
         for (int col = 0; col <= row; col++)
+        {
             a[row][col] += max(a[row + 1][col], a[row + 1][col + 1]);
-       
-    printf("路径总和最大为：\n");
-    printf("%d\n", a[0][0]);
+        }
+    }
+    cout << "最大路径和:" << a[0][0] << endl;
 }
-
-int main(int argc, char const *argv[])
+int main()
 {
     T6();
     return 0;
