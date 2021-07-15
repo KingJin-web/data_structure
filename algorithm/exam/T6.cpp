@@ -42,7 +42,6 @@ int getAnswer(int n, vector<vector<int>> a)
 int T6(){
     int i, j, n;
     int a[100][100]; //用于存放三角形
-    int b[100][100]; //用于复制a数组
     printf("请输入数字三角形的行数：\n");
     scanf("%d", &n); //获取输入的行数
     printf("请输入数字三角形：\n");
@@ -51,7 +50,6 @@ int T6(){
         for (j = 1; j <= i; j++)
         {
             scanf("%d", &a[i - 1][j - 1]);     //输入三角形
-            b[i - 1][j - 1] = a[i - 1][j - 1]; //复制
         }
     }
     for (int row = n - 2; row >= 0; row--)
