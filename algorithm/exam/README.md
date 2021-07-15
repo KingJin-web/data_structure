@@ -451,25 +451,18 @@ using namespace std;
 int T6(){
     int i, j, n;
     int a[100][100]; //用于存放三角形
-    int b[100][100]; //用于复制a数组
+  
     printf("请输入数字三角形的行数：\n");
     scanf("%d", &n); //获取输入的行数
     printf("请输入数字三角形：\n");
     for (i = 1; i <= n; i++)
-    {
         for (j = 1; j <= i; j++)
-        {
             scanf("%d", &a[i - 1][j - 1]);     //输入三角形
-            b[i - 1][j - 1] = a[i - 1][j - 1]; //复制
-        }
-    }
-    for (int row = n - 2; row >= 0; row--)
-    { //从倒数第二行开始往上递推
+         
+    for (int row = n - 2; row >= 0; row--) //从倒数第二行开始往上递推
         for (int col = 0; col <= row; col++)
-        {
             a[row][col] += max(a[row + 1][col], a[row + 1][col + 1]);
-        }
-    }
+       
     printf("路径总和最大为：\n");
     printf("%d\n", a[0][0]);
 }
