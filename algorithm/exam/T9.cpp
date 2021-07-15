@@ -19,6 +19,7 @@ double getRestul(int n)
 double getRestul1(int n)
 {
     double c = 0;
+
     for (int i = 1; i <= n; i++)
     {
         if (i % 2 == 0)
@@ -33,6 +34,7 @@ int main(int argc, char const *argv[])
 {
     printf("%lf\n", getRestul(5));
     printf("%lf\n", getRestul1(5));
+    
     return 0;
 }
 

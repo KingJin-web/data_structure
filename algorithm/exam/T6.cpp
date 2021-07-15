@@ -58,14 +58,16 @@ int T6(){
     { //从倒数第二行开始往上递推
         for (int col = 0; col <= row; col++)
         {
-            if (a[row + 1][col] > a[row + 1][col + 1])
-            {                                   //将每个数下面的两个数进行比较
-                a[row][col] += a[row + 1][col]; //取较大的数加
-            }
-            else
-            {
-                a[row][col] += a[row + 1][col + 1];
-            }
+
+            a[row][col] += max(a[row + 1][col], a[row + 1][col + 1]);
+            // if (a[row + 1][col] > a[row + 1][col + 1])
+            // {                                   //将每个数下面的两个数进行比较
+            //     a[row][col] += a[row + 1][col]; //取较大的数加
+            // }
+            // else
+            // {
+            //     a[row][col] += a[row + 1][col + 1];
+            // }
         }
     }
     printf("路径总和最大为：\n");

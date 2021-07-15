@@ -2125,35 +2125,61 @@ void printfArr(int *arr)
 //     return 0;
 // }
 
-int a[100] = {0};
+// int a[100] = {0};
 
-void print(int m)
+// void print(int m)
+// {
+
+//     //printfArr(a);
+//     for (int i = 0; i < m - 1; i++)
+//         printf("%d+", a[i]);
+//     printf("%d\n", a[m - 1]);
+// }
+
+// void T4(int n, int m) //n要划分的整数,m已划分的划分数，a[0]~a[m-1]保存了已划分的值
+// {
+//     int i;
+//     if (n == 0)
+
+//         print(m);
+//     else
+//         for (i = n; i >= 1; i--)
+//             if (m == 0 || i <= a[m - 1]) //只有当刚开始划分m==0或者i小于最大已划分的值时，将i作为下一个要划分的值，继续划分
+//             {
+//                 a[m] = i;
+//                 T4(n - i, m + 1);
+//             }
+// }
+
+// int main()
+// {
+//     int n, m = 0;
+//     scanf("%d", &n);
+//     T4(n, m);
+// }
+
+int main(int argc, char const *argv[])
 {
+    int arr[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 99};
 
-    //printfArr(a);
-    for (int i = 0; i < m - 1; i++)
-        printf("%d+", a[i]);
-    printf("%d\n", a[m - 1]);
-}
+    int *a = arr;
 
-void T4(int n, int m) //n要划分的整数,m已划分的划分数，a[0]~a[m-1]保存了已划分的值
-{
-    int i;
-    if (n == 0)
+    for (int i = 0; i < 10; i++)
+    {
+        printf("%d, ", arr[i]);
+    }
+    printf("\n");
+    for (int i = 0; i < 10; ++i)
+    {
+        printf("%d, ", a[i]);
+    }
+    // printf("\n");
+    // for (int i = 0; i < 10; ++i)
+    // {
+    //     printf("%d, ", (*a + i));
+    // }
 
-        print(m);
-    else
-        for (i = n; i >= 1; i--)
-            if (m == 0 || i <= a[m - 1]) //只有当刚开始划分m==0或者i小于最大已划分的值时，将i作为下一个要划分的值，继续划分
-            {
-                a[m] = i;
-                T4(n - i, m + 1);
-            }
-}
 
-int main()
-{
-    int n, m = 0;
-    scanf("%d", &n);
-    T4(n, m);
+
+    return 0;
 }
