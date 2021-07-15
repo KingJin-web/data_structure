@@ -285,20 +285,21 @@ int main(int argc, char const *argv[])
 ```c++
 #include <iostream>
 using namespace std;
-bool isDuciCheng(int *a, int left, int right)
+bool isDuiCheng(int *a, int left, int right)
 {
     if (left >= right)
         return true;
-    return a[left] == a[right] && isDuciCheng(a, left + 1, right - 1);
+    return a[left] == a[right] && isDuiCheng(a, left + 1, right - 1);
 }
+
 int main(int argc, char const *argv[])
 {
     int arr[] = {1, -1, -1, 1};
+
     int n = sizeof(arr) / sizeof(int) - 1;
-    cout << isDuciCheng(arr, 0, n) << endl;
+    cout << isDuiCheng(arr, 0, n) << endl;
     return 0;
 }
-
 ```
 
 ### 3、最大子段和问题：给出一个序列，其子段为该序列的一个连续的区间。

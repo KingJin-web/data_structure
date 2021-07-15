@@ -32,12 +32,12 @@ int get(int m)
 }
 
 //2。数组对称
-bool isDuciCheng(int a[], int left, int right)
+bool isDuiCheng(int a[], int left, int right)
 {
     if (left >= right)
         return true;
 
-    bool b = a[left] == a[right] && isDuciCheng(a, left + 1, right - 1);
+    bool b = a[left] == a[right] && isDuiCheng(a, left + 1, right - 1);
     return b;
 }
 
