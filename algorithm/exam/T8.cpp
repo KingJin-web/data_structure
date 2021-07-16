@@ -26,12 +26,10 @@ void T8(int *arr, int length)
             right--;
             continue;
         }
-        if (left < right)
-        {
-            flag = arr[left];
-            arr[left++] = arr[right];
-            arr[right--] = flag;
-        }
+
+        flag = arr[left];
+        arr[left++] = arr[right];
+        arr[right--] = flag;
     }
 }
 int main(int argc, char const *argv[])

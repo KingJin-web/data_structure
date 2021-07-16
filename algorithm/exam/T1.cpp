@@ -1,6 +1,15 @@
 #include <cmath>
 #include <iostream>
 using namespace std;
+int T1(int);
+int main(int argc, char const *argv[])
+{
+
+
+    cout<<pow(2,3)<<endl;
+    //printf("%d\n", T1(5));
+    return 0;
+}
 
 /**
  * ### 1. 超级楼梯问题：
@@ -39,8 +48,3 @@ int T1(int m)
     return F[4];
 }
 
-int main(int argc, char const *argv[])
-{
-    printf("%d\n",T1(5));
-    return 0;
-}

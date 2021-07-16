@@ -449,23 +449,23 @@ int main()
 using namespace std;
 int T6()
 {
-    int i, j, n;
+    int n;
     int a[100][100];
     printf("请输入数字三角形的行数：\n");
     scanf("%d", &n);
     printf("请输入数字三角形：\n");
-    for (i = 1; i <= n; i++)
+    for (int i = 1; i <= n; i++)
     {
-        for (j = 1; j <= i; j++)
+        for (int j = 1; j <= i; j++)
         {
             scanf("%d", &a[i - 1][j - 1]);
         }
     }
-    for (int row = n - 2; row >= 0; row--)
+    for (int i = n - 2; i >= 0; i--)
     {
-        for (int col = 0; col <= row; col++)
+        for (int j = 0; j <= i; j++)
         {
-            a[row][col] += max(a[row + 1][col], a[row + 1][col + 1]);
+            a[i][j] += max(a[i + 1][j], a[i + 1][j + 1]);
         }
     }
     cout << "最大路径和:" << a[0][0] << endl;
