@@ -2241,13 +2241,59 @@ void printfArr(int *arr)
 // {
 //     T6();
 //     return 0;
-// }
+// // }
+// struct Books
+// {
+//    char  title[50];
+//    char  author[50];
+//    char  subject[100];
+//    int   book_id;
+// } book[] = {{"a", "b", "c", 1},
+//             {"a", "b", "c", 1}};
+// #include <stdio.h>
+// #include <stdlib.h>
 
-int main(int argc, char const *argv[])
+// int main()
+// {
+//     double flowerPrice;
+//     printf("今天刚互相认识的小女孩小男孩，约好了晚上一起压马路\n");
+//     printf("小男生用自己的工资买了一束花给小女生\n");
+//     printf("小女生害羞的接过了花并问道：你怎么就送我花了呢，看起来挺贵吧？\n");
+//     printf("小男生回答道：");
+//     scanf("%0lf", &flowerPrice);
+//     if (flowerPrice > 999999)
+//     {
+//         printf("小女孩吓得直接晕了过去！\n");
+//     }
+//     else if (flowerPrice >= 100000 && flowerPrice <= 999999)
+//     {
+//         printf("小女孩高兴的叫到：欧巴！明天我们就结婚吧！\n");
+//     }
+//     else if (flowerPrice >= 10000 && flowerPrice < 100000)
+//     {
+//         printf("小女孩说道：怪不好意思的，你对女孩子真好，你现在缺女朋友吗？嘻嘻嘻！\n");
+//     }
+//     else if (flowerPrice >= 500 && flowerPrice < 10000)
+//     {
+//         printf("小女孩笑的很开心：谢谢你的花，它们很漂亮呢！你真好！\n");
+//     }
+//     else
+//     {
+//         printf("小女孩说道：好吧，我们是普通朋友，你是个好人\n");
+//     }
+//     return 0;
+// }
+#include <iostream>
+
+using namespace std;
+
+int main()
 {
-    int a, b;
-    scanf("%d %d", &a, &b);
-    int num = abs(pow(a, b));
-    printf("%d", num > 1000000 ? 0 : num);
+    char *str;
+    float a;
+    scanf("%s", str);
+    scanf("%f", &a);
+
+    cout << str << " " << a << endl;
     return 0;
 }
