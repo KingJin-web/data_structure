@@ -2283,17 +2283,33 @@ void printfArr(int *arr)
 //     }
 //     return 0;
 // }
-#include <iostream>
 
-using namespace std;
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 int main()
 {
-    char *str;
-    float a;
-    scanf("%s", str);
-    scanf("%f", &a);
+    //用时间做种子，每次产生随机数字不一样
+    srand(time(NULL));
+    //rand()取值范围：0-32767
+    printf("随机数字：%d\n", rand());
+    int hp1 = 100, hp2 = 100;
+    int att1, att2;
+    while (hp1 >= 0 && hp2 >= 0)
+    {
 
-    cout << str << " " << a << endl;
+        //默认1p首先攻击
+        att1 = rand() % 11 + 5; //5-15之间的攻击力
+        att2 = rand() % 11 + 5;
+        //玩家1攻击，玩家2掉血
+        hp2 -= att1;
+        //玩家2攻击，玩家1掉血
+        hp1 -= att2;
+        printf("********************************\n");
+            printf("玩家1攻击力：%的，玩家2剩余血量：%\natt1,att2");
+        printf("玩家2攻击力：%的，玩家1剩余血量：%d\n", att2, hp1);
+        printf("************************************\n");
+    }
+    printf("KO`~游戏结束，玩家1的血量：%d\t玩家2的血量：%d\n");
     return 0;
 }
