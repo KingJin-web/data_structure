@@ -2,16 +2,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void printfArr(int *arr)
-{
-    int length = sizeof(arr) / sizeof(arr[0]);
-    printf("[");
-    for (int i = 0; i < length - 1; i++)
-    {
-        printf("%d,", arr[i]);
-    }
-    printf("%d]\n", arr[length - 1]);
-}
+// void printfArr(int arr[])
+// {
+//     int length = sizeof(arr) / sizeof(int);
+//     printf("[");
+//     for (int i = 0; i < length - 1; ++i)
+//     {
+//         printf("%d,", arr[i]);
+//     }
+//     printf("%d]\n", arr[length - 1]);
+// }
 // int main()
 // {
 //     char ch ;
@@ -2284,32 +2284,588 @@ void printfArr(int *arr)
 //     return 0;
 // }
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-int main()
-{
-    //用时间做种子，每次产生随机数字不一样
-    srand(time(NULL));
-    //rand()取值范围：0-32767
-    printf("随机数字：%d\n", rand());
-    int hp1 = 100, hp2 = 100;
-    int att1, att2;
-    while (hp1 >= 0 && hp2 >= 0)
-    {
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <time.h>
+// int main()
+// {
+//     //用时间做种子，每次产生随机数字不一样
+//     srand(time(NULL));
+//     //rand()取值范围：0-32767
+//     printf("随机数字：%d\n", rand());
+//     int hp1 = 100, hp2 = 100;
+//     int att1, att2;
+//     while (hp1 >= 0 && hp2 >= 0)
+//     {
 
-        //默认1p首先攻击
-        att1 = rand() % 11 + 5; //5-15之间的攻击力
-        att2 = rand() % 11 + 5;
-        //玩家1攻击，玩家2掉血
-        hp2 -= att1;
-        //玩家2攻击，玩家1掉血
-        hp1 -= att2;
-        printf("********************************\n");
-            printf("玩家1攻击力：%的，玩家2剩余血量：%\natt1,att2");
-        printf("玩家2攻击力：%的，玩家1剩余血量：%d\n", att2, hp1);
-        printf("************************************\n");
-    }
-    printf("KO`~游戏结束，玩家1的血量：%d\t玩家2的血量：%d\n");
+//         //默认1p首先攻击
+//         att1 = rand() % 11 + 5; //5-15之间的攻击力
+//         att2 = rand() % 11 + 5;
+//         //玩家1攻击，玩家2掉血
+//         hp2 -= att1;
+//         //玩家2攻击，玩家1掉血
+//         hp1 -= att2;
+//         printf("********************************\n");
+//             printf("玩家1攻击力：%的，玩家2剩余血量：%\natt1,att2");
+//         printf("玩家2攻击力：%的，玩家1剩余血量：%d\n", att2, hp1);
+//         printf("************************************\n");
+//     }
+//     printf("KO`~游戏结束，玩家1的血量：%d\t玩家2的血量：%d\n");
+//     return 0;
+// }
+// int main(int argc, char const *argv[])
+// {
+
+//     int i = 5;
+//     int j = 5;
+//     int a = (i++) + (i++) + (i++);
+//     int b = (++j) + (++j) + (++j);
+
+//     cout << a << endl;
+//     cout << b << endl;
+// }
+// #define AREA(a, b) a + b
+// void t1();
+// void t2();
+// int main(int argc, char const *argv[])
+// {
+//     t1();
+//     t2();
+//     return 0;
+// }
+
+// void t1()
+// {
+//     int s = AREA(3, 4) * AREA(3, 4);
+//     cout<<s<<endl;
+// }
+
+// void t2()
+// {
+//     int a = 5, b = 6, c = 12;
+//     int z = (a * b - c) / a;
+//     cout << z;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     int n = 0;
+//     cin >> n;
+//     if (n % 3 != 0 && n % 5 != 0 && n % 7 != 0)
+//     {
+//         cout << 'n' << endl;
+//         return 0;
+//     }
+//     if (n % 3 == 0)
+//     {
+//         cout << 3 << " ";
+//     }
+//     if (n % 5 == 0)
+//     {
+//         cout << 5 << " ";
+//     }
+//     if (n % 7 == 0)
+//     {
+//         cout << 7 << " ";
+//     }
+//     cout << endl;
+
+//     return 0;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     float a = 1.1f;
+//     cout << a;
+
+//     return 0;
+// }
+
+// #define DECLARE(name, type) type name##_##type##_type
+// int main(void)
+// {
+
+//     cout << DECLARE(1, 2);
+//      return 0;
+// }
+
+// void foo(int *a, int *b)
+// {
+//     *a = *a + *b;
+//     *b = *a - *b;
+//     *a = *a - *b;
+// }
+// int main()
+// {
+
+//     int a = 666, b = 888;
+//     printf("%d\n", a, b);
+
+// }
+// int main()
+// {
+
+//     int week = 0;
+//     printf("星期几:");
+//     scanf("%d", &week);
+
+//     switch (week)
+//     {
+//     case 1:
+//         printf("星期一\n");
+//         break;
+//     case 2:
+//         printf("星期二\n");
+//         break;
+//     case 3:
+//         printf("星期三\n");
+//         break;
+//     case 4:
+//         printf("星期四\n");
+//         break;
+//     case 5:
+//         printf("星期五\n");
+//         break;
+//     case 6:
+//         printf("星期六\n");
+//         break;
+//     case 7:
+//         printf("星期七\n");
+//         break;
+//     default:
+//         printf("输入的数据有误！\n");
+//     }
+//     return 0;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     //名字
+//     char a[100] = "你好";
+
+//     int b[3][4];
+
+//     int *p[] = {b[0],b[1]};
+//     cout<<a;
+//     return 0;
+// }
+
+// int main()
+// {
+//     int i, u[4], v[4], x, y = 10;
+//     for (i = 0; i <= 3; i++)
+//     {
+//         cin >> u[i];
+//     }
+//     v[0] = (u[0] + u[1] + u[2] + u[3]) / 7;
+//     v[1] = u[0] / ((u[1] - u[2]) / u[3]);
+//     v[2] = u[0] * u[1] / u[2] * u[3];
+//     v[3] = v[0] * v[1];
+//     x = (v[0] + v[1] + 2) - u[(v[3] + 3) % 4];
+//     if (x > 10)
+//         y += (v[2] * 100 - v[3]) / (u[u[0] % 3] * 5);
+//     else
+//         y += 20 + (v[2] * 100 - v[3]) / (u[v[0] % 3] * 5);
+//     cout << x << "," << y << endl;
+//     return 0;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     char a, b, c, d, e;
+//     a = getchar() - '0';
+//     b = getchar() - '0';
+//     c = getchar() - '0';
+//     d = getchar() - '0';
+//     e = a + b + c + d;
+//     printf("%d",e);
+//     return 0;
+// }
+// #include <stdlib.h>
+
+// bool not7(int n)
+// {
+
+//     int i = n;
+//     n = n / 10;
+//     if (n < 1)
+//     {
+//         return true;
+//     }
+//     return not7(n) && i % 10 == 7;
+// }
+// int main(int argc, char const *argv[])
+// {
+
+//     int n = 177;
+//     if(n / 7 == 0){
+//         cout<<"aa";
+//     }else if (not7(n))
+//     {
+//         cout<<"bb";
+//     }
+
+//     return 0;
+// }
+
+// #include <vector>
+// struct A
+// {
+//     vector<int> a;
+// };
+
+// struct B
+// {
+//     int a;
+// };
+
+// int main(int argc, char const *argv[])
+// {
+//     B b;
+//     b.a = 12;
+//     vector<B> c;
+//     c.push_back(b);
+//     c.push_back(b);
+//     c.push_back(b);
+//     c.push_back(b);
+//     for(B bs : c){
+//         cout<<bs.a<<" ";
+//     }
+//     return 0;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     int a[] = {1, 2, 3, 4, 5};
+//     int *p[] = {a, a + 1, a + 2, a + 3};
+//     int **q = p;
+//     cout << *(p[0] + 1) + **(q + 2);
+//     return 0;
+// }
+
+// int func(int x, int y)
+// {
+//     return (x + y);
+// }
+// int main()
+// {
+//     int a = 1, b = 2, c = 3, d = 4, e = 5;
+//     printf(" %d\n", func((a + b, b + c, c + a), (d, e)));
+
+//     return 0;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     unsigned char *p1;
+//     unsigned long *p2;
+//     p1 = (unsigned char *)0x801000;
+//     p2 = (unsigned long *)0x810000;
+
+//     cout << p1 + 5 << endl;
+
+//     cout << p2 + 5;
+//     return 0;
+// }
+
+// int main(void)
+// {
+//     int x = 10, y = 20, t = 0;
+//     if (x == y)
+//         t = x;
+//     x = y;
+//     y = t;
+//     printf("%d,%d\n", x, y);
+//     return 0;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     int a[3][3] = {{1, 2}, {3, 4}, {5, 6}}, i, j, s = 0;
+//     for (i = 1; i < 3; i++)
+//         for (j = 0; j <= i; j++)
+//             s += a[i][j];
+//     printf("%d\n", s++);
+//     return 0;
+// }
+
+// #pragma comment(linker,"/SECTION:.rdata,RW")
+// //加这句可以让常量区可写，后果自负！
+// #include <stdio.h>
+// #include <malloc.h>
+// #include <string.h>
+// enum Status {OK,ERROR1};
+// /** 串的堆式顺序存储结构（heap）*/
+// typedef struct hstring
+// {
+//     char * ch;
+//     int length;
+// }Hstring;
+// int Index_HeapString(Hstring *str,Hstring *findstr,int start)
+// {
+//     int i;
+//     for (i=start-1;i<str->length - findstr->length;i++) {
+//         if (0==strncmp(str->ch+i,findstr->ch,findstr->length)) return i+1;
+//     }
+//     return 0;
+// }
+// /** 将串str中的oldStr替换成newStr */
+// Status Replace_HeapString(Hstring * str, Hstring oldStr, Hstring newStr)
+// {
+//     int i,index;
+//     if(!str || oldStr.length!=newStr.length)
+//         return ERROR1;
+//     index = Index_HeapString(str, &oldStr, 1);
+//     if(index && index <= str->length)
+//     {
+//         for(i = 0; i < newStr.length; i++)
+//         {
+//             str->ch[index - 1 + i] = newStr.ch[i];
+//         }
+//         return OK;
+//     }
+//     return ERROR1;
+// }
+// void StrAssign(Hstring *str,const char *val)
+// {
+//     str->ch=(char *)val;
+//     str->length=strlen(val);
+// }
+// void PrintString(Hstring *str)
+// {
+//     printf("%.*s\n",str->length,str->ch);
+// }
+// int main() {
+//     Hstring * str1 = NULL;
+//     Hstring str4;
+//     Hstring str5;
+//     str1 = (Hstring*)malloc(sizeof(Hstring));
+//     //为str1赋值
+//     StrAssign(str1, "helloword");
+//     //为str4赋值
+//     StrAssign(&str4, "eee");
+//     //为str5赋值
+//     StrAssign(&str5, "llo");
+//     //将串str1中的"llo"替换成"eee"
+//     Replace_HeapString(str1, str5, str4);
+//     PrintString(str1); //heeeeword
+//     free(str1);
+//     return 0;
+// }
+
+// #include <stdio.h>
+// #include <stdlib.h>
+// int main()
+// {
+//     int i;
+//     double score[] = {98, 87, 65, 43, 76};
+//     double *ptr_score = score;
+//     printf("double型数组的地址占%d个字节\n", sizeof(score));
+//     printf("double型数组的地址占%d个字节\n", sizeof(ptr_score));
+//     printf("数组的首地址:%p\t数组首元素的地址:%p\n", score, &score[0]);
+//     for (i = 0; i < 5; i++)
+//     {
+//         //printf("%.2lf\n",ptr_score[i]);
+//         //printf("%.2lf\n",*ptr_score);
+//         printf("%.2lf\n", *(ptr_score + i));
+//         //printf("%.2lf\n",*ptr_score++);
+//     }
+// }
+
+// typedef struct B
+// {
+//     union
+//     {
+//         int n;
+//         char *c;
+//     } Ls;
+// } b;
+
+// int main(int argc, char const *argv[])
+// {
+//     b bs;
+//     bs.Ls.n = 1;
+//     bs.Ls.c = "aaa";
+//     cout << bs.Ls.n << "\n";
+//     cout << bs.Ls.c;
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+
+// using namespace std;
+
+// int a[55];
+// int main()
+// {
+//     int n;
+//     cin >> n;
+//     for (int i = 0; i < n; i++)
+//         cin >> a[i];
+//     string res = "YES";
+//     for (int i = 0; i < n; i++)
+//     {
+//         while (!(a[i] & 1))
+//             a[i] >>= 1;
+//     }
+//     for (int i = 1; i < n; i++)
+//     {
+//         if (a[i] != a[0])
+//             res = "NO";
+//     }
+//     cout << res << endl;
+// }
+
+#include <iostream>
+using namespace std;
+// int main()
+// {
+//     long long n; //这里题目要求的正整数范围是“一个正整数N(N <= 2,000,000)”，所以，要用精度更高的类型，用“int”会溢出。
+//     cin >> n;
+//     if (n == 1)
+//     {
+//         cout << "End" << endl;
+//     }
+//     else if (n % 2 == 0)
+//     {
+//         while (n % 2 == 0)
+//         {
+//             long long C;
+//             C = n / 2;
+//             cout << n << "/2=" << C << endl;
+//             n = C;
+//             if (n % 2 && n != 1)
+//             {
+//                 cout << n;
+//                 n = n * 3 + 1;
+//                 cout << "*3+1=" << n << endl;
+//             }
+//         }
+//         cout << "End" << endl;
+//     }
+//     else
+//     {
+//         long long B;
+//         B = n * 3 + 1;
+//         cout << n << "*3+1=" << B << endl;
+//         while (B % 2 == 0)
+//         {
+//             long long C;
+//             C = B / 2;
+//             cout << B << "/2=" << C << endl;
+//             B = C;
+//             if (B % 2 && B != 1)
+//             {
+//                 cout << B;
+//                 B = B * 3 + 1;
+//                 cout << "*3+1=" << B << endl;
+//             }
+//         }
+//         cout << "End" << endl;
+//     }
+//     return 0;
+// }
+
+// void lg(long long n)
+// {
+//     if (n == 1)
+//     {
+//         printf("End\n");
+//         return;
+//     }
+//     long long c;
+//     if (n % 2 == 0)
+//     {
+//         c = n / 2;
+
+//         printf("%lld/2=%lld\n",n,c);
+//         lg(c);
+//     }
+//     else
+//     {
+
+//         printf("%lld", n);
+//         n = n * 3 + 1;
+//         printf("*3+1=%lld\n", n);
+
+//         lg(n);
+//     }
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     lg(159487);
+//     return 0;
+// }
+// #include <iostream>
+// using namespace std;
+// int main()
+// {
+//     long long n; //这里题目要求的正整数范围是“一个正整数N(N <= 2,000,000)”，所以，要用精度更高的类型，用“int”会溢出。
+//     cin >> n;
+//     if (n == 1)
+//     {
+//         cout << "End" << endl;
+//     }
+//     else if (n % 2 == 0)
+//     {
+//         while (n % 2 == 0)
+//         {
+//             long long C;
+//             C = n / 2;
+//             cout << n << "/2=" << C << endl;
+//             n = C;
+//             if (n % 2 && n != 1)
+//             {
+//                 cout << n;
+//                 n = n * 3 + 1;
+//                 cout << "*3+1=" << n << endl;
+//             }
+//         }
+//         cout << "End" << endl;
+//     }
+//     else
+//     {
+//         long long B;
+//         B = n * 3 + 1;
+//         cout << n << "*3+1=" << B << endl;
+//         while (B % 2 == 0)
+//         {
+//             long long C;
+//             C = B / 2;
+//             cout << B << "/2=" << C << endl;
+//             B = C;
+//             if (B % 2 && B != 1)
+//             {
+//                 cout << B;
+//                 B = B * 3 + 1;
+//                 cout << "*3+1=" << B << endl;
+//             }
+//         }
+//         cout << "End" << endl;
+//     }
+//     return 0;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     int a = 0;
+//     int b = 0;
+//     while ((cin>>a>>b)&&(a || b))
+//     {
+//         cout <<"输出"<< a << " " << b;
+
+//     }
+
+//     cout << a << " " << b;
+//     return 0;
+// }
+
+
+int main(int argc, char const *argv[])
+{
+   
+    cout<< sqrt(9)<<endl;
+    cout << pow(3,-2) << endl;
     return 0;
 }

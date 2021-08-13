@@ -1,4 +1,4 @@
-//直接复制PTA 上面的
+
 #include <bits/stdc++.h>
 using namespace std;
 int n, *x, m = 1;
