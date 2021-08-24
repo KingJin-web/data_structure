@@ -2716,8 +2716,6 @@ using namespace std;
 //     cout << res << endl;
 // }
 
-#include <iostream>
-using namespace std;
 // int main()
 // {
 //     long long n; //这里题目要求的正整数范围是“一个正整数N(N <= 2,000,000)”，所以，要用精度更高的类型，用“int”会溢出。
@@ -2861,11 +2859,188 @@ using namespace std;
 //     return 0;
 // }
 
+// int main(int argc, char const *argv[])
+// {
+
+//     int a, b, c, d, e;
+//     cout << a << " " << b << " " << c << " " << d << " " << e;
+//     return 0;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     int a = 10;
+//     int *p = &a;
+//     cout << &a << endl;
+//     cout << p << endl;
+//     cout << &p << endl;
+
+//     printf("%d",'A');
+//     return 0;
+// }
+// int main(int argc, char const *argv[])
+// {
+//     int arr[] = {1, 2, 3, 4};
+//     int *p = arr;
+//     cout<<*++p<<endl;
+//     int *p1 = arr;
+//     cout << *p1++ << endl;
+//     cout << *p1 << endl;
+
+//     return 0;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     int a = getchar();
+//     if(a > '0' &&a < '9'){
+
+//     }else
+//     {
+//         printf("输入的不是数字");
+//     }
+
+//     return 0;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     char *a = "zxcvbnmasdfgh";
+
+//     char c[40];
+//     char *b = c;
+//     char *d = c;
+//     while (*(a) != '\0')
+//     {
+//         //printf("%c\n", *a);
+//         *(b++) = *a++;
+//     }
+
+//     while (*d != '\0')
+//     {
+//         printf("%c\n", *d++);
+
+//     }
+//     //cout << b << endl;
+//     return 0;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     char *ch1 = "Hello";
+//     char *ch2 = "Helle";
+//     int i1 = strcmp(ch1, ch2);
+//     cout<<i1<<endl;
+//     return 0;
+// }
+
+// #include <stdio.h>
+// #include <algorithm>
+// #include <string.h>
+
+// using namespace std;
+
+// int Max = -0x3f3f3f3f; ///最优值
+// int a[105][105];       ///存储矩阵
+// int b[105];            ///b[i],表示之前的某一行到第i行的矩阵和
+
+// int main()
+// {
+//     int n;
+//     int i, j, k;
+//     scanf("%d", &n);
+//     for (i = 0; i < n; i++) ///输入矩阵
+//     {
+//         for (j = 0; j < n; j++)
+//         {
+//             scanf("%d", &a[i][j]);
+//         }
+//     }
+//     for (i = 0; i < n; i++) ///开始从第0行往下走
+//     {
+//         memset(b, 0, sizeof(b));
+//         for (j = i; j < n; j++) ///开始从i行往下走
+//         {
+//             int sum = 0; ///i~j行的矩阵和(列数不断变化)
+//             for (k = 0; k < n; k++)
+//             {
+//                 b[k] = b[k] + a[j][k];
+//                 sum = sum + b[k];
+//                 if (sum < b[k])
+//                     sum = b[k]; ///第k列之前为负，则最大和sum=b[k];
+//                 if (sum > Max)
+//                     Max = sum;
+//             }
+//         }
+//     }
+//     printf("%d\n", Max);
+//     return 0;
+// }
+
+// #include <iostream>
+// using namespace std;
+// #define max(a, b) a > b ? a : b;
+// long long int dp[16][16];
+// int sum[16];
+// int main()
+// {
+//     int n, k;
+//     cin >> n >> k;
+//     for (int i = 1; i <= n; i++)
+//     {
+//         int temp;
+//         cin >> temp;
+//         sum[i] = sum[i - 1] + temp;
+//     }
+//     for (int i = 1; i <= n; i++)
+//     {
+//         dp[i][0] = sum[i];
+//     }
+//     for (int i = 2; i <= n; i++)
+//     {
+//         for (int j = 1; j <= i - 1 && j <= k; j++)
+//         {
+//             for (int l = 2; l <= n; l++)
+//             {
+//                 dp[i][j] = max(dp[i][j], dp[l - 1][j - 1] * (sum[i] - sum[l - 1]));
+//             }
+//         }
+//     }
+//     cout << dp[n][k];
+//     return 0;
+// }
+// int fun(int a[2]){
+//     cout<<a<<endl;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     int a[3] = {1,2,3};
+//     fun(a);
+//     return 0;
+// }
+
+// typedef struct cbNode
+// {
+//     int data;
+//     struct cbNode *first;
+//     struct cbNode *next;
+// } CBNode, *CBTree;
+
+// int main(int argc, char const *argv[])
+// {
+
+//     srand(time(NULL));
+//     int a = 2;
+//     a += rand() % 10;
+//     cout << a << endl;
+//     return 0;
+// }
 
 int main(int argc, char const *argv[])
 {
-   
-    cout<< sqrt(9)<<endl;
-    cout << pow(3,-2) << endl;
+    char *a[] = {"你","改","行","吧"};
+    //string as[] = a;
+    cout<<a<<endl;
     return 0;
 }
