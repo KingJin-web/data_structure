@@ -1043,7 +1043,7 @@ using namespace std;
 // struct addressBook
 // {
 //     //通讯录中保存的联系人数组
-//     struct contacts addrArray[100];
+//     struct contacts addrarr[100];
 //     //通讯录中保存的联系人个数
 //     int addrSize;
 // };
@@ -1134,7 +1134,7 @@ using namespace std;
 //     cout << "请输入您所要添加联系人的姓名:";
 //     cin >> name;
 //     add->addrSize = 0;
-//     add->addrArray[add->addrSize]
+//     add->addrarr[add->addrSize]
 //         .name = name;
 
 //     while (true)
@@ -1146,11 +1146,11 @@ using namespace std;
 
 //         if (sex == 0)
 //         {
-//             add->addrArray[add->addrSize].sex = "男";
+//             add->addrarr[add->addrSize].sex = "男";
 //         }
 //         else if (sex == 1)
 //         {
-//             add->addrArray[add->addrSize].sex = "女";
+//             add->addrarr[add->addrSize].sex = "女";
 //         }
 //         else
 //         {
@@ -1164,21 +1164,21 @@ using namespace std;
 //     int age = 0;
 //     cout << "请输入您所要添加联系人的年龄:" << endl;
 //     cin >> age;
-//     add->addrArray[add->addrSize].age = age;
+//     add->addrarr[add->addrSize].age = age;
 
 //     //添加电话号3
 //     long long num = 0;
 //     cout << "请输入您所添加联系人的电话:" << endl;
 //     cin >> num;
-//     add->addrArray[add->addrSize].num = num;
+//     add->addrarr[add->addrSize].num = num;
 
 //     //添加地址
 //     string address;
 //     cout << "请输入您所添加联系人的地址:" << endl;
 //     cin >> address;
-//     add->addrArray[add->addrSize].address = address;
+//     add->addrarr[add->addrSize].address = address;
 
-//     cout << add->addrArray[add->addrSize].age <<","<< add->addrArray[add->addrSize].address << endl;
+//     cout << add->addrarr[add->addrSize].age <<","<< add->addrarr[add->addrSize].address << endl;
 //     add->addrSize++ ;
 // }
 
@@ -1283,7 +1283,7 @@ using namespace std;
 //     }
 // }
 // //打印数组
-// void printArray(int *arr, int len)
+// void printarr(int *arr, int len)
 // {
 //     for (int i = 0; i < len; i++)
 //     {
@@ -1301,7 +1301,7 @@ using namespace std;
 //     //2.创建函数，实现冒泡排序
 //     bubbleSort(arr, len);
 //     //3.打印排序后的数组
-//     printArray(arr, len);
+//     printarr(arr, len);
 // }
 
 // int main(int argc, char const *argv[])
@@ -3090,10 +3090,96 @@ using namespace std;
 //         }
 //     }
 // }
+// int main(int argc, char const *argv[])
+// {
+//     float x = 1,y;
+//     y = ++x*++x;
+//     printf("%f",y);
+//     return 0;
+// }
+
+// #define MAXN 10
+// int a[MAXN][MAXN];
+// int main()
+// {
+//     int n, x, y, tot;
+//     scanf("%d", &n);
+//     memset(a, 0, sizeof(a));
+//     tot = a[x = 0][y = n - 1] = 1;
+//     while (tot < n * n)
+//     {
+//         printf("aaa");
+//         while (x + 1 < n && !a[x + 1][y])
+//             a[++x][y] = ++tot;
+//         while (y - 1 > 0 && !a[x][y-1])
+//             a[x][--y] = ++tot;
+//         while (x - 1 > 0 && !a[x - 1][y] )
+//             a[--x][y] = ++tot;
+//         while (y + 1 < n && !a[x ][y + 1])
+//             a[x][++y] = ++tot;
+//     }
+//     for (int i = 0; i < n; ++i)
+//     {
+//         printf("aaa");
+//         for (int j = 0; j < n; ++j)
+//             printf("%3d", a[i][j]);
+//         printf("\n");
+//     }
+//     return 0;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     arr<double, 10> values{0.5, 1.0, 1.5, 2.0};
+//     for(double a : values){
+//         printf("%.2lf ",a);
+//     }
+//     return 0;
+// }
+
+// #include<array>
+// const int N = 11;
+// int arr[N];
+// int main()
+// {
+//     for (int i = 1; i < N; i++)
+//     {
+//         cin >> arr[i];
+//     }
+//     for (int i = 1; i < N - 1; i++)
+//     {
+//         for (int j = i + 1; j < N; j++)
+//         {
+//             if (arr[i] > arr[j])
+//             {
+//                 int temp = arr[j];
+//                 arr[j] = arr[i];
+//                 arr[i] = temp;
+//             }
+//         }
+//     }
+//     for (int i = 1; i < N; i++)
+//     {
+//         cout << arr[i] << " " << endl;
+//     }
+//     return 0;
+// }
+// int myfunction(int a, int b, int c)
+// {
+//     return (a > b ? a : b) > (b > c ? b : c) ? (a > b ? a : b) : (b > c ? b : c);
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     cout << myfunction(1, 2, 3)<<endl;
+//     cout << myfunction(2,1,3) << endl;
+//     cout << myfunction(3,2,1) << endl;
+//     return 0;
+// }
+
 int main(int argc, char const *argv[])
 {
-    float x = 1,y;
-    y = ++x*++x;
-    printf("%f",y);
+
     return 0;
 }
+
