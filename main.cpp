@@ -3177,9 +3177,19 @@ using namespace std;
 //     return 0;
 // }
 
+// int main(int argc, char const *argv[])
+// {
+
+//     cout <<"(" <<12.1<<")"<< endl;
+// }
 int main(int argc, char const *argv[])
 {
+    string *str_heart = new string;
+    *str_heart = "abcd";
+    cout << *str_heart << endl;
 
+    //delete str_heart;
+    //free(str_heart);
+    //cout << *str_heart << endl;
     return 0;
 }
-
