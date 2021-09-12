@@ -43,14 +43,14 @@ struct xs
 //         }
 //     }
 // }
-int main(int argc, char const *argv[])
-{
-    string *str_heart = new string;
-    *str_heart = "abcd";
-    cout << *str_heart << endl;
+// int main(int argc, char const *argv[])
+// {
+//     string *str_heart = new string;
+//     *str_heart = "abcd";
+//     cout << *str_heart << endl;
 
-    //delete str_heart;
-    free(str_heart);
-    cout << "a" << *str_heart << "b" << endl;
-    return 0;
-}
+//     //delete str_heart;
+//     free(str_heart);
+//     cout << "a" << *str_heart << "b" << endl;
+//     return 0;
+// }

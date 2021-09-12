@@ -3182,14 +3182,26 @@ using namespace std;
 
 //     cout <<"(" <<12.1<<")"<< endl;
 // }
+// int main(int argc, char const *argv[])
+// {
+//     string *str_heart = new string;
+//     *str_heart = "abcd";
+//     cout << *str_heart << endl;
+
+//     //delete str_heart;
+//     //free(str_heart);
+//     //cout << *str_heart << endl;
+//     return 0;
+// }
 int main(int argc, char const *argv[])
 {
-    string *str_heart = new string;
-    *str_heart = "abcd";
-    cout << *str_heart << endl;
-
-    //delete str_heart;
-    //free(str_heart);
-    //cout << *str_heart << endl;
+    int a, b, c = 0;
+    cin >> a;
+    for (int i = 0; i < a; ++i)
+    {
+        cin >> b;
+        c += b;
+    }
+    printf("%lf\n", (double)c / a);
     return 0;
 }
