@@ -633,7 +633,7 @@ using namespace std;
 //     virtual double getVolume() const { return width * heigh * length; };
 //     virtual void showAll() const { cout << "长方体面积  " << getSuperficialArea() << "\t体积 " << getVolume() << endl; };
 // };
-// //.派生类Sphere 表示球体类，增加1个属性(radius 表示半径)。V=(4/3)πr^3 
+// //.派生类Sphere 表示球体类，增加1个属性(radius 表示半径)。V=(4/3)πr^3
 // //●派生类Cylinder表示圆柱体类，增加2个属性(radius表示半径，high表示高度)。
 // class Sphere : public SolidFigue
 // {
@@ -3193,15 +3193,636 @@ using namespace std;
 //     //cout << *str_heart << endl;
 //     return 0;
 // }
-int main(int argc, char const *argv[])
+// int main(int argc, char const *argv[])
+// {
+//     int a, b, c = 0;
+//     cin >> a;
+//     for (int i = 0; i < a; ++i)
+//     {
+//         cin >> b;
+//         c += b;
+//     }
+//     printf("%lf\n", (double)c / a);
+//     return 0;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+//     int a, b, c;
+//     scanf("%d%d%d\n", &a, &b, &c);
+
+//     printf("%d%d%d", a, b, c);
+//     return 0;
+// }
+// bool canWinNim(int n)
+// {
+//     return n & 3;
+// }
+// int main(int argc, char const *argv[])
+// {
+//     cout<<canWinNim(2);
+//     return 0;
+// }
+// int a(double[]);
+
+// int main(int argc, char const *argv[])
+// {
+//     int a, b, c;
+//     cin >> a, b, c;
+//     cout << "a: " << a << "b: " << b << "c: " << c << endl;
+//     long long a [][2] = {{1,2},{1,2}};
+
+//     return 0;
+// }
+// int main(int argc, char const *argv[])
+// {
+//     string a = "aaaaa";
+//     cout<<a.length()<<endl;
+
+//     char aa[] = "123456789";
+//     cout << strlen(aa);
+//      return 0;
+// }
+// int main()
+// {
+//     long num = 2147483640;
+//     while (num++ > 0)
+//         for (long i = num; i >= 0; i--)
+//             printf("i :=\n \t %ld \n", i);
+//     return 0;
+// }
+
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <string.h>
+
+// typedef struct _Hero
+// {
+//     char *name;
+
+// } Hero ;
+
+// void function1(Hero *);
+
+// int main()
+// {
+//     Hero * hero =  new Hero();
+
+//     function1(hero);
+//     return 0;
+// }
+// void function1(Hero *hero)
+// {
+//     printf("%s", hero[1].name);
+// }
+// #include "stdafx.h"
+
+// class point
+// {
+//     float x, y;
+
+// public:
+//     point(float a, float b)
+//     {
+//         x = a;
+//         y = b;
+//     }
+//     float distance(point &p)
+//     {
+//         float dx = x - p.x;
+//         float dy = y - p.y;
+//         return (float)sqrt(dx * dx + dy * dy);
+//     }
+// };
+// int main()
+// {
+//     point p1(2, 3), p2(32, 43);
+//     //the distance of p1 and p2
+//     cout << p1.distance(p2) << endl;
+// }
+// int main(int argc, char const *argv[])
+// {
+//     int k = 2;
+//     int *pt1,*pt2;
+//     *pt1 = k;
+//     *pt2 = k;
+
+//     cout<<pt1<<endl;
+
+//     return 0;
+// }
+
+//void sort(int *a, int l)//a为数组地址，l为数组长度。
+//{
+//    int i, j;
+//    int v;
+//    //排序主体
+//    for (i = 0; i < l - 1; i++)
+//        for (j = i + 1; j < l; j++) {
+//            if (a[i] > a[j])//如前面的比后面的大，则交换。
+//            {
+//                v = a[i];
+//                a[i] = a[j];
+//                a[j] = v;
+//            }
+//        }
+//}
+//
+//int main() {
+//    int n = 0;
+//
+//    scanf("%d", &n);
+//    int arr[n];
+//    for (int i = 0; i < n; i++) {
+//        scanf("%d", &arr[i]);
+//    }
+//    sort(arr, n);//前两个参数都是地址
+//
+//    arr[0] = 0, arr[1] = 0, arr[n - 1] = 0, arr[n - 2] = 0;
+//
+//    int sum = 0;
+//    for (int i = 0; i < n; i++) {
+//        sum += arr[i];
+//    }
+//    double avg = (double) sum / (n - 4);//一定要强制类型转换
+//    printf("%.2f", avg);
+//    return 0;
+//}
+
+// int main(int argc, char *argv[])
+// {
+//     int i, j, m = 0, flag;
+//     int a[] = {1, 2, 3, 5, 6}; //定义两个数组
+//     int b[] = {3, 4, 5, 6, 7};
+//     int c[11];
+
+//     for (i = 0; i < 5; i++) //交集
+//     {
+//         for (j = 0; j < 5; j++)
+//         {
+//             if (a[i] == b[j])
+//             {
+//                 c[m++] = a[i];
+//                 break;
+//             }
+//         }
+//     }
+//     printf("交集:\n");
+//     for (i = 0; i < m; i++)
+//         printf("%-4d", c[i]); //输出交集
+//     return 0;
+// }
+// int main(int argc, char const *argv[])
+// {
+//     int n, m;
+//     scanf("%d", &n);
+//     int arr1[n];
+//     for (int i = 0; i < n; i++)
+//     {
+//         scanf("%d", &arr1[i]);
+//     }
+
+//     scanf("%d", &m);
+//     int arr2[m];
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         scanf("%d", &arr2[i]);
+//     }
+
+//   int c[n > m ? m : n];
+//   int x = 0;
+//     for (int i = 0; i < n; i++) //交集
+//     {
+//         for (int j = 0; j < m; j++)
+//         {
+//             if (arr1[i] == arr2[j])
+//             {
+//                 c[x++] = arr1[i];
+//                 break;
+//             }
+//         }
+//     }
+//         for (int i = 0; i < x; i++)
+//             printf("%-4d", c[i]); //输出交集
+//     return 0;
+// }
+// #include <vector>
+// #include <algorithm>
+// int main(int argc, char const *argv[])
+// {
+//     int n;
+//     cin >> n;
+//     vector<int> nums;
+//     for (int i = 0; i < n; i++)
+//     {
+//         int a;
+//         cin >> a;
+//         nums.push_back(a);
+//     }
+
+//     int max = *max_element(nums.begin(), nums.end());
+
+//     int min = *min_element(nums.begin(), nums.end());
+//     int index = (find(nums.begin(), nums.end(), max) - nums.begin())
+//             - (find(nums.begin(), nums.end(), min) - nums.begin()) ;
+//     cout<<max - min<<" "<<abs(index)<<endl;
+
+//     return 0;
+// }
+// int *aa(int *);
+
+// int *aa(int d[])
+// {
+//     int n = sizeof(d) / sizeof(int);
+//     int i, j, c;
+//     for (i = 0; i < n - 1; i++)
+//     {
+//         for (j = 0; j < n - i - 1; j++)
+//         {
+//             if (d[j] > d[j + 1])
+//             {
+//                 c = d[j];
+//                 d[j] = d[j + 1];
+//                 d[j + 1] = c;
+//             }
+//         }
+//     }
+//     return d;
+// }
+// int main()
+// {
+//     int b[] = {45, 23, 99};
+//     int *d = aa(b);
+//     for (int i = 0; i < 3; i++)
+//         printf("%d\t", d[i]);
+
+//     //  printf("%d", d[1]);
+// }
+// #define m 12
+// //判断是否为闰年
+// int isleap(int year)
+// {
+//     if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+//     {
+//         return 1;
+//     }
+//     else
+//     {
+//         return 0;
+//     }
+// }
+// //返回某月的天数
+// int month_day(int year, int month)
+// {
+
+//     int mon[m] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+//     if (month >= 1 && month <= 12)
+//     {
+//         if (month == 2 && isleap(year))
+//         {
+//             return mon[month - 1] + 1;
+//         }
+//         return mon[month - 1];
+//     }
+// }
+// //返回某月的第一天是星期几
+// int month_first_day_week(int year, int month)
+// {
+//     int day = 1, week = 0;
+//     int e[m] = {0, 3, 3, 6, 1, 4, 6, 2, 5, 0, 3, 5};
+//     week = (day - 1 + e[month - 1] + year + year / 4 - year / 100 + year / 400);
+//     if (month < 3 && year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+//     {
+//         --week;
+//     }
+//     week %= 7;
+//     switch (week)
+//     {
+//     case 1:
+//         return 1;
+//         break;
+//     case 2:
+//         return 2;
+//         break;
+//     case 3:
+//         return 3;
+//         break;
+//     case 4:
+//         return 4;
+//         break;
+//     case 5:
+//         return 5;
+//         break;
+//     case 6:
+//         return 6;
+//         break;
+//     default:
+//         return 0;
+//         break;
+//     }
+// }
+// //打印某年某月日历
+// void print_calendar(int year, int month)
+// {
+//     int days, day_week;
+//     int i = 0, day = 1;
+//     printf("            %4d年%02d月         \n", year, month);
+//     printf("Sun  Mon  Tue  Wed  Thu  Fri  Sat\n");
+//     days = month_day(year, month);
+//     day_week = month_first_day_week(year, month);
+//     while (i < day_week)
+//     {
+//         printf("     ");
+//         i++;
+//     }
+//     while (day <= days)
+//     {
+//         printf("%2d   ", day);
+//         day++;
+//         i = i % 7;
+//         if (0 == (i + 1) % 7)
+//         {
+//             printf("\n");
+//         } //i=i%7
+//         i++;
+//     }
+//     if (i != 0)
+//     {
+//         printf("\n");
+//     }
+// }
+// void print_year_calendar(int year)
+// {
+//     int i, j, k, t;
+//     int calendar[24][21] = {0};
+//     int days, day_week;
+//     printf("---------------------------------------------The Calendar of Year %4d---------------------------------------------\n", year);
+//     for (i = 0; i < 12; i++)
+//     {
+//         int day = 1;
+//         days = month_day(year, i + 1);
+//         day_week = month_first_day_week(year, i + 1);
+//         for (j = (i / 3) * 6; j < (i / 3) * 6 + 6; j++)
+//         {
+//             for (k = (i % 3) * 7; k < (i % 3) * 7 + 7; k++)
+//             {
+//                 t = (j % 6) * 7 + (k % 7) - day_week + 1;
+//                 if (0 >= t)
+//                 {
+//                     continue;
+//                 }
+//                 else if (t <= days)
+//                 {
+//                     calendar[j][k] = t;
+//                 }
+//                 else
+//                 {
+//                     continue;
+//                 }
+//             }
+//         }
+//     }
+//     for (j = 0; j < 24; j++)
+//     {
+//         if (0 == j)
+//         {
+//             printf("             January                                February                                  March\n");
+//             printf("Sun  Mon  Tue  Wed  Thu  Fri  Sat       Sun  Mon  Tue  Wed  Thu  Fri  Sat       Sun  Mon  Tue  Wed  Thu  Fri  Sat\n");
+//         }
+//         else if (6 == j)
+//         {
+//             printf("              April                                    May                                     June\n");
+//             printf("Sun  Mon  Tue  Wed  Thu  Fri  Sat       Sun  Mon  Tue  Wed  Thu  Fri  Sat       Sun  Mon  Tue  Wed  Thu  Fri  Sat\n");
+//         }
+//         else if (12 == j)
+//         {
+//             printf("               July                                   August                                September\n");
+//             printf("Sun  Mon  Tue  Wed  Thu  Fri  Sat       Sun  Mon  Tue  Wed  Thu  Fri  Sat       Sun  Mon  Tue  Wed  Thu  Fri  Sat\n");
+//         }
+//         else if (18 == j)
+//         {
+//             printf("             October                                 November                              December\n");
+//             printf("Sun  Mon  Tue  Wed  Thu  Fri  Sat       Sun  Mon  Tue  Wed  Thu  Fri  Sat       Sun  Mon  Tue  Wed  Thu  Fri  Sat\n");
+//         }
+//         for (k = 0; k < 21; k++)
+//         {
+//             if (7 == k || 14 == k)
+//             {
+//                 printf("     ");
+//             }
+//             if (0 == calendar[j][k])
+//             {
+//                 printf("     ");
+//                 continue;
+//             }
+//             printf("%2d   ", calendar[j][k]);
+//         }
+//         printf("\n");
+//     }
+// }
+// int main()
+// {
+//     int year;
+//     int month;
+//     while (scanf("%d%d", &year, &month) != EOF)
+//     {
+//         print_calendar(year, month);
+//     }
+//     //while (rewind(stdin), scanf("%d", &year) != EOF)
+//     //{
+//     //	print_year_calendar(year);
+//     //}
+// }
+double xs(double a, int b)
 {
-    int a, b, c = 0;
-    cin >> a;
-    for (int i = 0; i < a; ++i)
-    {
-        cin >> b;
-        c += b;
-    }
-    printf("%lf\n", (double)c / a);
+    int i, j = 1;
+    float ans;
+    for (i = 1; i <= b; i++)
+        j *= 10;
+    ans = (int)(a * j) * 1.0 / j;
+    return ans;
+}
+
+// #define LIST_INIT_SIZE 100 //线性表存储空间的初始分配量
+// #define LISTINCREMENT 10   //线性表存储空间的分配增量
+
+// typedef int ElemType;
+
+// typedef int Status;
+
+// typedef struct
+// {
+//     ElemType *elem;
+//     int length;
+//     int listsize;
+// } Sqlist;
+
+// Status InitList_Sq(Sqlist *L);
+
+// void Input(Sqlist *L, int n);
+
+// void Output(Sqlist *L);
+
+// int main()
+// {
+//     int num;
+//     scanf("%d", &num);
+//     Sqlist L;
+
+//     InitList_Sq( & L);
+//     Input(&L, num);
+//     Output(&L);
+//     return 0;
+// }
+
+// Status InitList_Sq(Sqlist *L) //初始化                       /**构造一个空的线性表*/
+// {
+
+//     L->elem = (int *)malloc(LIST_INIT_SIZE * sizeof(int));
+//     if (!L->elem)
+//         exit(OVERFLOW);
+
+//     L->length = 0;
+//     L->listsize = LIST_INIT_SIZE;
+//     return 1;
+// }
+
+// void Input(Sqlist *L, int n)
+// {
+//     int i;
+//     printf("为线性表赋值，赋值%d个元素\n", n);
+//     for (i = 0; i < n; i++)
+//     {
+//         printf("请输入第%d个元素", i);
+//         scanf("%d", &L->elem[i]);
+//         ++L->length;
+//     }
+// }
+
+// void Output(Sqlist *L)
+// {
+//     printf("输出\n");
+//     int i;
+//     for (i = 0; i < L->length; i++)
+//         printf("%d\t", L->elem[i]);
+// }
+#include <stdio.h>
+#include <stdlib.h>
+
+#define LIST_INIT_SIZE 100 //线性表存储空间的初始分配量
+#define LISTINCREMENT 10   //线性表存储空间的分配增量
+
+typedef int ElemType;
+
+typedef int Status;
+
+typedef struct
+{
+    ElemType *elem;
+    int length;
+    int listsize;
+} Sqlist;
+
+Status InitList_Sq(Sqlist *L);
+
+void Input(Sqlist *L, int n);
+
+void Output(Sqlist *L);
+
+Status InsertSqlist(Sqlist *L, int i, ElemType e);
+
+int main()
+{
+    int num, e, p;
+    scanf("%d", &num);
+    Sqlist La;
+    InitList_Sq(&La);
+    Input(&La, num);
+    Output(&La);
+    printf("请输入插入的元素及其位置：");
+    scanf("%d%d", &e, &p);
+    InsertSqlist(&La, p, e);
+    Output(&La);
     return 0;
+}
+
+Status InitList_Sq(Sqlist *L) //初始化
+/**构造一个空的线性表*/
+{
+
+    L->elem = (ElemType *)malloc(LIST_INIT_SIZE * sizeof(ElemType));
+    if (!L->elem)
+        exit(-1);
+    L->length = 0;
+    L->listsize = LIST_INIT_SIZE;
+    return 1;
+}
+
+Status InsertSqlist(Sqlist *l, int i, ElemType e)
+{
+    int k;
+    if (i < 1 || i > l->length + 1)
+    {
+        printf("插入位置%d不合法!\n", i);
+        return 0;
+    }
+    if (l->length >= l->listsize)
+    {
+        printf("顺序表已满！\n"); //如果数组超出listSize，就动态的分配加入
+        l->elem = (ElemType *)realloc(l->elem, (l->listsize + LIST_INIT_SIZE) * sizeof(ElemType));
+        if (!l->elem)
+        {
+            printf("分配空间失败！\n", i);
+            return 0;
+        }
+        l->listsize += LIST_INIT_SIZE;
+    }
+    for (k = l->length; k > i - 1; k--) //i之后元素往后挪
+    {
+        l->elem[k] = l->elem[k - 1];
+    }
+    l->elem[i - 1] = e;
+    l->length++;
+}
+
+// Status InsertSqlist(Sqlist *L, int i, ElemType e) //在第i个元素前插入元素e
+// {
+//     int *p, *q;
+//     ElemType newbase;
+//     if (i < 1 || i > L->length)
+//         return 0;
+//     if (L->length >= L->listsize)
+//     {
+//         newbase = (ElemType *)realloc(L->elem, (L->listsize + LISTINCREMENT) * sizeof(ElemType));
+//         if (!newbase)
+//             exit(-1);
+//         L->elem = newbase;
+//         L->listsize += LISTINCREMENT;
+//     }
+//     q = &(L->elem[i - 1]);
+//     for (p = &(L->elem[L->length - 1]); p >= q; --p)
+//         *(p + 1) = *p;
+//     *p = e;
+//     ++L->length;
+//     return 1;
+// }
+
+void Input(Sqlist *L, int n)
+{
+    int i;
+    printf("为线性表赋值，赋值%d个元素\n", n);
+    for (i = 0; i < n; i++)
+    {
+        printf("请输入第%d个元素", i + 1);
+        scanf("%d", &L->elem[i]);
+        ++L->length;
+    }
+}
+
+void Output(Sqlist *L)
+{
+    int i;
+    for (i = 0; i < L->length; i++)
+        printf("%d\t", L->elem[i]);
 }
