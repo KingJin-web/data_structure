@@ -3707,84 +3707,84 @@ double xs(double a, int b)
 //     for (i = 0; i < L->length; i++)
 //         printf("%d\t", L->elem[i]);
 // }
-#include <stdio.h>
-#include <stdlib.h>
+// #include <stdio.h>
+// #include <stdlib.h>
 
-#define LIST_INIT_SIZE 100 //线性表存储空间的初始分配量
-#define LISTINCREMENT 10   //线性表存储空间的分配增量
+// #define LIST_INIT_SIZE 100 //线性表存储空间的初始分配量
+// #define LISTINCREMENT 10   //线性表存储空间的分配增量
 
-typedef int ElemType;
+// typedef int ElemType;
 
-typedef int Status;
+// typedef int Status;
 
-typedef struct
-{
-    ElemType *elem;
-    int length;
-    int listsize;
-} Sqlist;
+// typedef struct
+// {
+//     ElemType *elem;
+//     int length;
+//     int listsize;
+// } Sqlist;
 
-Status InitList_Sq(Sqlist *L);
+// Status InitList_Sq(Sqlist *L);
 
-void Input(Sqlist *L, int n);
+// void Input(Sqlist *L, int n);
 
-void Output(Sqlist *L);
+// void Output(Sqlist *L);
 
-Status InsertSqlist(Sqlist *L, int i, ElemType e);
+// Status InsertSqlist(Sqlist *L, int i, ElemType e);
 
-int main()
-{
-    int num, e, p;
-    scanf("%d", &num);
-    Sqlist La;
-    InitList_Sq(&La);
-    Input(&La, num);
-    Output(&La);
-    printf("请输入插入的元素及其位置：");
-    scanf("%d%d", &e, &p);
-    InsertSqlist(&La, p, e);
-    Output(&La);
-    return 0;
-}
+// int main()
+// {
+//     int num, e, p;
+//     scanf("%d", &num);
+//     Sqlist La;
+//     InitList_Sq(&La);
+//     Input(&La, num);
+//     Output(&La);
+//     printf("请输入插入的元素及其位置：");
+//     scanf("%d%d", &e, &p);
+//     InsertSqlist(&La, p, e);
+//     Output(&La);
+//     return 0;
+// }
 
-Status InitList_Sq(Sqlist *L) //初始化
-/**构造一个空的线性表*/
-{
+// Status InitList_Sq(Sqlist *L) //初始化
+// /**构造一个空的线性表*/
+// {
 
-    L->elem = (ElemType *)malloc(LIST_INIT_SIZE * sizeof(ElemType));
-    if (!L->elem)
-        exit(-1);
-    L->length = 0;
-    L->listsize = LIST_INIT_SIZE;
-    return 1;
-}
+//     L->elem = (ElemType *)malloc(LIST_INIT_SIZE * sizeof(ElemType));
+//     if (!L->elem)
+//         exit(-1);
+//     L->length = 0;
+//     L->listsize = LIST_INIT_SIZE;
+//     return 1;
+// }
 
-Status InsertSqlist(Sqlist *l, int i, ElemType e)
-{
-    int k;
-    if (i < 1 || i > l->length + 1)
-    {
-        printf("插入位置%d不合法!\n", i);
-        return 0;
-    }
-    if (l->length >= l->listsize)
-    {
-        printf("顺序表已满！\n"); //如果数组超出listSize，就动态的分配加入
-        l->elem = (ElemType *)realloc(l->elem, (l->listsize + LIST_INIT_SIZE) * sizeof(ElemType));
-        if (!l->elem)
-        {
-            printf("分配空间失败！\n", i);
-            return 0;
-        }
-        l->listsize += LIST_INIT_SIZE;
-    }
-    for (k = l->length; k > i - 1; k--) //i之后元素往后挪
-    {
-        l->elem[k] = l->elem[k - 1];
-    }
-    l->elem[i - 1] = e;
-    l->length++;
-}
+// Status InsertSqlist(Sqlist *l, int i, ElemType e)
+// {
+//     int k;
+//     if (i < 1 || i > l->length + 1)
+//     {
+//         printf("插入位置%d不合法!\n", i);
+//         return 0;
+//     }
+//     if (l->length >= l->listsize)
+//     {
+//         printf("顺序表已满！\n"); //如果数组超出listSize，就动态的分配加入
+//         l->elem = (ElemType *)realloc(l->elem, (l->listsize + LIST_INIT_SIZE) * sizeof(ElemType));
+//         if (!l->elem)
+//         {
+//             printf("分配空间失败！\n", i);
+//             return 0;
+//         }
+//         l->listsize += LIST_INIT_SIZE;
+//     }
+//     for (k = l->length; k > i - 1; k--) //i之后元素往后挪
+//     {
+//         l->elem[k] = l->elem[k - 1];
+//     }
+//     l->elem[i - 1] = e;
+//     l->length++;
+// }
 
 // Status InsertSqlist(Sqlist *L, int i, ElemType e) //在第i个元素前插入元素e
 // {
@@ -3808,21 +3808,178 @@ Status InsertSqlist(Sqlist *l, int i, ElemType e)
 //     return 1;
 // }
 
-void Input(Sqlist *L, int n)
-{
-    int i;
-    printf("为线性表赋值，赋值%d个元素\n", n);
-    for (i = 0; i < n; i++)
-    {
-        printf("请输入第%d个元素", i + 1);
-        scanf("%d", &L->elem[i]);
-        ++L->length;
-    }
-}
+// void Input(Sqlist *L, int n)
+// {
+//     int i;
+//     printf("为线性表赋值，赋值%d个元素\n", n);
+//     for (i = 0; i < n; i++)
+//     {
+//         printf("请输入第%d个元素", i + 1);
+//         scanf("%d", &L->elem[i]);
+//         ++L->length;
+//     }
+// }
 
-void Output(Sqlist *L)
+// void Output(Sqlist *L)
+// {
+//     int i;
+//     for (i = 0; i < L->length; i++)
+//         printf("%d\t", L->elem[i]);
+// }
+
+// #define N 10
+
+// void Srand(int a, int b, int r[]);
+
+// void Adder(int *p);
+
+// int main()
+// {
+//     int x, y, num[N], tz;
+//     printf("生成(m,n)范围内的N个随机数，请输入m,n(m<n&&n-m>N):");
+//     scanf("%d%d", &x, &y);
+//     do
+//     {
+//         Srand(x, y, num);
+//         Adder(num);
+//         printf("是否继续？\n1.是\t2.否\n");
+//         scanf("%d", &tz);
+//         system("cls");
+//     } while (tz == 1);
+//     return 0;
+// }
+
+// void Srand(int a, int b, int r[])
+// {
+//     srand(time(nullptr));
+//     int i;
+//     for (i = 1; i < 2 * N + 1; i++)
+//     {
+//         r[i] = a + rand() % (b - a + 1); //产生一组随机数
+//     }
+//     //    for(i=1;i<2*N+1;i++)
+//     //      {
+//     //        printf("%d\t",r[i]);
+//     //        if(i%5==0)
+//     //            printf("\n");
+//     //      }
+// }
+
+// void Adder(int *p)
+// {
+//     int answer[N], error[N];
+
+//     int i, j = 0, k = 0, gg = 0;
+//     for (i = 1; i < N + 1; i++, p += 2)
+//     {
+//         printf("%d: %d + %d =", i, *(p + 1), *(p + 2));
+//         scanf("%d", answer + i);
+//         if (*(p + 2) + *(p + 1) == *(answer + i))
+//         {
+//             gg++;
+//         }
+//         else
+//         {
+//             error[j] = i;
+//             j++;
+//         }
+//         k = j;
+//     }
+//     if (!k)
+//     {
+//         printf("恭喜你,全对了！");
+//         gg = 0;
+//     }
+//     else
+//     {
+//         printf("你的得分是%d\n", gg);
+//         gg = 0;
+//         printf("其中你的错题是:\n");
+//         for (j = 0; j < k; j++)
+//             printf("%d题\t", error[j]);
+//     }
+//     printf("\n");
+// }
+
+
+// #include<stdio.h>
+// #include<string.h>
+// int main()
+// {
+// 	int i,j,n,temp,d=1,carry;//temp为阶乘元素与临时结果的乘积，carry是进位 ，d是位数 
+// 	int a[4000];//确保数组足够大 
+// 	scanf("%d",&n);//n的阶乘 
+// 	a[0]=1;//先初始化为1，方便后面运算 
+// 	for(i=2;i<=n;i++)//从2开始阶乘 ,每次循环计算i阶乘的结果 
+// 	{
+// 		for(j=1,carry=0;j<=d;j++)// 每次循环初始化进位的值 
+// 		{
+// 			temp=a[j-1]*i+carry;//相应阶乘中的一项与当前所得临时结果的某位相乘加上进位 
+// 			a[j-1]=temp%10;//更新临时结果的位上信息 
+// 			carry=temp/10;//如果有进位就进入下面的循环 
+// 		}
+// 		while(carry)     //如果有进位 
+// 		{   ++d;        //增加进位，位数加一
+// 	                a[d-1]=carry%10;   //给新的进位赋值 
+// 			carry=carry/10;    //看还可不可以再进位 
+// 		}
+// 	}
+// 	printf("n!=");
+// 	for(j=d-1;j>=0;j--)       //从高位向低位依次输出 
+// 	printf("%d",a[j]);
+// 	printf("\n");
+//  }
+
+// typedef struct _myTime
+// {
+// 	int year;
+// 	int month;
+// 	int day;
+
+// } MyTime;
+
+// typedef struct struct_hero
+// {
+// 	char name[50];	   //英雄的名称
+// 	char sex;		   //英雄的姓别
+// 	char job[50];	   //英雄的职业
+// 	int life;		   //英雄的生命值
+// 	double speeed;	   //攻击速度
+// 	char abillity[20]; //英雄的特殊能力
+// 	MyTime lyTime;	   //上线时间
+// } Hero;
+
+// int main()
+// {
+// 	Hero heros[100] = {
+// 		{"影流之主劫", 'm', "刺客", 579, 0.644, "位移", {2012, 8, 15}}
+
+// 	};
+// 	printf("%c", heros[0].sex);
+// }
+
+#define MAX 6
+int main()
 {
-    int i;
-    for (i = 0; i < L->length; i++)
-        printf("%d\t", L->elem[i]);
+	int i, j;
+	int temp;
+	int count = 5;
+	int levels[] = {1, 4, 2, 3, 0};
+	for (i = 0; i < count - 1; i++)
+	{
+		for (j = 0; j < count - i - 1; j++)
+		{
+			if (levels[j] < levels[j + 1])
+			{
+				temp = levels[j];
+				levels[j] = levels[j + 1];
+				levels[j + 1] = temp;
+			}
+		}
+	}
+	for (i = 0; i < count; i++)
+	{
+		printf("%d", levels[i]);
+	}
+	return 0;
 }
