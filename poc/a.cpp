@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS //屏蔽vs2017安全警告
+// #define _CRT_SECURE_NO_WARNINGS //屏蔽vs2017安全警告
 
 #include <stdio.h>
 #include <stdlib.h>

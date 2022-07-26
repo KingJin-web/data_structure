@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <iostream>
-using namespace std;
+
 struct xs
 {
     int num;
@@ -54,3 +52,4 @@ struct xs
 //     cout << "a" << *str_heart << "b" << endl;
 //     return 0;
 // }
+

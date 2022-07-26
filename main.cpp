@@ -602,7 +602,7 @@ using namespace std;
 //     lecture.print();
 //     return 0;
 // }
-//getSuperficialArea计算表面积、getVolume 计算体积、showAll 输出所有信息。
+// getSuperficialArea计算表面积、getVolume 计算体积、showAll 输出所有信息。
 //●派生类Cuboid表示长方体类，增加3个属性(width表示宽度、length表示长度、height表示高度)。
 //.派生类Sphere 表示球体类，增加1个属性(radius 表示半径)。
 //●派生类Cylinder表示圆柱体类，增加2个属性(radius表示半径，high表示高度)。
@@ -3312,42 +3312,42 @@ using namespace std;
 //     return 0;
 // }
 
-//void sort(int *a, int l)//a为数组地址，l为数组长度。
+// void sort(int *a, int l)//a为数组地址，l为数组长度。
 //{
-//    int i, j;
-//    int v;
-//    //排序主体
-//    for (i = 0; i < l - 1; i++)
-//        for (j = i + 1; j < l; j++) {
-//            if (a[i] > a[j])//如前面的比后面的大，则交换。
-//            {
-//                v = a[i];
-//                a[i] = a[j];
-//                a[j] = v;
-//            }
-//        }
-//}
+//     int i, j;
+//     int v;
+//     //排序主体
+//     for (i = 0; i < l - 1; i++)
+//         for (j = i + 1; j < l; j++) {
+//             if (a[i] > a[j])//如前面的比后面的大，则交换。
+//             {
+//                 v = a[i];
+//                 a[i] = a[j];
+//                 a[j] = v;
+//             }
+//         }
+// }
 //
-//int main() {
-//    int n = 0;
+// int main() {
+//     int n = 0;
 //
-//    scanf("%d", &n);
-//    int arr[n];
-//    for (int i = 0; i < n; i++) {
-//        scanf("%d", &arr[i]);
-//    }
-//    sort(arr, n);//前两个参数都是地址
+//     scanf("%d", &n);
+//     int arr[n];
+//     for (int i = 0; i < n; i++) {
+//         scanf("%d", &arr[i]);
+//     }
+//     sort(arr, n);//前两个参数都是地址
 //
-//    arr[0] = 0, arr[1] = 0, arr[n - 1] = 0, arr[n - 2] = 0;
+//     arr[0] = 0, arr[1] = 0, arr[n - 1] = 0, arr[n - 2] = 0;
 //
-//    int sum = 0;
-//    for (int i = 0; i < n; i++) {
-//        sum += arr[i];
-//    }
-//    double avg = (double) sum / (n - 4);//一定要强制类型转换
-//    printf("%.2f", avg);
-//    return 0;
-//}
+//     int sum = 0;
+//     for (int i = 0; i < n; i++) {
+//         sum += arr[i];
+//     }
+//     double avg = (double) sum / (n - 4);//一定要强制类型转换
+//     printf("%.2f", avg);
+//     return 0;
+// }
 
 // int main(int argc, char *argv[])
 // {
@@ -3636,12 +3636,12 @@ using namespace std;
 // }
 double xs(double a, int b)
 {
-    int i, j = 1;
-    float ans;
-    for (i = 1; i <= b; i++)
-        j *= 10;
-    ans = (int)(a * j) * 1.0 / j;
-    return ans;
+  int i, j = 1;
+  float ans;
+  for (i = 1; i <= b; i++)
+    j *= 10;
+  ans = (int)(a * j) * 1.0 / j;
+  return ans;
 }
 
 // #define LIST_INIT_SIZE 100 //线性表存储空间的初始分配量
@@ -3901,31 +3901,30 @@ double xs(double a, int b)
 //     printf("\n");
 // }
 
-
 // #include<stdio.h>
 // #include<string.h>
 // int main()
 // {
-// 	int i,j,n,temp,d=1,carry;//temp为阶乘元素与临时结果的乘积，carry是进位 ，d是位数 
-// 	int a[4000];//确保数组足够大 
-// 	scanf("%d",&n);//n的阶乘 
-// 	a[0]=1;//先初始化为1，方便后面运算 
-// 	for(i=2;i<=n;i++)//从2开始阶乘 ,每次循环计算i阶乘的结果 
+// 	int i,j,n,temp,d=1,carry;//temp为阶乘元素与临时结果的乘积，carry是进位 ，d是位数
+// 	int a[4000];//确保数组足够大
+// 	scanf("%d",&n);//n的阶乘
+// 	a[0]=1;//先初始化为1，方便后面运算
+// 	for(i=2;i<=n;i++)//从2开始阶乘 ,每次循环计算i阶乘的结果
 // 	{
-// 		for(j=1,carry=0;j<=d;j++)// 每次循环初始化进位的值 
+// 		for(j=1,carry=0;j<=d;j++)// 每次循环初始化进位的值
 // 		{
-// 			temp=a[j-1]*i+carry;//相应阶乘中的一项与当前所得临时结果的某位相乘加上进位 
-// 			a[j-1]=temp%10;//更新临时结果的位上信息 
-// 			carry=temp/10;//如果有进位就进入下面的循环 
+// 			temp=a[j-1]*i+carry;//相应阶乘中的一项与当前所得临时结果的某位相乘加上进位
+// 			a[j-1]=temp%10;//更新临时结果的位上信息
+// 			carry=temp/10;//如果有进位就进入下面的循环
 // 		}
-// 		while(carry)     //如果有进位 
+// 		while(carry)     //如果有进位
 // 		{   ++d;        //增加进位，位数加一
-// 	                a[d-1]=carry%10;   //给新的进位赋值 
-// 			carry=carry/10;    //看还可不可以再进位 
+// 	                a[d-1]=carry%10;   //给新的进位赋值
+// 			carry=carry/10;    //看还可不可以再进位
 // 		}
 // 	}
 // 	printf("n!=");
-// 	for(j=d-1;j>=0;j--)       //从高位向低位依次输出 
+// 	for(j=d-1;j>=0;j--)       //从高位向低位依次输出
 // 	printf("%d",a[j]);
 // 	printf("\n");
 //  }
@@ -3958,28 +3957,772 @@ double xs(double a, int b)
 // 	printf("%c", heros[0].sex);
 // }
 
-#define MAX 6
-int main()
+// #define MAX 6
+// int main()
+// {
+// 	int i, j;
+// 	int temp;
+// 	int count = 5;
+// 	int levels[] = {1, 4, 2, 3, 0};
+// 	for (i = 0; i < count - 1; i++)
+// 	{
+// 		for (j = 0; j < count - i - 1; j++)
+// 		{
+// 			if (levels[j] < levels[j + 1])
+// 			{
+// 				temp = levels[j];
+// 				levels[j] = levels[j + 1];
+// 				levels[j + 1] = temp;
+// 			}
+// 		}
+// 	}
+// 	for (i = 0; i < count; i++)
+// 	{
+// 		printf("%d", levels[i]);
+// 	}
+// 	return 0;
+// }
+// int main(int argc, char const *argv[])
+// {
+// 	int nums[] = {39, 21, 11, 76, 53, 42, 17, 85, 61, 27} ,max, min, avg = 0;
+
+// 	int i;
+// 	max = min = nums[0];
+// 	int x = 0;
+// 	for (i = 0; i < 9; i++)
+// 	{
+// 		avg += nums[i];
+// 		if (max < nums[i])
+// 			max = nums[i];
+// 		if (min > nums[i])
+// 			min = nums[i];
+
+// 		if (85 == nums[i]){
+// 			printf("存在85再第%d个\n",i);
+// 			x=1;
+// 		}
+// 	}
+// 	printf("\n最大值=%d\n最小值=%d\n平均值=%lf\n", max, min, (double)avg / 10.0);
+// 	if(!x){
+// 		printf("不存在85");
+// 	}
+// 	return 0;
+
+// }
+// int main(int argc, char const *argv[])
+// {
+// 	int n = 6;
+// 	for (int i = 0; i < n; i++)
+// 	{
+// 		for (int j = 0; j <= i; j++)
+// 			printf("*");
+// 		printf("\n");
+// 	}
+// 	printf("\n");
+// 	return 0;
+// }
+// #include <stdio.h>
+// #define N 10
+// int sumMatrix(int (*a)[N], int n);
+
+// void createMatrix(int (*a)[N], int n)
+// {
+// 	for (int i = 0; i < n; i++)
+// 	{
+// 		for (int j = 0; j < n; j++)
+// 		{
+// 			scanf("%d", &a[i][j]);
+// 		}
+// 	}
+// }
+
+/* 请在这里填写答案 */
+// int sumMatrix(int (*a)[N], int n){
+// 	int sum = 0;
+// 	for (int i = 0; i < n; i++)
+// 	{
+// 		for (int j = 0; j < n; j++)
+// 		{
+// 			if(i == 1 ){
+// 				sum+=a[i][j];
+// 			}
+// 			if(i == 9){
+// 				 sum += a[i][j];
+// 			}
+// 			if (i != 0 && i != 9 && j == 0){
+// 				 sum += a[i][j];
+// 			}
+// 			if (i != 0 && i != 4 && j == 9)
+// 			{
+// 				sum += a[i][j];
+// 			}
+// 		}
+// 	}
+// 	return sum;
+// }
+// int sumMatrix(int (*a)[N], int n)
+// {
+// 	int sum = 0;
+// 	for (int i = 0; i < n; i++)
+// 	{
+// 		for (int j = 0; j < n; j++)
+// 		{
+// 			if (i == 0 || i == 9 || j == 9 || j == 0){
+// 				sum += a[i][j];
+// 			}
+// 		}
+// 	}
+// 	return sum;
+// }
+// int main()
+// {
+// /*
+// 1 2 3 4 5 6 7 8 9 10
+// 1 2 3 4 5 6 7 8 9 10
+// 1 2 3 4 5 6 7 8 9 10
+// 1 2 3 4 5 6 7 8 9 10
+// 1 2 3 4 5 6 7 8 9 10
+// 1 2 3 4 5 6 7 8 9 10
+// 1 2 3 4 5 6 7 8 9 10
+// 1 2 3 4 5 6 7 8 9 10
+// 1 2 3 4 5 6 7 8 9 10
+// 1 2 3 4 5 6 7 8 9 10
+// */
+// 	int a[N][N];
+// 	createMatrix(a, N);
+// 	printf("%d\n", sumMatrix(a, N));
+// 	return 0;
+// }
+// int main(int argc, char const *argv[])
+// {
+// 	cout << "\t\"\\\n\'\065\08AB" << endl;
+// 	cout << "\065\08AB" << endl;
+// 	printf("%d\n", strlen("\t"));
+// 	printf("%d\n", strlen("\n"));
+// 	printf("%d\n", strlen("\t\"\\\n\'\065\08AB"));
+// 	return 0;
+// }
+// void fun(double &y,double x,int n){
+// 	y = x;
+// 	while (n > 1)
+// 	{
+// 		y = y * x;
+// 		n--;
+// 	}
+
+// }
+// int main(int argc, char const *argv[])
+// {
+// 	double y = 0, x = 2;
+// 	int n = 6;
+// 	fun(y,x,n);
+
+// 	printf("%.2lf的%d次方=%lf",x,n,y)
+// 	return 0;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+// 	int x,y;
+// 	scanf("%d%d",&x,&y);
+// 	double a = (x + y) / 2.0;
+// 	printf("%f",a);
+// 	return 0;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+// 	// int *p[3];
+// 	// int a[3][4] = {{1, 2, 3, 1}, {1, 2, 3, 2}, {1, 2, 3, 3}};
+// 	// for (int i = 0; i < 3; i++)
+// 	// 	p[i] = a[i];
+
+// 	// for (int i = 0; i < 3; i++)
+// 	// {
+// 	// 	for (int j = 0; j < 4; j++)
+// 	// 	{
+// 	// 		printf("%d,", *(p[i] + j));
+// 	// 	}
+// 	// }
+// 	// int *a[3] = {{1, 2, 3, 1}, {1, 2, 3, 2}, {1, 2, 3, 3}};
+// 	// printf("%d,", *(a[1] + 1));
+// 	// return 0;
+// }
+// int main(int argc, char const *argv[])
+// {
+// 	char chs[] = "1234";
+// 	for(int i = 3;i >=  0;--i){
+// 		cout<<chs[i];
+// 	}
+// 	cout<<"\n";
+
+// 	return 0;
+// }
+
+// #include <stdio.h>
+
+// #define N (100)
+// #define TRUE (1)
+// #define FALSE (0)
+
+// typedef int Bool;
+
+// typedef struct Date
+// {
+// 	char tel[N];
+// 	char name[N];
+// }DATE;
+
+// typedef DATE ElemType;
+
+// typedef struct SeqList
+// {
+// 	ElemType arr[N];
+// 	int len[N];
+// }SEQLIST;
+
+// Bool InitSeqList(SEQLIST *p)
+// {
+// 	if (0 == p)
+// 	{
+// 		return FALSE;
+// 	}
+// 	p->len == 0;
+// 	return TRUE;
+// }
+
+// Bool IsFull(SEQLIST *p)
+// {
+// 	if (0 == p)
+// 	{
+// 		return FALSE;
+// 	}
+
+// 	if (p->len >= N)
+// 	{
+// 		return TRUE;
+// 	}
+// 	else
+// 	{
+// 		return FALSE;
+// 	}
+// }
+// Bool Append(SEQLIST *pList, ElemType *pDate)
+// {
+// 	if (0 == pList || 0 == TRUE)
+// 	{
+// 		return TRUE;
+// 	}
+// 	if (IsFull(pList) == TRUE)
+// 	{
+// 		return FALSE;
+// 	}
+
+// 	(*pList).arr[pList->len] = *pDate;
+// 	pList->len++;
+// 	return TRUE;
+// }
+// ElemType *FindByIndex(SEQLIST *pList, int *index)
+// {
+// 	if (0 == pList)
+// 	{
+// 		return 0;
+// 	}
+// 	if (index < 0 || index > pList->len - 1)
+// 	{
+// 		return 0;
+// 	}
+
+// 	return pList->arr + index;
+// }
+
+// int main(void)
+// {
+// 	SEQLIST list;
+// 	ElemType data = { "高耀", "111" };
+// 	ElemType *p = 0;
+// 	InitSeqList(&list);
+// 	Append(&list, &data);
+// 	p = FindByIndex(&list, 0);
+// 	puts(p->name);
+// 	puts(p->tel);
+// 	return 0;
+// }
+
+// int main()
+// {
+// 	int a, i;
+
+// 	srand((unsigned int)time(NULL));
+//     for (i = 0; i < 10; i++) {
+//         a = rand();
+//         printf("%d\n", a);
+//     }
+// 	return 0;
+// }
+// struct u {
+// 	int a[4];
+// 	float b[3];
+// 	char c[16];
+// }aa;
+// int main(int argc, char const *argv[])
+// {
+// 	printf("%d\n",sizeof(aa));
+// 	int i = 10;
+// 	while (i--
+// 				\
+// 				 \
+// 				  \
+// 				   \
+// 				    \
+// 					 \
+// 					  \
+// 					   \
+// 					    \ 
+// 						 > 0)
+// 	{
+// 		printf("%d", i);
+// 	}
+// 	return 0;
+// }
+
+// char main(int argc, char const *argv[])
+// {
+// 	// printf("%d", "中文" == "中文");
+// 	// printf("%d\n", strcmp("中文", "中文"));
+// 	char a[4];
+// 	// scanf("%s", a);
+// 	cin >>a;
+// 	if (a == "ab")
+// 	{
+// 		printf("4\n");
+// 	}
+// 	else
+// 	{
+// 		printf("5\n");
+// 	}
+
+// 	if (strcmp(a, "ab"))
+// 	{
+// 		printf("4\n");
+// 	}
+// 	else
+// 	{
+// 		printf("5\n");
+// 	}
+// 	return 0;
+// }
+
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <malloc.h>
+// #include <string.h>
+// typedef struct student
+// {
+// 	int num;
+// 	int scores[3];
+// 	char name[20];
+// 	double average;
+// 	struct student *next;
+
+// } Node, *List;
+
+// Node *CreateHead();
+// void InsertNode(List head);
+// void Show(List head);
+// void modify(List head);
+// void Search(List head);
+// void sort(List head);
+// void deleteMsg(List head);
+
+// void add(List temp)
+// {
+// 	printf("请输入学生学号：\n");
+// 	scanf("%d", &temp->num);
+// 	printf("请输入学生姓名：\n");
+// 	scanf("%s", temp->name);
+// 	printf("请输入学生语文成绩：\n");
+// 	scanf("%d", &temp->scores[0]);
+// 	printf("请输入学生数学成绩：\n");
+// 	scanf("%d", &temp->scores[1]);
+// 	printf("请输入学生英语成绩：\n");
+// 	scanf("%d", &temp->scores[2]);
+// 	getchar();	getchar();
+// }
+// Node *CreateHead()
+// {
+// 	List head = (List)malloc(sizeof(Node));
+// 	head->next = NULL;
+// 	head->num = 0;
+// 	return head;
+// }
+// void InsertNode(List head)
+// {
+// 	Node *node = head;
+// 	Node *temp = (Node *)malloc(sizeof(Node));
+// 	add(temp);
+// 	while (node->next != NULL)
+// 	{
+// 		node = node->next;
+// 	}
+// 	node->next = temp;
+// }
+
+// int main(int argc, char *argv[])
+// {
+// 	int i;
+// 	Node *h = (Node *)malloc(sizeof(Node));
+// 	h = CreateHead();
+// 	while (1)
+// 	{
+// 		printf("学生管理系统（可输入汉字）\n");
+// 		printf("^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
+// 		printf("1输入学生数据\t\t");
+// 		printf("2修改学生数据\t\t");
+// 		printf("3查找学生成绩\n");
+// 		printf("4排列学生数据\t\t");
+// 		printf("5保存学生成绩\t\t");
+// 		printf("6删除学生资料\n");
+// 		printf("7显示学生资料\t\t");
+// 		printf("0结束程序\n");
+// 		printf("^^^^^^^^^^^^^^^^^^^^^^^^^^^\n");
+// 		printf("操作方式：");
+// 		scanf("%d", &i);
+// 		switch (i)
+// 		{
+// 		case 1:
+// 			InsertNode(h);
+// 			break;
+// 		case 2:
+// 			modify(h);
+// 			break;
+// 		case 3:
+// 			Search(h);
+// 			break;
+// 		case 4:
+// 			sort(h);
+// 			break;
+// 		case 5:
+
+// 			break;
+// 		case 6:
+// 			deleteMsg(h);
+// 			break;
+// 		case 7:
+// 			Show(h);
+// 			break;
+// 		case 0:
+// 			printf("退出了学生管理系统");
+// 			exit(0);
+// 			break;
+// 		default:
+// 			printf("输入错误，请重新输入\n");
+// 			break;
+// 		}
+// 	}
+// 	return 0;
+// }
+
+// void modify(List head){
+
+// }
+// void Search(List head){
+
+// }
+// void sort(List head){
+
+// }
+// void deleteMsg(List head){
+
+// }
+
+// void Show(List head){
+
+// }
+
+// int main(int argc, char const *argv[])
+// {
+// 	set<int> st;
+// 	int i, j;
+// 	cin >> i;
+// 	cin >> j;
+// 	int a;
+// 	for (; i > 0; --i)
+// 	{
+// 		cin >> a;
+// 		st.insert(a);
+// 	}
+// 	for (; j > 0; --j)
+// 	{
+// 		cin >> a;
+// 		st.insert(a);
+// 	}
+// 	cout << st.size();
+// 	return 0;
+// }
+// int main(int argc, char const *argv[])
+
+// {
+// 	double a;
+// 	scanf("%.2lf", &a);
+// 	return 0;
+// }
+
+// #define LIST_INIT_SIZE 100 //线性表存储空间的初始分配量
+// #define LISTINCREMENT 10   //线性表存储空间的分配增量
+
+// typedef int ElemType;
+
+// typedef int Status;
+
+// typedef struct
+// {
+// 	ElemType *elem;
+// 	int length;
+// 	int listsize;
+// } Sqlist;
+
+// void Output(Sqlist *L)
+// {
+// 	int i;
+// 	for (i = 0; i < L->length; i++)
+// 		printf("%d\t", L->elem[i]);
+// }
+
+// Status InitList_Sq(Sqlist *L) //初始化
+// /**构造一个空的线性表*/
+// {
+
+// 	L->elem = (ElemType *)malloc(LIST_INIT_SIZE * sizeof(ElemType));
+// 	if (!L->elem)
+// 		exit(-1);
+// 	L->length = 0;
+// 	L->listsize = LIST_INIT_SIZE;
+// 	return 1;
+// }
+
+// void Input(Sqlist *L, int n)
+// {
+// 	int i;
+// 	printf("为线性表赋值，赋值%d个元素\n", n);
+// 	for (i = 0; i < n; i++)
+// 	{
+// 		printf("请输入第%d个元素", i + 1);
+// 		scanf("%d", &L->elem[i]);
+// 		++L->length;
+// 	}
+// }
+
+// Status InsertSqlist(Sqlist *l, int i, ElemType e)
+// {
+// 	int k;
+// 	if (i < 1 || i > l->length + 1)
+// 	{
+// 		printf("插入位置%d不合法!\n", i);
+// 		return 0;
+// 	}
+// 	if (l->length >= l->listsize)
+// 	{
+// 		printf("顺序表已满！\n"); //如果数组超出listSize，就动态的分配加入
+// 		l->elem = (ElemType *)realloc(l->elem, (l->listsize + LIST_INIT_SIZE) * sizeof(ElemType));
+// 		if (!l->elem)
+// 		{
+// 			printf("分配空间失败！\n", i);
+// 			return 0;
+// 		}
+// 		l->listsize += LIST_INIT_SIZE;
+// 	}
+// 	for (k = l->length; k > i - 1; k--) // i之后元素往后挪
+// 	{
+// 		l->elem[k] = l->elem[k - 1];
+// 	}
+// 	l->elem[i - 1] = e;
+// 	l->length++;
+
+// 	return 1;
+// }
+
+// Status DeleteSqlist(Sqlist *L, int i)
+// {
+// 	if (i < 1 || i > L->length) //越界
+// 	{
+// 		return false;
+// 	}
+
+// 	for (; i < L->length; ++i)
+// 	{
+// 		L->elem[i - 1] = L->elem[i];
+// 	}
+
+// 	L->length--;
+
+// 	return 1;
+// }
+
+// Status DeleteSqlist2(Sqlist *L, int x)
+// {
+// 	int k = 0; //记录L中不等于x的数据元素个数
+// 	for (int i = 0; i < L->length; i++)
+// 	{
+// 		if (L->elem[i] != x)
+// 		{
+// 			L->elem[k] = L->elem[i];
+// 			k++;
+// 		}
+// 	}
+// 	L->length = k;
+
+// 	return 1;
+// }
+
+// Status ListDelete(Sqlist *L, int i, ElemType *e)
+// {
+// 	int k;
+
+// 	if (i < 1 || i > L->length) //越界
+// 	{
+// 		return false;
+// 	}
+
+// 	*e = L->elem[i - 1];
+
+// 	for (k = i; k < L->length; k++)
+// 	{
+// 		L->elem[k - 1] = L->elem[k]; //左移动一位,前一项等于后一项
+// 	}
+
+// 	L->length--;
+
+// 	return 1;
+// }
+// int main()
+// {
+// 	int num, e, p;
+// 	scanf("%d", &num);
+// 	Sqlist La;
+// 	InitList_Sq(&La);
+// 	Input(&La, num);
+// 	Output(&La);
+// 	printf("\n请输入删除的元素位置：");
+// 	scanf("%d", &e);
+// 	DeleteSqlist(&La, e);
+// 	Output(&La);
+// 	printf("请输入插入的元素及其位置：");
+// 	scanf("%d%d", &e, &p);
+// 	InsertSqlist(&La, p, e);
+// 	Output(&La);
+// 	return 0;
+// }
+
+// int main(int argc, char const *argv[])
+// {
+// 	int i = 0, &ri = i;
+
+// 	auto a = i;	  // a为int型变量
+// 	auto a1 = ri; // a1为int型变量
+
+// 	auto p = &i;   // &i 是一个普通int指针，p是一个整型指针int *
+// 	auto p1 = &ri; //同上
+
+// 	cout << p1 << endl;
+// 	return 0;
+// }
+// typedef struct node
+// {
+//   int data;
+//   struct node *next;
+// } node;
+
+// bool init(node *L) //初始化链表
+// {
+//   L = (node *)malloc(sizeof(node));
+
+//   return true;
+// }
+
+// void creat(node *L)
+// {
+//   node *p = L, *s;
+//   int data;
+//   for (int i = 0; i < 5; i++)
+//   {
+//     // scanf("%d",&data);
+//     node *temp = (node *)malloc(sizeof(node));
+//     temp->data = i;
+//     temp->next = NULL;
+//     p->next = temp;
+//  p = temp;
+//   }
+// }
+
+// //创建链表
+
+// void print(node *L) //遍历链表中元素
+// {
+//   L = L->next;
+//   while (L!=NULL)
+//   {
+//     printf("%d ", L->data);
+//     L = L->next;
+//   }
+//   printf("\n");
+// }
+
+// int main()
+// {
+
+//   node *L;
+//    L = (node *)malloc(sizeof(node));
+//   L->next = NULL;
+//     creat(L);
+//     print(L);
+//     print(L);
+//     print(L);
+
+//   return 0;
+// }
+
+#include <stdio.h> //语法开头
+#include <stdlib.h>
+
+// main函数开始
+int main(void)
 {
-	int i, j;
-	int temp;
-	int count = 5;
-	int levels[] = {1, 4, 2, 3, 0};
-	for (i = 0; i < count - 1; i++)
-	{
-		for (j = 0; j < count - i - 1; j++)
-		{
-			if (levels[j] < levels[j + 1])
-			{
-				temp = levels[j];
-				levels[j] = levels[j + 1];
-				levels[j + 1] = temp;
-			}
-		}
-	}
-	for (i = 0; i < count; i++)
-	{
-		printf("%d", levels[i]);
-	}
-	return 0;
+  //开始输出
+
+  float gz;
+  float gongjijing;
+  float shebao;
+
+  printf("请输入您的税前工资: ");
+  scanf("%f", &gz);
+
+  printf("请输入您的公积金基数: ");
+  scanf("%f", &gongjijing);
+
+  printf("请输入您的社保基数: ");
+  scanf("%f", &shebao);
+
+  float koukuan;
+  koukuan = shebao * 0.08 +
+            shebao * 0.02 + shebao * 0.05 +
+            shebao * 0.12;
+
+  float shui;
+  if (gz - koukuan > 5000)
+    shui = (gz - koukuan - 5000) * 0.03;
+  else
+    shui = 0;
+
+  float shuihougongzi = gz - koukuan - shui;
+  printf("您的税后工资是: %.2f\n",shuihougongzi);
+
+  //暂停
+  system("pause");
+
+
+  vector
+  
+  // 0是结束
+  return 0;
 }
